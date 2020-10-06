@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_30Code.Models.Cadastrar>
+﻿@model IEnumerable<_30Code.Models.Usuario>
 
 @{
     ViewBag.Title = "Index";
@@ -23,6 +23,15 @@
         <th>
             @Html.DisplayNameFor(model => model.Celular)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TiposUsuarios)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexos)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +48,15 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TiposUsuarios)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexos)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

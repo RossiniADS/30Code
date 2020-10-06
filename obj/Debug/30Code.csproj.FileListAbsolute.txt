@@ -99,3 +99,5 @@ D:\Usuario\Documentos\GitHub\30Code\30Code\bin\roslyn\System.Memory.dll
 D:\Usuario\Documentos\GitHub\30Code\30Code\bin\roslyn\System.Numerics.Vectors.dll
 D:\Usuario\Documentos\GitHub\30Code\30Code\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 D:\Usuario\Documentos\GitHub\30Code\30Code\bin\Google.Protobuf.pdb
+D:\Usuario\Documentos\GitHub\30Code\30Code\obj\Debug\_30Code.Migrations.CriacaoBanco.resources
+D:\Usuario\Documentos\GitHub\30Code\30Code\obj\Debug\30Code.csproj.GenerateResource.cache

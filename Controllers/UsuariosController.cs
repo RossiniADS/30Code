@@ -10,107 +10,106 @@ using _30Code.Models;
 
 namespace _30Code.Controllers
 {
-    public class CadastrarsController : Controller
+    public class UsuariosController : Controller
     {
         private Contexto db = new Contexto();
 
-        // GET: Cadastrars
+        // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Cadastrar.ToList());
+            return View(db.Usuario.ToList());
         }
 
-        // GET: Cadastrars/Details/5
+        // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cadastrar cadastrar = db.Cadastrar.Find(id);
-            if (cadastrar == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(cadastrar);
+            return View(usuario);
         }
 
-        // GET: Cadastrars/Create
+        // GET: Usuarios/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Cadastrars/Create
+        // POST: Usuarios/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular")] Cadastrar cadastrar)
+        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Cadastrar.Add(cadastrar);
+                db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            return View(cadastrar);
+            return View(usuario);
         }
 
-        // GET: Cadastrars/Edit/5
+        // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cadastrar cadastrar = db.Cadastrar.Find(id);
-            if (cadastrar == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(cadastrar);
+            return View(usuario);
         }
 
-        // POST: Cadastrars/Edit/5
+        // POST: Usuarios/Edit/5
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular")] Cadastrar cadastrar)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cadastrar).State = EntityState.Modified;
+                db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(cadastrar);
+            return View(usuario);
         }
 
-        // GET: Cadastrars/Delete/5
+        // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cadastrar cadastrar = db.Cadastrar.Find(id);
-            if (cadastrar == null)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(cadastrar);
+            return View(usuario);
         }
 
-        // POST: Cadastrars/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cadastrar cadastrar = db.Cadastrar.Find(id);
-            db.Cadastrar.Remove(cadastrar);
+            Usuario usuario = db.Usuario.Find(id);
+            db.Usuario.Remove(usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
