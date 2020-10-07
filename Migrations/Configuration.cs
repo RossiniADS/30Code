@@ -27,6 +27,7 @@ namespace _30Code.Migrations
                     Email = "gabriel@fatec.com.br",
                     Senha ="vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
                     Celular = "233123123",
+                    ConfirmaSenha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Comum,
                     Sexos = Models.Usuario.Sexo.Masculino
@@ -38,6 +39,7 @@ namespace _30Code.Migrations
                     Nome = "Rossini",
                     Email = "rossini@fatec.com.br",
                     Senha =  "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
+                    ConfirmaSenha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
                     Celular = "35498198",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Admin,
@@ -48,6 +50,7 @@ namespace _30Code.Migrations
                     Id = 3,
                     Nome = "Vinicius Santos",
                     Email = "vinicius@fatec.com.br",
+                    ConfirmaSenha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
                     Senha ="vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
                     Celular = "8978498",
                     Nascimento = dt,

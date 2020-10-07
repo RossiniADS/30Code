@@ -19,6 +19,7 @@ namespace _30Code.Migrations
                         usu_nascimento = c.DateTime(nullable: false, precision: 0),
                         usu_tipoUsuario = c.Int(nullable: false),
                         usu_sexo = c.Int(nullable: false),
+                        usu_confirma_senha = c.String(unicode:false),
                     })
                 .PrimaryKey(t => t.usu_codigo);
             

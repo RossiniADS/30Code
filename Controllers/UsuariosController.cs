@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using _30Code.Models;
 
 namespace _30Code.Controllers
@@ -18,6 +19,10 @@ namespace _30Code.Controllers
         public ActionResult Index()
         {
             return View(db.Usuario.ToList());
+        }
+        public ActionResult Acesso()
+        {
+            return View();
         }
 
         // GET: Usuarios/Details/5
@@ -34,11 +39,39 @@ namespace _30Code.Controllers
             }
             return View(usuario);
         }
-
+        public ActionResult Sair()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Create");
+        }
+        [Authorize]
+        public ActionResult Historico()
+        {
+            return View();
+        }
         // GET: Usuarios/Create
         public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Acesso(Usuario acesso, string ReturnUrl)
+        {
+
+            Usuario usu = db.Usuario.Where(t => t.Email == acesso.Email && t.Senha == acesso.Senha).ToList().FirstOrDefault();
+
+            if (usu != null)
+            {
+                FormsAuthentication.SetAuthCookie(usu.Nome, false);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Usuário/Senha inválidos");
+                return View("Create");
+            }
         }
 
         // POST: Usuarios/Create
@@ -46,10 +79,15 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos,ConfirmaSenha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
+                if (db.Usuario.Where(x => x.Email == usuario.Email).ToList().Count > 0)
+                {
+                    ModelState.AddModelError("", "E-mail Já utilizado!");
+                    return View(usuario);
+                }
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,7 +115,7 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos,ConfirmaSenha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {

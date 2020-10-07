@@ -1,5 +1,5 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations; 
+using System.ComponentModel.DataAnnotations;
 
 namespace _30Code.Models
 {
@@ -25,6 +25,10 @@ namespace _30Code.Models
         [Display(Name = "Celular")]
         public string Celular { get; set; }
 
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare("Senha")]
+        public string ConfirmaSenha { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Nascimento")]
@@ -33,7 +37,7 @@ namespace _30Code.Models
         [Display(Name = "Tipo Usuario")]
         public TipoUsuario TiposUsuarios { get; set; }
 
-        [Display(Name ="Sexo")]
+        [Display(Name = "Sexo")]
         public Sexo Sexos { get; set; }
 
         public enum TipoUsuario
