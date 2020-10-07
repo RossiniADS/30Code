@@ -24,20 +24,23 @@
 <br />
 <br />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="row">
-        <div class="col-5">
+
+<div class="row">
+    <div class="col-5">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
             <h3 class="text-center">Login</h3>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10 mt-2">
                     <label>Usuario ou Email</label>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-2">
                     <img src="../Icons/iconeUsuario.png" />
@@ -54,6 +57,7 @@
                     <label>Senha</label>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-2">
                     <img src="../Icons/password.png" />
@@ -63,6 +67,7 @@
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-10"><a href="#">Esqueci minha senha</a></div>
@@ -74,16 +79,22 @@
                     <input type="submit" value="Entrar" class="btn btn-default btn-block" />
                 </div>
             </div>
-        </div>
 
-        <div class="col-2">
-            <div class="box">
-            </div>
-            <div class="box linha-vertical">
-            </div>
-        </div>
+        }
+    </div>
 
-        <div class="col-5">
+    <div class="col-2">
+        <div class="box">
+        </div>
+        <div class="box linha-vertical">
+        </div>
+    </div>
+
+    <div class="col-5">
+        @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
             <h3 class="text-center">Cadastrar</h3>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -139,10 +150,9 @@
                     <input type="submit" value="Cadastrar" class="btn btn-default btn-block" />
                 </div>
             </div>
-        </div>
-
+        }
     </div>
-}
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
