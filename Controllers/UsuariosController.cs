@@ -20,10 +20,6 @@ namespace _30Code.Controllers
         {
             return View(db.Usuario.ToList());
         }
-        public ActionResult Acesso()
-        {
-            return View();
-        }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
@@ -57,21 +53,24 @@ namespace _30Code.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Acesso(Usuario acesso, string ReturnUrl)
+        public ActionResult Acesso(Login login, string ReturnUrl)
         {
 
-            Usuario usu = db.Usuario.Where(t => t.Email == acesso.Email && t.Senha == acesso.Senha).ToList().FirstOrDefault();
-
-            if (usu != null)
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(usu.Nome, false);
-                return RedirectToAction("Index");
+                Usuario usu = db.Usuario.Where(t => t.Email == login.Acesso.Email && t.Senha == login.Acesso.Senha).ToList().FirstOrDefault();
+                if (usu != null)
+                {
+                    FormsAuthentication.SetAuthCookie(usu.Nome, false);
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Usuário/Senha inválidos");
+                    return View("Create");
+                }
             }
-            else
-            {
-                ModelState.AddModelError("", "Usuário/Senha inválidos");
-                return View("Create");
-            }
+            return View(login);
         }
 
         // POST: Usuarios/Create
@@ -79,20 +78,27 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos,ConfirmaSenha")] Usuario usuario)
+        public ActionResult Create(Login login)
         {
             if (ModelState.IsValid)
             {
-                if (db.Usuario.Where(x => x.Email == usuario.Email).ToList().Count > 0)
+                if (db.Usuario.Where(x => x.Email == login.Cadastro.Email).ToList().Count > 0)
                 {
                     ModelState.AddModelError("", "E-mail Já utilizado!");
-                    return View(usuario);
+                    return View(login);
                 }
-                db.Usuario.Add(usuario);
+                Usuario usu = new Usuario();
+                usu.Nome = login.Cadastro.Nome;
+                usu.Email = login.Cadastro.Email;
+                usu.Senha = login.Cadastro.Senha;
+                usu.TiposUsuarios = Usuario.TipoUsuario.Comum;
+
+
+                db.Usuario.Add(usu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(login);
         }
 
         // GET: Usuarios/Edit/5

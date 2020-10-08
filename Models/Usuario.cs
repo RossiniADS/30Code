@@ -19,20 +19,15 @@ namespace _30Code.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10})")]
         public string Senha { get; set; }
 
         [Display(Name = "Celular")]
         public string Celular { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare("Senha")]
-        public string ConfirmaSenha { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Nascimento")]
-        public DateTime Nascimento { get; set; }
+        public DateTime? Nascimento { get; set; }
 
         [Display(Name = "Tipo Usuario")]
         public TipoUsuario TiposUsuarios { get; set; }
