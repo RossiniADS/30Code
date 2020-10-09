@@ -257,8 +257,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Icons\direita.png" />
+    <Content Include="Icons\esquerda.png" />
     <Content Include="Icons\iconeUsuario.png" />
     <Content Include="Icons\password.png" />
+    <Content Include="Images\IMG_20181110_093357.jpg" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
     <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
