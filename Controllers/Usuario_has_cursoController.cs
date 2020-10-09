@@ -39,8 +39,8 @@ namespace _30Code.Controllers
         // GET: Usuario_has_curso/Create
         public ActionResult Create()
         {
-            ViewBag.CursoId = new SelectList(db.Cursoes, "Id", "Nome");
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "Id", "Nome");
+            ViewBag.CursoId = new SelectList(db.Curso, "Id", "Nome");
+            ViewBag.UsuarioId = new SelectList(db.Usuario, "Id", "Nome");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace _30Code.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CursoId = new SelectList(db.Cursoes, "Id", "Nome", usuario_has_curso.CursoId);
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "Id", "Nome", usuario_has_curso.UsuarioId);
+            ViewBag.CursoId = new SelectList(db.Curso, "Id", "Nome", usuario_has_curso.CursoId);
+            ViewBag.UsuarioId = new SelectList(db.Usuario, "Id", "Nome", usuario_has_curso.UsuarioId);
             return View(usuario_has_curso);
         }
 
@@ -75,8 +75,8 @@ namespace _30Code.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CursoId = new SelectList(db.Cursoes, "Id", "Nome", usuario_has_curso.CursoId);
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "Id", "Nome", usuario_has_curso.UsuarioId);
+            ViewBag.CursoId = new SelectList(db.Curso, "Id", "Nome", usuario_has_curso.CursoId);
+            ViewBag.UsuarioId = new SelectList(db.Usuario, "Id", "Nome", usuario_has_curso.UsuarioId);
             return View(usuario_has_curso);
         }
 
@@ -93,8 +93,8 @@ namespace _30Code.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CursoId = new SelectList(db.Cursoes, "Id", "Nome", usuario_has_curso.CursoId);
-            ViewBag.UsuarioId = new SelectList(db.Usuarios, "Id", "Nome", usuario_has_curso.UsuarioId);
+            ViewBag.CursoId = new SelectList(db.Curso, "Id", "Nome", usuario_has_curso.CursoId);
+            ViewBag.UsuarioId = new SelectList(db.Usuario, "Id", "Nome", usuario_has_curso.UsuarioId);
             return View(usuario_has_curso);
         }
 

@@ -96,6 +96,7 @@ namespace _30Code.Controllers
 
                 db.Usuario.Add(usu);
                 db.SaveChanges();
+                FormsAuthentication.SetAuthCookie(usu.Nome, false);
                 return RedirectToAction("Index");
             }
             return View(login);
