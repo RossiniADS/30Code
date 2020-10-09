@@ -13,7 +13,7 @@ namespace _30Code.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202010080013387_Banco"; }
+            get { return "202010092147082_Banco"; }
         }
         
         string IMigrationMetadata.Source

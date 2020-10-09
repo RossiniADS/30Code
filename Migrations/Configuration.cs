@@ -16,12 +16,45 @@
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
 
+        DateTime dt = DateTime.Parse("10/10/2010");
         protected override void Seed(_30Code.Models.Contexto context)
         {
-            //  This method will be called after migrating to the latest version.
+            context.Usuario.AddOrUpdate(
+                p => p.Id,
+                new Models.Usuario
+                {
+                    Id = 1,
+                    Nome = "Gabriel Oliveira",
+                    Email = "gabriel@hotmail.com",
+                    Senha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
+                    Celular = "233123123",
+                    Nascimento = dt,
+                    TiposUsuarios = Models.Usuario.TipoUsuario.Comum,
+                    Sexos = Models.Usuario.Sexo.Masculino
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+                },
+                new Models.Usuario
+                {
+                    Id = 2,
+                    Nome = "Rossini",
+                    Email = "rossini_rodrigues_alves@hotmail.com",
+                    Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
+                    Celular = "35498198",
+                    Nascimento = dt,
+                    TiposUsuarios = Models.Usuario.TipoUsuario.Admin,
+                    Sexos = Models.Usuario.Sexo.Masculino
+                },
+                new Models.Usuario
+                {
+                    Id = 3,
+                    Nome = "Vinicius Santos",
+                    Email = "vinicius@hotmail.com",
+                    Senha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
+                    Celular = "8978498",
+                    Nascimento = dt,
+                    TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
+                    Sexos = Models.Usuario.Sexo.Masculino
+                });
         }
     }
 }
