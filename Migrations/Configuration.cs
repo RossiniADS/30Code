@@ -55,6 +55,41 @@
                     TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
                     Sexos = Models.Usuario.Sexo.Masculino
                 });
+
+            context.Curso.AddOrUpdate(
+                p => p.Id,
+                new Models.Curso
+                {
+                    Id = 1,
+                    Nome = "Java",
+                    Duracao = 200.00,
+                    Niveis = Models.Curso.Nivel.Basico,
+                    Url_imagem = null
+                },
+                new Models.Curso
+                {
+                    Id = 2,
+                    Nome = "C##",
+                    Duracao = 200.00,
+                    Niveis = Models.Curso.Nivel.Basico,
+                    Url_imagem = null
+                }, 
+                new Models.Curso
+                {
+                    Id = 3,
+                    Nome = "C++",
+                    Duracao = 200.00,
+                    Niveis = Models.Curso.Nivel.Basico,
+                    Url_imagem = null
+                },
+                new Models.Curso
+                {
+                    Id = 4,
+                    Nome = "ASP.NET",
+                    Duracao = 200.00,
+                    Niveis = Models.Curso.Nivel.Basico,
+                    Url_imagem = null
+                });
         }
     }
 }

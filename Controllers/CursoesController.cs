@@ -13,6 +13,10 @@ namespace _30Code.Controllers
     public class CursoesController : Controller
     {
         private Contexto db = new Contexto();
+        public ActionResult Cursos()
+        {
+            return View(db.Curso.ToList());
+        }
 
         // GET: Cursoes
         public ActionResult Index()
@@ -40,6 +44,7 @@ namespace _30Code.Controllers
         {
             return View();
         }
+
 
         // POST: Cursoes/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
