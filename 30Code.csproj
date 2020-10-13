@@ -569,6 +569,7 @@
     <Content Include="Views\Usuario_has_curso\Edit.cshtml" />
     <Content Include="Views\Usuario_has_curso\Index.cshtml" />
     <Content Include="Views\Cursoes\Cursos.cshtml" />
+    <Content Include="Views\Cursoes\Aula.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
