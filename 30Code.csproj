@@ -331,8 +331,6 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="assets\img\Cursos\c#.png" />
     <Content Include="assets\img\Cursos\c++.jpg" />
     <Content Include="assets\img\Cursos\java.jpg" />
@@ -344,6 +342,8 @@
     <Content Include="assets\img\Cursos\PHP.png" />
     <Content Include="assets\img\Cursos\python.png" />
     <Content Include="assets\img\Cursos\sql_server.png" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="forms\contact.php" />
     <Content Include="forms\Readme.txt" />
@@ -390,6 +390,8 @@
     <Content Include="assets\vendor\jquery\jquery.min.map" />
     <Content Include="assets\vendor\owl.carousel\LICENSE" />
     <Content Include="assets\vendor\owl.carousel\README.md" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
@@ -522,8 +524,6 @@
     <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
     <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
     <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="bin\30Code.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
@@ -633,6 +633,8 @@
     <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
     <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -675,13 +677,15 @@
     <Content Include="Views\Usuario_has_curso\Index.cshtml" />
     <Content Include="Views\Cursoes\Cursos.cshtml" />
     <Content Include="Views\Cursoes\Aula.cshtml" />
+    <Content Include="Views\Usuarios\Email.cshtml" />
+    <Content Include="Views\Usuarios\EsqueceuSenha.cshtml" />
+    <Content Include="Views\Usuarios\Redefinir.cshtml" />
+    <Content Include="Views\Cursoes\Aulas\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

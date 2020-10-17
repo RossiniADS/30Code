@@ -35,6 +35,89 @@ namespace _30Code.Controllers
             }
             return View(usuario);
         }
+        public ActionResult Email()
+        {
+            return View();
+        }
+        public ActionResult EsqueceuSenha()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EsqueceuSenha(EsqueceuSenha esq)
+        {
+            if (ModelState.IsValid)
+            {
+                Contexto db = new Contexto();
+                var usu = db.Usuario.Where(x => x.Email == esq.Email).ToList().FirstOrDefault();
+                if (usu != null)
+                {
+                    usu.Hash = Funcoes.Codifica(DateTime.Now.AddDays(1).ToString("yyyy-MM-dd HH:mm:ss.ffff"));
+                    db.Entry(usu).State = EntityState.Modified;
+                    db.SaveChanges();
+                    string msg = "<h3>Sistema</h3>";
+                    msg += "Para alterar sua senha <a href='http://localhost:44390/Usuarios/Redefinir/" + usu.Hash + "' target = '_blank' > clique aqui </ a > ";
+                    Funcoes.EnviarEmail(usu.Email, "Redefinição de senha", msg);
+                    TempData["MSG"] = "success|Senha redefinida com sucesso!";
+                    return RedirectToAction("Index");
+                }
+                TempData["MSG"] = "error|E-mail não encontrado";
+                return View();
+            }
+            TempData["MSG"] = "warning|Preencha todos os campos";
+            return View();
+        }
+        public ActionResult Redefinir(string id)
+        {
+            if (!String.IsNullOrEmpty(id))
+            {
+                Contexto db = new Contexto();
+                var usu = db.Usuario.Where(x => x.Hash == id).ToList().FirstOrDefault();
+                if (usu != null)
+                {
+                    try
+                    {
+                        DateTime dt = Convert.ToDateTime(Funcoes.Decodifica(usu.Hash));
+                        if (dt > DateTime.Now)
+                        {
+                            RedefinirSenha red = new RedefinirSenha();
+                            red.Hash = usu.Hash;
+                            red.Email = usu.Email;
+                            return View(red);
+                        }
+                        TempData["MSG"] = "warning|Esse link já expirou!";
+                        return RedirectToAction("Index");
+                    }
+                    catch
+                    {
+                        TempData["MSG"] = "error|Hash inválida!";
+                        return RedirectToAction("Index");
+                    }
+                }
+                TempData["MSG"] = "error|Hash inválida!";
+                return RedirectToAction("Index");
+            }
+            TempData["MSG"] = "error|Acesso inválido!";
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Email(Mensagem msg)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["MSG"] = Funcoes.EnviarEmail(msg.Email,
+                msg.Assunto, msg.CorpoMsg);
+            }
+            else
+            {
+                TempData["MSG"] = "warning|Preencha todos os campos";
+            }
+            return View(msg);
+        }
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();

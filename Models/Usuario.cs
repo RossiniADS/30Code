@@ -34,7 +34,7 @@ namespace _30Code.Models
 
         [Display(Name = "Sexo")]
         public Sexo Sexos { get; set; }
-
+        public string Hash { get; set; }
         public enum TipoUsuario
         {
             Comum = 0,

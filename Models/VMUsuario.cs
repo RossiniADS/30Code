@@ -20,6 +20,35 @@ namespace _30Code.Models
         public string Senha { get; set; }
     }
 
+    public class Mensagem
+    {
+        [EmailAddress]
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string Assunto { get; set; }
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Mensagem")]
+        public string CorpoMsg { get; set; }
+    }
+    public class EsqueceuSenha
+    {
+        [EmailAddress]
+        [Required]
+        public string Email { get; set; }
+    }
+    public class RedefinirSenha
+    {
+        public string Email { get; set; }
+        public string Hash { get; set; }
+        [DataType(DataType.Password)]
+        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[AZ]).{6,12})", ErrorMessage = "A senha deve conter aosmenos uma letra maiúscula, minúscula e um número.Deve ser no mínimo 6 caracteres")]
+        public string Senha { get; set; }
+        [DataType(DataType.Password)]
+        [Compare("Senha")]
+        [Display(Name = "Confirma Senha")]
+        public string ConfirmaSenha { get; set; }
+    }
     public class Cadastro
     {
         public int Id { get; set; }
