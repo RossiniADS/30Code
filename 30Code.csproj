@@ -333,6 +333,17 @@
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="assets\img\Cursos\c#.png" />
+    <Content Include="assets\img\Cursos\c++.jpg" />
+    <Content Include="assets\img\Cursos\java.jpg" />
+    <Content Include="assets\img\Cursos\javascript.jpg" />
+    <Content Include="assets\img\Cursos\Kotilin.jpg" />
+    <Content Include="assets\img\Cursos\mysql.png" />
+    <Content Include="assets\img\Cursos\nodejs.jpg" />
+    <Content Include="assets\img\Cursos\oracle.png" />
+    <Content Include="assets\img\Cursos\PHP.png" />
+    <Content Include="assets\img\Cursos\python.png" />
+    <Content Include="assets\img\Cursos\sql_server.png" />
     <Content Include="favicon.ico" />
     <Content Include="forms\contact.php" />
     <Content Include="forms\Readme.txt" />
