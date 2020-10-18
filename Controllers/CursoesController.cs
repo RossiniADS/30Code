@@ -41,7 +41,10 @@ namespace _30Code.Controllers
             }
             return View(curso);
         }
-
+        public ActionResult Videos()
+        {
+            return View();
+        }
         // GET: Cursoes/Create
         public ActionResult Create()
         {

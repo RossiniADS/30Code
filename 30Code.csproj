@@ -680,10 +680,11 @@
     <Content Include="Views\Usuarios\Email.cshtml" />
     <Content Include="Views\Usuarios\EsqueceuSenha.cshtml" />
     <Content Include="Views\Usuarios\Redefinir.cshtml" />
+    <Content Include="Views\Shared\Aulas.cshtml" />
+    <Content Include="Views\Cursoes\Videos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cursoes\Aulas\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
