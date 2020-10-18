@@ -17,10 +17,7 @@ namespace _30Code.Controllers
         {
             return View(db.Curso.ToList());
         }
-        public ActionResult Aula()
-        {
-            return View();
-        }
+
         // GET: Cursoes
         public ActionResult Index()
         {
@@ -41,16 +38,11 @@ namespace _30Code.Controllers
             }
             return View(curso);
         }
-        public ActionResult Videos()
-        {
-            return View();
-        }
         // GET: Cursoes/Create
         public ActionResult Create()
         {
             return View();
         }
-
 
         // POST: Cursoes/Create
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
