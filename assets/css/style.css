@@ -12,7 +12,9 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444;
 }
-
+/*
+    Trabalhando com mostrar/esconder div
+*/
 a {
   color: #428bca;
 }
@@ -1480,4 +1482,8 @@ section {
 
 #footer .credits a {
   color: #9eccf4;
+}
+
+#pai div{
+    display:none;
 }

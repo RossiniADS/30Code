@@ -17,6 +17,11 @@
         transition: all 0.3s;
     }
 
+    .hidden {
+        display: none;
+    }
+
+
     .line {
         width: 100%;
         height: 1px;
@@ -96,6 +101,7 @@
         transform: translateY(-50%);
     }
 
+
     ul ul a {
         font-size: 0.9em !important;
         padding-left: 30px !important;
@@ -168,19 +174,20 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
                     <ul id="homeSubmenu" class="collapse list-unstyled">
                         <li>
-                            <a href="#">Apostila</a>
+                            <a onclick="mostrar('div1')">Apostila</a>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <a onclick="mostrar('div2')">Video Aula</a>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <a onclick="mostrar('div3')">Exercicios</a>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <a onclick="mostrar('div4')">Avaliação diaria</a>
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 2 - Variaveis</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
@@ -440,30 +447,38 @@
                 </button>
             </div>
         </nav>
-
-        <iframe width="800" height="400" src="https://www.youtube.com/embed/5qap5aO4i9A"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+        <div id="pai">
+            <div id="div1" class="hidden"> 
+            <h1>Apostila</h1> </div>
+            <div id="div2" class="hidden">
+                <iframe width="800" height="400" src="https://www.youtube.com/embed/5qap5aO4i9A"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
             gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
+                </iframe>
 
-        <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>Collapsible Sidebar Using Bootstrap 4</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <div class="line"></div>
+                <div class="line"></div>
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <div class="line"></div>
+                <div class="line"></div>
 
-        <h2>Lorem Ipsum Dolor</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h2>Lorem Ipsum Dolor</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <div class="line"></div>
+                <div class="line"></div>
 
-        <h3>Lorem Ipsum Dolor</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h3>Lorem Ipsum Dolor</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="div3" class="hidden"><h1>Exercicio</h1></div>
+            <div id="div4" class="hidden"><h1>Prova</h1></div>
+
+        </div>
     </div>
 </div>
 
@@ -476,5 +491,25 @@
             $('#sidebar').toggleClass('active');
         });
     });
+
+    $(document).ready(function () {
+        $('#select').on('Change', function () {
+            var selectValor = '#' + $(this).val();
+            $('#pai').children('div').hide();
+            $('#pai').children(selectValor).show();
+
+        });
+    });
+
+    function mostrar(id) {
+        if (document.getElementById(id).style.display == 'none') {
+
+            document.getElementById(id).style.display = 'block';
+        } else {
+            document.getElementById(id).style.display = 'none';
+        }
+
+    }
 </script>
 
+<script src='jquery-2.1.4.min.js'></script> 

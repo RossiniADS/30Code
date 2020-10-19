@@ -17,7 +17,11 @@ namespace _30Code.Controllers
         {
             return View(db.Curso.ToList());
         }
-
+        
+        public ActionResult Aula()
+        {
+            return View();
+        }
         // GET: Cursoes
         public ActionResult Index()
         {
