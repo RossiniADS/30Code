@@ -166,7 +166,7 @@
         <div class="sidebar-header">
             <h3>Programação com Java</h3>
         </div>
-        <div style="overflow:scroll;height:1000px;width:100%;overflow:auto;">
+        <div style="overflow:scroll;height:1000px;width:100%; overflow:auto;">
 
             <ul class="list-unstyled components">
                 <p>Basico</p>
@@ -174,16 +174,16 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
                     <ul id="homeSubmenu" class="collapse list-unstyled">
                         <li>
-                            <a onclick="mostrar('div1')">Apostila</a>
+                            <a href="#" onclick="mostrar('div1')">Apostila</a>
                         </li>
                         <li>
-                            <a onclick="mostrar('div2')">Video Aula</a>
+                            <a href="#" onclick="mostrar('div2')">Video Aula</a>
                         </li>
                         <li>
-                            <a onclick="mostrar('div3')">Exercicios</a>
+                            <a href="#" onclick="mostrar('div3')">Exercicios</a>
                         </li>
                         <li>
-                            <a onclick="mostrar('div4')">Avaliação diaria</a>
+                            <a href="#" onclick="mostrar('div4')">Avaliação diaria</a>
                         </li>
                     </ul>
                 </li>
@@ -438,7 +438,6 @@
 
     <!-- Page Content  -->
     <div id="content">
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
@@ -448,36 +447,16 @@
             </div>
         </nav>
         <div id="pai">
-            <div id="div1" class="hidden"> 
-            <h1>Apostila</h1> </div>
+            <div id="div1" class="hidden">
+                <iframe src="~/ComoSerEFETIVOnoDiaAdia.pdf" style="width:100%; height:590px;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <div id="div2" class="hidden">
-                <iframe width="800" height="400" src="https://www.youtube.com/embed/5qap5aO4i9A"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-            gyroscope; picture-in-picture" allowfullscreen>
+                <iframe style="width:100%; height:590px;" src="https://www.youtube.com/embed/5qap5aO4i9A"
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
-
-                <h2>Collapsible Sidebar Using Bootstrap 4</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h2>Lorem Ipsum Dolor</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h2>Lorem Ipsum Dolor</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                <div class="line"></div>
-
-                <h3>Lorem Ipsum Dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div id="div3" class="hidden"><h1>Exercicio</h1></div>
             <div id="div4" class="hidden"><h1>Prova</h1></div>
-
         </div>
     </div>
 </div>
@@ -492,15 +471,6 @@
         });
     });
 
-    $(document).ready(function () {
-        $('#select').on('Change', function () {
-            var selectValor = '#' + $(this).val();
-            $('#pai').children('div').hide();
-            $('#pai').children(selectValor).show();
-
-        });
-    });
-
     function mostrar(id) {
         if (document.getElementById(id).style.display == 'none') {
 
@@ -508,8 +478,52 @@
         } else {
             document.getElementById(id).style.display = 'none';
         }
+    }
 
+    //var visibilidade = true; //Variável que vai manipular o botão Exibir/ocultar
+
+    //function exibir() {
+    //    document.getElementById("dvConteudo").style.display = "block";
+    //}
+
+    //function ocultar() {
+    //    document.getElementById("dvConteudo").style.display = "none";
+    //}
+
+    //function ocultarExibir() { // Quando clicar no botão.
+
+    //    if (visibilidade) {//Se a variável visibilidade for igual a true, então...
+    //        document.getElementById("dvConteudo").style.display = "none";//Ocultamos a div
+    //        visibilidade = false;//alteramos o valor da variável para falso.
+    //    } else {//ou se a variável estiver com o valor false..
+    //        document.getElementById("dvConteudo").style.display = "block";//Exibimos a div..
+    //        visibilidade = true;//Alteramos o valor da variável para true.
+    //    }
+    //}
+
+    $('.div-sel').hide();
+
+    $('#homeSubmenu').on('change', function () {
+        var selecionado = $(this).val();
+
+        $('.div-sel').each(function () {
+            if ($(this).attr('id') == selecionado) {
+                $(this).toggle();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+
+    function f() {
+
+        var obj = document.getElementById('minha_div').style.display;
+
+        if (obj == "none") {
+            document.getElementById('minha_div').style.display = 'block';
+        }
+        if (obj == "block") {
+            document.getElementById('minha_div').style.display = 'none';
+        }
     }
 </script>
-
-<script src='jquery-2.1.4.min.js'></script> 
