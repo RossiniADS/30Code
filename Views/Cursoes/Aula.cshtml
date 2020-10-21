@@ -67,27 +67,36 @@
             text-align: center;
         }
 
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
+    p,
+    label {
+        font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    input {
+        margin: .4rem;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
         }
 
-            #sidebar ul li a:hover {
-                color: #7386D5;
-                background: #fff;
-            }
+    #sidebar ul li.active > a,
+    a[aria-expanded="true"] {
+        color: #fff;
+        background: #6959CD;
+    }
 
-        #sidebar ul li.active > a,
-        a[aria-expanded="true"] {
-            color: #fff;
-            background: #6959CD;
+        #sidebar ul li.active > a:hover {
+            color: #7386D5;
+            background: #fff;
         }
-
-            #sidebar ul li.active > a:hover {
-                color: #7386D5;
-                background: #fff;
-            }
 
     a[data-toggle="collapse"] {
         position: relative;
@@ -455,11 +464,71 @@
 
             </div>
             <div id="div2" class="hidden">
-                <iframe style="width:100%; height:590px;" src="https://www.youtube.com/embed/5qap5aO4i9A"
-                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/aqiB58NpKLw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div id="div3" class="hidden"><h1>Exercicio</h1></div>
+            <div id="div3" class="hidden">
+                <h1>Exercicio</h1>
+
+                <h4>1) Uma Senhora chamada Maria tem 40 anos de idade,e um programador que declarar uma variavel chamada idade armazenando a idade dela .Qual das alternativas ira retornar a sua idade(em decimal) de forma correta!</h4>
+                <form>
+                </form>
+                <input type="radio" id="questaoA" name="A" value="radio" checked>
+                <i for="respotaA">
+                    public class Idade{public static void main(String[] args){int idade = 20;System.out.println(idade);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaB">
+                    public class Idade{public static void main(String[] args){int idade;System.out.println(idade);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaC">
+                    public class Idade{public static void main(String[] args){float idade = 20f;System.out.println(idade);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaD">
+                    public class Idade{public static void main(String[] args){String idade = "20";System.out.println(idade);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaE">
+                    public class Idade{public static void main(String[] args){double idade = 20;System.out.println(idade);}}
+                </i>
+                <hr/>
+
+                <h4>2) Um Senhor Chamado Jõao quer um programa para ele. Um programador quer declarar uma variavel chamada nome armazenando o nome do Jõao .Qual das alternativas ira retornar seu nome de forma correta!</h4>
+                <form>
+                </form>
+                <input type="radio" id="questaoA" name="A" value="radio" checked>
+                <i for="respotaA">
+                    public class Idade{public static void main(String[] args){String nome = João;System.out.println(nome);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaB">
+                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(nome);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaC">
+                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(João);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaD">
+                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(String);}}
+                </i>
+                <br />
+                <input type="radio">
+                <i for="respotaE">
+                    public class Idade{public static void main(String[] args){String nome = João;System.out.println(João);}}
+                </i>
+                <br />
+                <input type="submit" value="Confirmar Resposta" />
+            </div>
+
             <div id="div4" class="hidden"><h1>Prova</h1></div>
         </div>
     </div>
