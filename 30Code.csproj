@@ -354,6 +354,7 @@
     <Content Include="Icons\iconeUsuario.png" />
     <Content Include="Icons\password.png" />
     <Content Include="Images\IMG_20181110_093357.jpg" />
+    <Content Include="Images\WhatsApp Image 2020-10-19 at 12.32.44.jpeg" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
     <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
