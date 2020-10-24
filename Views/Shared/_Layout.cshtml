@@ -56,7 +56,7 @@
     <header id="header">
         <div class="container">
             <div class="logo float-left">
-                <a href="~/Home/Index">
+                <a href="~/Home/Index#hero">
                     <img style="width:100%;" class="img-fluid" src="~/Images/30Code.jpeg" />
                 </a>
                 <!-- Uncomment below if you prefer to use an image logo -->
@@ -65,35 +65,38 @@
 
             <nav class="nav-menu float-right d-none d-lg-block">
                 <ul>
-                    <li class="active"><a href="~/Home/Index#hero">Home</a></li>
-                    <li><a href="~/Home/Index#services">Recursos</a></li>
-                    <li><a href="~/Home/Index#portfolio">Cursos</a></li>
-                    <li><a href="~/Home/Index#about">Sobre nós</a></li>
-                    <li><a href="~/Home/Index#team">Time</a></li>
-                    <li><a href="~/Home/Index#contact">Contato</a></li>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (!User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink(User.Identity.Name + " - Sair", "Sair", "Usuarios")</li>
-                    }
-                    else
-                    {
+                        <li class="active"><a href="~/Home/Index#hero">Home</a></li>
+                        <li><a href="~/Home/Index#services">Recursos</a></li>
+                        <li><a href="~/Home/Index#portfolio">Cursos</a></li>
+                        <li><a href="~/Home/Index#about">Sobre nós</a></li>
+                        <li><a href="~/Home/Index#team">Time</a></li>
+                        <li><a href="~/Home/Index#contact">Contato</a></li>
                         <li class="drop-down">
                             <a href="">Login</a>
                             <ul class="p-3">
                                 <li>
-                                    <input class="form-control login" type="email" placeholder="email" />
+                                    <input class="form-control login" type="email" placeholder="Email" />
                                     @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control login" } })
-                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
 
                                     <input class="form-control login" type="password" placeholder="Senha" />
                                     @*@Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control login" } })
-                                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
+                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
 
                                     <input class="btn btn-primary form-control" type="submit" value="Login" />
                                 </li>
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Cadastrar", "Create", "Usuarios")</li>
+                    }
+                    else
+                    {
+                        <li class="active"><a href="~/Home/Index#hero">Home</a></li>
+                        <li>@Html.ActionLink("Aula", "Aula", "Cursoes")</li>
+                        <li>@Html.ActionLink("Histórico", "Historico", "Usuarios")</li>
+                        <li>@Html.ActionLink(User.Identity.Name + " - Sair", "Sair", "Usuarios")</li>
                     }
                 </ul>
             </nav><!-- .nav-menu -->
@@ -129,7 +132,7 @@
                         </div>
 
                         <div class="col-lg-2 col-md-6 footer-links">
-                            <h4>Useful Links</h4>
+                            <h4>Links uteis</h4>
                             <ul>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
@@ -140,7 +143,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Our Services</h4>
+                            <h4>Nossos serviços</h4>
                             <ul>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
