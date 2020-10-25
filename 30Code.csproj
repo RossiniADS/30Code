@@ -161,6 +161,9 @@
     <Content Include="assets\css\style.css" />
     <Content Include="assets\img\about.jpg" />
     <Content Include="assets\img\apple-touch-icon.png" />
+    <Content Include="assets\img\Cursos\detalhes_imagem.png" />
+    <Content Include="assets\img\Cursos\developer.png" />
+    <Content Include="assets\img\Cursos\imagem_editrar.png" />
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\portfolio\portfolio-1.jpg" />
     <Content Include="assets\img\portfolio\portfolio-2.jpg" />
