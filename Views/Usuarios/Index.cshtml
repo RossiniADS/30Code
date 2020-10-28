@@ -3,82 +3,70 @@
 @{ ViewBag.Title = "Index"; }
 
 
-<div class="container mt-2 mb-5">
-    <section id="portfolio" class="portfolio section-bg">
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+<div class="container mt-3 mb-3">
 
-            <table class="table">
+    <h2>Index</h2>
 
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Senha)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TiposUsuarios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexos)
+            </th>
+            <th></th>
+        </tr>
 
-                @foreach (var item in Model)
-                {
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Senha)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TiposUsuarios)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexos)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-                    <tr>
-
-                        <td>
-                            <div class="row portfolio-container">
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                    <div class="portfolio-wrap">
-                                        <img src="~/assets/img/Cursos/imagem_editrar.png" class="img-fluid" alt="">
-                                        <div class="portfolio-info">
-                                            <h4>Editar</h4>
-                                            <p> Atualize Seus Dados Pessoai</p>
-                                            <div class="portfolio-links">
-                                                <a href="~/assets/img/Cursos/imagem_editrar.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-eye"></i></a>
-                                                <a href="portfolio-details.html" title="More Details">
-
-                                                    <i class="icofont-external-link" href="@Html.ActionLink(" ", "Edit", new { id = item.Id })">
-
-                                                    </i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                    <div class="portfolio-wrap">
-                                        <img src="~/assets/img/Cursos/developer.png" class="img-fluid" alt="">
-                                        <div class="portfolio-info">
-
-                                            <h4>Aulas</h4>
-                                            <p>Entre Diversos Cursos de Programação</p>
-                                            <div class="portfolio-links">
-                                                <a href="~/assets/img/Cursos/developer.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-eye"></i></a>
-                                                <a href="https://localhost:44390/Cursoes/Aula" title="More Details">
-                                                    <i class="icofont-external-link"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                    <div class="portfolio-wrap">
-                                        <img src="~/assets/img/Cursos/detalhes_imagem.png" class="img-fluid" alt="">
-                                        <div class="portfolio-info">
-                                            <h4>Detalhes</h4>
-                                            <p> Veja em Detalhes seus Dados Pessoais</p>
-                                            <div class="portfolio-links">
-                                                <a href="~/assets/img/Cursos/detalhes_imagem.png" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="icofont-eye"></i></a>
-                                                <a href="portfolio-details.html" title="More Details">
-                                                    <i class="icofont-external-link" href="@Html.ActionLink(" ", "Details", new { id = item.Id })"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </td>
-                    </tr>
-
-                }
-
-            </table>
-        </div>
-
-    </section>
-
+    </table>
 </div>

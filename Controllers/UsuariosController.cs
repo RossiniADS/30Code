@@ -146,9 +146,9 @@ namespace _30Code.Controllers
                     db.Entry(usu).State = EntityState.Modified;
                     db.SaveChanges();
                     string msg = "<h3>Sistema</h3>";
-                    msg += "Para alterar sua senha <a href='http://localhost:44390/Usuarios/Redefinir/" + usu.Hash + "' target = '_blank' > clique aqui </ a > ";
+                    msg += "Para alterar sua senha <a href='https://localhost:44390/Usuarios/Redefinir/" + usu.Hash + "' target = '_blank' > clique aqui </ a > ";
                     Funcoes.EnviarEmail(usu.Email, "Redefinição de senha", msg);
-                    TempData["MSG"] = "success|Senha redefinida com sucesso!";
+                    TempData["MSG"] = "success|Solicitação de redefinição de senha realizada com sucesso!";
                     return RedirectToAction("Index");
                 }
                 TempData["MSG"] = "error|E-mail não encontrado";
