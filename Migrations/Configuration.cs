@@ -73,7 +73,7 @@
                     Duracao = 200.00,
                     Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
-                }, 
+                },
                 new Models.Curso
                 {
                     Id = 3,
@@ -89,6 +89,25 @@
                     Duracao = 200.00,
                     Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
+                });
+            context.Modulo.AddOrUpdate(
+                new Models.Modulo
+                {
+                    Id = 1,
+                    Titulo = "Basico",
+                    CursoId = 1
+                },
+                new Models.Modulo
+                {
+                    Id = 2,
+                    Titulo = "Intermediario",
+                    CursoId = 2
+                },
+                new Models.Modulo
+                {
+                    Id = 1,
+                    Titulo = "Avanaçdo",
+                    CursoId = 3
                 });
         }
     }

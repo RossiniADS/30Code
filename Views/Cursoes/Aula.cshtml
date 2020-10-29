@@ -7,6 +7,75 @@
     */
     }
 
+    .link {
+        border: 0;
+        cursor: pointer;
+        padding: 0;
+        width: 100%;
+        text-align: justify;
+    }
+
+    button,
+    button:hover,
+    button:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+        outline: none;
+        box-shadow: none;
+    }
+
+    #sidebar ul li button {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+        #sidebar ul li button:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+    #sidebar ul li.active > button {
+        color: #fff;
+        background: #6959CD;
+    }
+
+        #sidebar ul li.active > button:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+
+    ul ul button {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #836FFF;
+    }
+
+    ul.CTAs button {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    button.article,
+    button.article:hover {
+        background: #6d7fcc !important;
+        color: #fff !important;
+    }
+
+
+
+
+
+
+
+
+
+
     a,
     a:hover,
     a:focus {
@@ -17,14 +86,6 @@
 
     .hidden {
         display: none;
-    }
-
-
-    .line {
-        width: 100%;
-        height: 1px;
-        border-bottom: 1px dashed #ddd;
-        margin: 40px 0;
     }
 
     /* ---------------------------------------------------
@@ -174,23 +235,22 @@
             <h3>Programação com Java</h3>
         </div>
         <div style="overflow:scroll;height:1000px;width:100%; overflow:auto;">
-
             <ul class="list-unstyled components">
                 <p>Basico</p>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
                     <ul id="homeSubmenu" class="collapse list-unstyled">
                         <li>
-                            <a href="#" onclick="mostrar('div1')">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#" onclick="mostrar('div2')">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#" onclick="mostrar('div3')">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#" onclick="mostrar('div4')">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -199,16 +259,16 @@
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 2 - Variaveis</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -216,16 +276,16 @@
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 3 - Strings</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -233,16 +293,16 @@
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 4 - POO</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -250,16 +310,16 @@
                     <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 5 - Instanciação</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu4">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -270,16 +330,16 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -287,16 +347,16 @@
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 2 - Variaveis</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -304,16 +364,16 @@
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 3 - Strings</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -321,16 +381,16 @@
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 4 - POO</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -338,16 +398,16 @@
                     <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 5 - Instanciação</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu4">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -358,16 +418,16 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -375,16 +435,16 @@
                     <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 2 - Variaveis</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu1">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -392,16 +452,16 @@
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 3 - Strings</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -409,16 +469,16 @@
                     <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 4 - POO</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu3">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -426,16 +486,16 @@
                     <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 5 - Instanciação</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu4">
                         <li>
-                            <a href="#">Apostila</a>
+                            <button class="a link" href="~/Dia2.pdf" onclick="mostrar('div1')">Apostila</button>
                         </li>
                         <li>
-                            <a href="#">Video Aula</a>
+                            <button class="a link" href="https://www.youtube.com/embed/aqiB58NpKLw" onclick="mostrar('div1')">Video Aula</button>
                         </li>
                         <li>
-                            <a href="#">Exercicios</a>
+                            <button class="a link" href="#" onclick="mostrar('div3')">Exercicios</button>
                         </li>
                         <li>
-                            <a href="#">Avaliação diaria</a>
+                            <button class="a link" href="#" onclick="mostrar('div4')">Avaliação diaria</button>
                         </li>
                     </ul>
                 </li>
@@ -455,10 +515,10 @@
         </nav>
         <div id="pai">
             <div id="div1" class="hidden">
-                <iframe src="~/Dia2.pdf" style="width: 100%;height: 590px;border: none;"></iframe>
-            </div>
-            <div id="div2" class="hidden">
-                <iframe style="width:100%; height:590px;" src="https://www.youtube.com/embed/aqiB58NpKLw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @*<iframe src="" style="width: 100%;height: 590px;border: none;"></iframe>
+                    </div>
+                    <div id="div2" class="hidden">*@
+                <iframe style="width:100%; height:590px;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div id="div3" class="hidden">
                 <h1>Exercicio</h1>
@@ -546,6 +606,11 @@
         });
         $("#" + id).show();
     }
+
+    $('.a').click(function () {
+        const link = $(this).attr('href')
+        $('iframe').attr('src', link)
+    })
 
     //$('.div-sel').hide();
 
