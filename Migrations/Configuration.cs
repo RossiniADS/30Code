@@ -106,7 +106,7 @@
                 new Models.Modulo
                 {
                     Id = 1,
-                    Titulo = "Avanaçdo",
+                    Titulo = "Avançado",
                     CursoId = 3
                 });
         }

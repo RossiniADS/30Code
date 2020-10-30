@@ -6,14 +6,18 @@ using System.Web;
 
 namespace _30Code.Models
 {
-    public class Modulo
+    public class Conteudo
     {
         public int Id { get; set; }
         [Required]
+        [MaxLength(45)]
         public string Titulo { get; set; }
         [Required]
-        public int CursoId { get; set; }
-        public virtual Curso Curso { get; set; }
+        public int TipoId { get; set; }
+        public virtual Tipo tipo { get; set; }
+        [Required]
+        public int ModuloId { get; set; }
+        public virtual Modulo Modulo { get; set; }
 
     }
 }

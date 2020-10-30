@@ -143,17 +143,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202010092147082_Banco.cs" />
-    <Compile Include="Migrations\202010092147082_Banco.designer.cs">
-      <DependentUpon>202010092147082_Banco.cs</DependentUpon>
+    <Compile Include="Migrations\202010302128074_Banco30Code.cs" />
+    <Compile Include="Migrations\202010302128074_Banco30Code.designer.cs">
+      <DependentUpon>202010302128074_Banco30Code.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Alternativa.cs" />
+    <Compile Include="Models\Anexo.cs" />
+    <Compile Include="Models\Conteudo.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\Funcoes.cs" />
     <Compile Include="Models\Modulo.cs" />
+    <Compile Include="Models\Questoes.cs" />
+    <Compile Include="Models\Tipo.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Usuario_has_curso.cs" />
+    <Compile Include="Models\Usuario_has_curso_has_conteudo.cs" />
+    <Compile Include="Models\Usuario_has_curso_has_conteudo_has_questoes.cs" />
     <Compile Include="Models\VMUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -697,8 +704,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202010092147082_Banco.resx">
-      <DependentUpon>202010092147082_Banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202010302128074_Banco30Code.resx">
+      <DependentUpon>202010302128074_Banco30Code.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

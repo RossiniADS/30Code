@@ -71,10 +71,10 @@ D:\Usuario\Documentos\GitHub\30Code\bin\roslyn\vbc.exe.config
 D:\Usuario\Documentos\GitHub\30Code\bin\roslyn\vbc.rsp
 D:\Usuario\Documentos\GitHub\30Code\bin\roslyn\VBCSCompiler.exe
 D:\Usuario\Documentos\GitHub\30Code\bin\roslyn\VBCSCompiler.exe.config
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\_30Code.Migrations.Banco.resources
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.GenerateResource.cache
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.CoreCompileInputs.cache
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.CopyComplete
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.dll
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.pdb
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csprojAssemblyReference.cache
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\_30Code.Migrations.Banco30Code.resources
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.GenerateResource.cache
