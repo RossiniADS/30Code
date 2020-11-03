@@ -79,11 +79,11 @@
                                 <li>
                                     <input class="form-control login" type="email" placeholder="Email" />
                                     @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control login" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
 
                                     <input class="form-control login" type="password" placeholder="Senha" />
                                     @*@Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control login" } })
-                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
+                                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
 
                                     <input class="btn btn-primary form-control" type="submit" value="Login" />
                                 </li>
@@ -93,7 +93,7 @@
                     }
                     else
                     {
-                        <li class="active"><a href="~/Home/Index#hero">Home</a></li>
+                        <li>@Html.ActionLink("Resumo", "Index", "Usuarios")</li>
                         <li>@Html.ActionLink("Aula", "Aula", "Cursoes")</li>
                         <li>@Html.ActionLink("Histórico", "Historico", "Usuarios")</li>
                         <li>@Html.ActionLink(User.Identity.Name + " - Sair", "Sair", "Usuarios")</li>
