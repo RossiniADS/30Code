@@ -40,6 +40,7 @@
                     Email = "rossini_rodrigues_alves@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "35498198",
+                    UrlImagem = "rossini.jpeg",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Admin,
                     Sexos = Models.Usuario.Sexo.Masculino

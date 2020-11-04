@@ -28,7 +28,8 @@ namespace _30Code.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Nascimento")]
         public DateTime? Nascimento { get; set; }
-
+        [MaxLength(100)]
+        public string UrlImagem { get; set; }
         [Display(Name = "Tipo Usuario")]
         public TipoUsuario TiposUsuarios { get; set; }
 

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_30Code.Models.Usuario>
+﻿@model _30Code.Models.Usuario
 
 @{ ViewBag.Title = "Index"; }
 
@@ -356,13 +356,13 @@
 
                         <div class="name-perfil-preview">
                             <div class="preview-nome">
-                                @Html.Label(User.Identity.Name)
+                                @Html.Label(User.Identity.Name.Split('|')[1])
                             </div>
 
                         </div>
 
                         <div class="picture-perfil-preview">
-                            <img class="picture-user-preview" src="//www.devmedia.com.br/perfil/img/noimage.jpg">
+                            <img class="picture-user-preview" src="~/assets/img/Usuarios/@Model.UrlImagem">
                         </div>
 
                         <div class="info-perfil-preview">
@@ -391,7 +391,7 @@
                 <div class="menu-container">
                     <div class="menu-container-title">
                         <div class="menu-user-name">
-                            Olá @Html.Label(User.Identity.Name)
+                            Olá @Html.Label(User.Identity.Name.Split('|')[1])
                         </div>
 
                         <a href="#">ir para seu perfil</a>
@@ -404,7 +404,6 @@
                         <li class="menu-content-item"><a href="#">Meus<br>Exercícios</a></li>
                         <li class="menu-content-item"><a href="#">Minhas<br>Anotações</a></li>
                         <li class="menu-content-item"><a href="#">Conteúdos<br>Assistidos</a></li>
-
                         <li class="menu-content-item"><a href="#">Favoritos</a></li>
 
                         <li class="menu-content-item menu-content-item-destaque"><a href="#" class="menu-user-assine-topo">Teste <br>Grátis</a></li>

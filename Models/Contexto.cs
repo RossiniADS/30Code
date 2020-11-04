@@ -32,6 +32,7 @@ namespace _30Code.Models
             usu.Property(x => x.Senha).HasColumnName("usu_senha");
             usu.Property(x => x.Sexos).HasColumnName("usu_sexo");
             usu.Property(x => x.Nascimento).HasColumnName("usu_nascimento");
+            usu.Property(x => x.UrlImagem).HasColumnName("usu_urlImagem");
             usu.Property(x => x.TiposUsuarios).HasColumnName("usu_tipoUsuario");
             usu.Property(x => x.Celular).HasColumnName("usu_celular");
 

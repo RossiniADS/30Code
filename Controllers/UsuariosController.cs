@@ -18,7 +18,8 @@ namespace _30Code.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            return View(db.Usuario.ToList());
+            var userId = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+            return View(db.Usuario.Find(userId));
         }
 
         // GET: Usuarios/Details/5
@@ -56,16 +57,18 @@ namespace _30Code.Controllers
                     ModelState.AddModelError("", "E-mail Já utilizado!");
                     return View(login);
                 }
-                Usuario usu = new Usuario();
-                usu.Nome = login.Cadastro.Nome;
-                usu.Email = login.Cadastro.Email;
-                usu.Senha = Funcoes.HashTexto(login.Cadastro.Senha, "SHA512");
-                usu.TiposUsuarios = Usuario.TipoUsuario.Comum;
+                Usuario usu = new Usuario
+                {
+                    Nome = login.Cadastro.Nome,
+                    Email = login.Cadastro.Email,
+                    Senha = Funcoes.HashTexto(login.Cadastro.Senha, "SHA512"),
+                    TiposUsuarios = Usuario.TipoUsuario.Comum
+                };
 
 
                 db.Usuario.Add(usu);
                 db.SaveChanges();
-                FormsAuthentication.SetAuthCookie(usu.Nome, false);
+                FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome, false);
                 return RedirectToAction("Index");
             }
             return View(login);
@@ -256,7 +259,7 @@ namespace _30Code.Controllers
                 Usuario usu = db.Usuario.Where(t => t.Email == login.Acesso.Email && t.Senha == senhacrip).ToList().FirstOrDefault();
                 if (usu != null)
                 {
-                    FormsAuthentication.SetAuthCookie(usu.Nome, false);
+                    FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome, false);
                     return RedirectToAction("Index");
                 }
                 else
