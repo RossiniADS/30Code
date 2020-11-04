@@ -16,7 +16,7 @@ namespace _30Code.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10})")]
+        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10})", ErrorMessage = "A senha deve conter ao menos uma letra maiúscula, minúscula e um número. Deve ser no mínimo 6 caracteres")]
         public string Senha { get; set; }
     }
     public class Cadastro
@@ -35,11 +35,12 @@ namespace _30Code.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10})")]
+        [RegularExpression("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10})", ErrorMessage = "A senha deve conter ao menos uma letra maiúscula, minúscula e um número. Deve ser no mínimo 6 caracteres")]
         public string Senha { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Compare("Senha")]
+        [Display(Name = "Confirmar senha")]
         public string ConfirmaSenha { get; set; }
     }
 

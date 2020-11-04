@@ -77,16 +77,16 @@ namespace _30Code.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (User.Identity.IsAuthenticated == true)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+                Usuario usuario = db.Usuario.Find(id);
+                return View(usuario);
             }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
-            return View(usuario);
         }
 
         // POST: Usuarios/Edit/5
@@ -94,7 +94,7 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,TiposUsuarios,Sexos,ConfirmaSenha")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,UrlImagem,Celular,Nascimento,TiposUsuarios,Sexos,ConfirmaSenha")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
@@ -247,7 +247,6 @@ namespace _30Code.Controllers
         {
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
