@@ -42,7 +42,6 @@ namespace _30Code.Models
             cur.Property(x => x.Nome).HasColumnName("cur_nome");
             cur.Property(x => x.Duracao).HasColumnName("cur_duracao");
             cur.Property(x => x.Url_imagem).HasColumnName("cur_url_imagem");
-            cur.Property(x => x.Niveis).HasColumnName("cur_nivel");
 
             var mod = mb.Entity<Modulo>();
             mod.ToTable("mod_modulo");

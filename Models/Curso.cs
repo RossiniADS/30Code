@@ -16,14 +16,6 @@ namespace _30Code.Models
         [Display(Name = "Duração")]
         public double Duracao { get; set; }
         public string Url_imagem { get; set; }
-        public Nivel Niveis { get; set; }
-        public enum Nivel
-        {
-            Basico = 1,
-            Intermediario = 2,
-            Avançado = 3
-        }
-
         public virtual ICollection<Modulo> Modulos { get; set; }
     }
 }

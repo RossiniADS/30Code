@@ -167,31 +167,41 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
 <div class="wrapper">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>@Model.Nome</h3>
-        </div>
-        <div style="overflow:scroll;height:1000px;width:100%; overflow:auto;">
-            <ul class="list-unstyled components">
-                @foreach (var mod in Model.Modulos)
-                {
-                    <p>@mod.Titulo</p>
-                    <li class="active">
-                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - LP</a>
-                        <ul id="homeSubmenu" class="collapse list-unstyled">
-                            @foreach (var cont in mod.Conteudos)
-                            {
-                                <li>
-                                    <button class="a link" href="~/@cont.Anexos.FirstOrDefault().Url" onclick="mostrar('div1')">@cont.tipo.Tipos</button>
-                                </li>
-                             }
-                        </ul>
-                    </li>
-                 }
-            </ul>
-        </div>
-    </nav>
+    @{
+        var i = 0;
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>@Model.Nome</h3>
+            </div>
+            <div style="overflow:scroll;height:1000px;width:100%; overflow:auto;">
+                <ul class="list-unstyled components">
+                    @foreach (var mod in Model.Modulos)
+                    {
+                        <p>@mod.Titulo</p>
+                        foreach (var cont in mod.Conteudos)
+                        {
+                            <li class="active">
+                                <a href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - @cont.Titulo</a>
+                                <ul id="homeSubmenu_@i" class="collapse list-unstyled">
+                                    @{
+                                        i += 1;
+                                    }
+                                    @foreach (var conte in cont.Anexos)
+                                    {
+                                        <li>
+                                            <button class="a link" href="~/@conte.Conteudo.Anexos.FirstOrDefault().Url" onclick="mostrar('div1')">@conte.Conteudo.Anexos.FirstOrDefault().Titulo</button>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                            <br />
+                        }
+                    }
+                </ul>
+            </div>
+        </nav>
+    }
     <!-- Page Content  -->
     <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">

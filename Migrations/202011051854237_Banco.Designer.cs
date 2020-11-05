@@ -7,13 +7,13 @@ namespace _30Code.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Banco30Code : IMigrationMetadata
+    public sealed partial class Banco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Banco30Code));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Banco));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010302128074_Banco30Code"; }
+            get { return "202011051854237_Banco"; }
         }
         
         string IMigrationMetadata.Source

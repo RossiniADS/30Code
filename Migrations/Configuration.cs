@@ -64,7 +64,6 @@
                     Id = 1,
                     Nome = "Java",
                     Duracao = 200.00,
-                    Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
                 },
                 new Models.Curso
@@ -72,7 +71,6 @@
                     Id = 2,
                     Nome = "C##",
                     Duracao = 200.00,
-                    Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
                 },
                 new Models.Curso
@@ -80,7 +78,6 @@
                     Id = 3,
                     Nome = "C++",
                     Duracao = 200.00,
-                    Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
                 },
                 new Models.Curso
@@ -88,7 +85,6 @@
                     Id = 4,
                     Nome = "ASP.NET",
                     Duracao = 200.00,
-                    Niveis = Models.Curso.Nivel.Basico,
                     Url_imagem = null
                 });
             context.Modulo.AddOrUpdate(
@@ -165,13 +161,20 @@
                     ModuloId = 1,
                     TipoId = 1
                 },
-                  new Models.Conteudo
-                  {
-                      Id = 2,
-                      Titulo = "Variaveis",
-                      ModuloId = 1,
-                      TipoId = 2
-                  });
+                new Models.Conteudo
+                {
+                    Id = 2,
+                    Titulo = "LP",
+                    ModuloId = 1,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 3,
+                    Titulo = "POO",
+                    ModuloId = 1,
+                    TipoId = 1
+                });
             context.Anexo.AddOrUpdate(
                 new Models.Anexo
                 {
@@ -184,10 +187,42 @@
                 new Models.Anexo
                 {
                     Id = 2,
-                    Titulo = "Video Aula",
+                    Titulo = "Video Aula Variaveis",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 1
+                },
+                 new Models.Anexo
+                 {
+                     Id = 3,
+                     Titulo = "Apostila LP",
+                     DataPostagem = DateTime.Now,
+                     Url = "Dia2.pdf",
+                     ConteudoId = 2
+                 },
+                new Models.Anexo
+                {
+                    Id = 4,
+                    Titulo = "Video Aula LP",
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 2
+                },
+                 new Models.Anexo
+                 {
+                     Id = 5,
+                     Titulo = "Apostila POO",
+                     DataPostagem = DateTime.Now,
+                     Url = "Dia2.pdf",
+                     ConteudoId = 3
+                 },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Video Aula POO",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 3
                 });
         }
     }
