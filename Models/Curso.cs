@@ -23,5 +23,7 @@ namespace _30Code.Models
             Intermediario = 2,
             Avançado = 3
         }
+
+        public virtual ICollection<Modulo> Modulos { get; set; }
     }
 }

@@ -102,13 +102,92 @@
                 {
                     Id = 2,
                     Titulo = "Intermediario",
+                    CursoId = 1
+                },
+                new Models.Modulo
+                {
+                    Id = 3,
+                    Titulo = "Avançado",
+                    CursoId = 1
+                },
+                new Models.Modulo
+                {
+                    Id = 4,
+                    Titulo = "Basico",
                     CursoId = 2
                 },
                 new Models.Modulo
                 {
-                    Id = 1,
+                    Id = 5,
+                    Titulo = "Intermediario",
+                    CursoId = 2
+                },
+                new Models.Modulo
+                {
+                    Id = 6,
+                    Titulo = "Avançado",
+                    CursoId = 2
+                },
+                new Models.Modulo
+                {
+                    Id = 7,
+                    Titulo = "Basico",
+                    CursoId = 3
+                },
+                new Models.Modulo
+                {
+                    Id = 8,
+                    Titulo = "Intermediario",
+                    CursoId = 3
+                },
+                new Models.Modulo
+                {
+                    Id = 9,
                     Titulo = "Avançado",
                     CursoId = 3
+                });
+            context.Tipo.AddOrUpdate(
+                new Models.Tipo
+                {
+                    Id = 1,
+                    Tipos = "Apostila"
+                },
+                 new Models.Tipo
+                 {
+                     Id = 2,
+                     Tipos = "Video Aula"
+                 });
+            context.Conteudo.AddOrUpdate(
+                new Models.Conteudo
+                {
+                    Id = 1,
+                    Titulo = "Variaveis",
+                    ModuloId = 1,
+                    TipoId = 1
+                },
+                  new Models.Conteudo
+                  {
+                      Id = 2,
+                      Titulo = "Variaveis",
+                      ModuloId = 1,
+                      TipoId = 2
+                  });
+            context.Anexo.AddOrUpdate(
+                new Models.Anexo
+                {
+                    Id = 1,
+                    Titulo = "Apostila Variaveis",
+                    DataPostagem = DateTime.Now,
+                    Url = "Dia2.pdf",
+                    ConteudoId = 1
+                },
+                new Models.Anexo
+                {
+                    Id = 2,
+                    Titulo = "Video Aula",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 2
                 });
         }
     }

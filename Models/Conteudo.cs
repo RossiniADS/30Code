@@ -18,6 +18,6 @@ namespace _30Code.Models
         [Required]
         public int ModuloId { get; set; }
         public virtual Modulo Modulo { get; set; }
-
+        public virtual ICollection<Anexo> Anexos { get; set; }
     }
 }

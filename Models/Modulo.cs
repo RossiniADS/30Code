@@ -14,6 +14,6 @@ namespace _30Code.Models
         [Required]
         public int CursoId { get; set; }
         public virtual Curso Curso { get; set; }
-
+        public virtual ICollection<Conteudo> Conteudos { get; set; }
     }
 }
