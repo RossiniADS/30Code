@@ -12,7 +12,6 @@ namespace _30Code.Models
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Curso> Curso { get; set; }
         public DbSet<Modulo> Modulo { get; set; }
-        public DbSet<Tipo> Tipo { get; set; }
         public DbSet<Conteudo> Conteudo { get; set; }
         public DbSet<Questoes> Questoes { get; set; }
         public DbSet<Alternativa> Alternativa { get; set; }
@@ -49,16 +48,10 @@ namespace _30Code.Models
             mod.Property(x => x.Titulo).HasColumnName("mod_titulo");
             mod.Property(x => x.CursoId).HasColumnName("cur_id");
 
-            var tip = mb.Entity<Tipo>();
-            tip.ToTable("tip_tipo");
-            tip.Property(x => x.Id).HasColumnName("tip_id");
-            tip.Property(x => x.Tipos).HasColumnName("tip_tipo");
-
             var cont = mb.Entity<Conteudo>();
             cont.ToTable("con_conteudo");
             cont.Property(x => x.Id).HasColumnName("con_id");
             cont.Property(x => x.Titulo).HasColumnName("con_titulo");
-            cont.Property(x => x.TipoId).HasColumnName("tip_id");
             cont.Property(x => x.ModuloId).HasColumnName("mod_id");
 
             var quest = mb.Entity<Questoes>();
@@ -73,6 +66,15 @@ namespace _30Code.Models
             alt.Property(x => x.Id).HasColumnName("alt_id");
             alt.Property(x => x.Resposta).HasColumnName("alt_resposta");
             alt.Property(x => x.AlternativaCorreta).HasColumnName("que_id");
+
+            var ane = mb.Entity<Anexo>();
+            ane.ToTable("ane_anexos");
+            ane.Property(x => x.Id).HasColumnName("ane_id");
+            ane.Property(x => x.Titulo).HasColumnName("ane_titulo");
+            ane.Property(x => x.Tipos).HasColumnName("ane_tipo");
+            ane.Property(x => x.DataPostagem).HasColumnName("ane_dataPostagem");
+            ane.Property(x => x.Url).HasColumnName("ane_url");
+            ane.Property(x => x.ConteudoId).HasColumnName("con_id");
 
             var usuarioHasCurso = mb.Entity<Usuario_has_curso>();
             usuarioHasCurso.ToTable("usu_usuario_has_cur_curso");

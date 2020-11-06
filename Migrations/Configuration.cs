@@ -26,7 +26,7 @@
                     Id = 1,
                     Nome = "Gabriel Oliveira",
                     Email = "gabriel@hotmail.com",
-                    Senha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
+                    Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "233123123",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Comum,
@@ -50,7 +50,7 @@
                     Id = 3,
                     Nome = "Vinicius Santos",
                     Email = "vinicius@hotmail.com",
-                    Senha = "vDDsx1jGNpHGnmbYRjJmcJJL/5YJtf6/OcHobMqPtyeDrV5bcHY1nm1wm8WM03mt4UlZRfhZHph2yyY05DE5pg==",
+                    Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "8978498",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
@@ -142,86 +142,67 @@
                     Titulo = "Avançado",
                     CursoId = 3
                 });
-            context.Tipo.AddOrUpdate(
-                new Models.Tipo
-                {
-                    Id = 1,
-                    Tipos = "Apostila"
-                },
-                 new Models.Tipo
-                 {
-                     Id = 2,
-                     Tipos = "Video Aula"
-                 });
             context.Conteudo.AddOrUpdate(
                 new Models.Conteudo
                 {
                     Id = 1,
                     Titulo = "Variaveis",
-                    ModuloId = 1,
-                    TipoId = 1
+                    ModuloId = 1
                 },
                 new Models.Conteudo
                 {
                     Id = 2,
                     Titulo = "LP",
-                    ModuloId = 1,
-                    TipoId = 1
+                    ModuloId = 1
                 },
                 new Models.Conteudo
                 {
                     Id = 3,
                     Titulo = "POO",
-                    ModuloId = 1,
-                    TipoId = 1
+                    ModuloId = 1
                 },
                 new Models.Conteudo
                 {
                     Id = 4,
                     Titulo = "Lambda",
-                    ModuloId = 2,
-                    TipoId = 1
+                    ModuloId = 2
                 },
                 new Models.Conteudo
                 {
                     Id = 5,
-                    Titulo = "FrameWorkers",
-                    ModuloId = 2,
-                    TipoId = 1
+                    Titulo = "Framework",
+                    ModuloId = 2
                 },
                 new Models.Conteudo
                 {
                     Id = 6,
                     Titulo = "Api",
-                    ModuloId = 2,
-                    TipoId = 1
+                    ModuloId = 2
                 },
                 new Models.Conteudo
                 {
                     Id = 7,
-                    Titulo = "Tratando Exceções",
-                    ModuloId = 3,
-                    TipoId = 1
+                    Titulo = "Exceções",
+                    ModuloId = 3
                 },
                 new Models.Conteudo
                 {
                     Id = 8,
                     Titulo = "Interfaces",
-                    ModuloId = 3,
-                    TipoId = 1
+                    ModuloId = 3
                 },
                 new Models.Conteudo
                 {
                     Id = 9,
                     Titulo = "Herança",
-                    ModuloId = 3,
-                    TipoId = 1
+                    ModuloId = 3
                 });
             context.Anexo.AddOrUpdate(
                 new Models.Anexo
                 {
                     Id = 1,
                     Titulo = "Apostila Variaveis",
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "Dia2.pdf",
                     ConteudoId = 1
@@ -230,6 +211,7 @@
                 {
                     Id = 2,
                     Titulo = "Video Aula Variaveis",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 1
@@ -238,6 +220,7 @@
                  {
                      Id = 3,
                      Titulo = "Apostila LP",
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "Dia2.pdf",
                      ConteudoId = 2
@@ -246,6 +229,7 @@
                 {
                     Id = 4,
                     Titulo = "Video Aula LP",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 2
@@ -254,6 +238,7 @@
                  {
                      Id = 5,
                      Titulo = "Apostila POO",
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "Dia2.pdf",
                      ConteudoId = 3
@@ -262,6 +247,7 @@
                 {
                     Id = 6,
                     Titulo = "Video Aula POO",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 3
@@ -270,6 +256,7 @@
                  {
                      Id = 1,
                      Titulo = "Apostila Lambda",
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "Dia2.pdf",
                      ConteudoId = 4
@@ -278,6 +265,7 @@
                 {
                     Id = 2,
                     Titulo = "Video Aula Lambda",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 4
@@ -285,7 +273,8 @@
                  new Models.Anexo
                  {
                      Id = 3,
-                     Titulo = "Apostila FrameWorkers",
+                     Titulo = "Apostila Framework",
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "Dia2.pdf",
                      ConteudoId = 5
@@ -293,7 +282,8 @@
                 new Models.Anexo
                 {
                     Id = 4,
-                    Titulo = "Video Aula FrameWorkers",
+                    Titulo = "Video Aula Framework",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 5
@@ -301,7 +291,8 @@
                  new Models.Anexo
                  {
                      Id = 5,
-                     Titulo = "Apostila Api",
+                     Titulo = "Apostila API",
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "Dia2.pdf",
                      ConteudoId = 6
@@ -309,7 +300,8 @@
                 new Models.Anexo
                 {
                     Id = 6,
-                    Titulo = "Video Aula Api",
+                    Titulo = "Video Aula API",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 6
@@ -317,7 +309,8 @@
                 new Models.Anexo
                 {
                     Id = 6,
-                    Titulo = "Apostila Tratando Exceções",
+                    Titulo = "Apostila Exceções",
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "Dia2.pdf",
                     ConteudoId = 7
@@ -325,7 +318,8 @@
                 new Models.Anexo
                 {
                     Id = 6,
-                    Titulo = "Video Aula Tratando Exceções",
+                    Titulo = "Video Aula Exceções",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 7
@@ -334,6 +328,7 @@
                 {
                     Id = 6,
                     Titulo = "Apostila Interfaces",
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "Dia2.pdf",
                     ConteudoId = 8
@@ -342,6 +337,7 @@
                 {
                     Id = 6,
                     Titulo = "Video Aula Interfaces",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 8
@@ -350,6 +346,7 @@
                 {
                     Id = 6,
                     Titulo = "Apostila Herança",
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "Dia2.pdf",
                     ConteudoId = 9
@@ -358,6 +355,7 @@
                 {
                     Id = 6,
                     Titulo = "Video Aula Herança",
+                    Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 9

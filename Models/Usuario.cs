@@ -32,7 +32,6 @@ namespace _30Code.Models
         public string UrlImagem { get; set; }
         [Display(Name = "Tipo Usuario")]
         public TipoUsuario TiposUsuarios { get; set; }
-
         [Display(Name = "Sexo")]
         public Sexo Sexos { get; set; }
         public string Hash { get; set; }

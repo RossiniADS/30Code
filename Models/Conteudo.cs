@@ -13,9 +13,6 @@ namespace _30Code.Models
         [MaxLength(45)]
         public string Titulo { get; set; }
         [Required]
-        public int TipoId { get; set; }
-        public virtual Tipo tipo { get; set; }
-        [Required]
         public int ModuloId { get; set; }
         public virtual Modulo Modulo { get; set; }
         public virtual ICollection<Anexo> Anexos { get; set; }
