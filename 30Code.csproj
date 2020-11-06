@@ -244,6 +244,7 @@
     <Content Include="assets\vendor\venobox\venobox.min.css" />
     <Content Include="assets\vendor\venobox\venobox.min.js" />
     <Content Include="assets\vendor\waypoints\jquery.waypoints.min.js" />
+    <Content Include="aulasvariaveis.mp4" />
     <Content Include="bin\30Code.dll" />
     <Content Include="bin\30Code.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -366,8 +367,7 @@
     <Content Include="Icons\esquerda.png" />
     <Content Include="Icons\iconeUsuario.png" />
     <Content Include="Icons\password.png" />
-    <Content Include="Images\IMG_20181110_093357.jpg" />
-    <Content Include="Images\WhatsApp Image 2020-10-19 at 12.32.44.jpeg" />
+    <Content Include="Images\1.jpg" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
     <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
     <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
@@ -406,7 +406,6 @@
     <Content Include="assets\vendor\owl.carousel\README.md" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="ComoSerEFETIVOnoDiaAdia.pdf" />
     <Content Include="Dia2.pdf" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />

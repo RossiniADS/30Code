@@ -28,6 +28,7 @@
                     Email = "gabriel@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "233123123",
+                    UrlImagem = "gabriel.jpeg",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Comum,
                     Sexos = Models.Usuario.Sexo.Masculino
@@ -36,7 +37,7 @@
                 new Models.Usuario
                 {
                     Id = 2,
-                    Nome = "Rossini",
+                    Nome = "Rossini Rodriguês Alves",
                     Email = "rossini_rodrigues_alves@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "35498198",
@@ -48,10 +49,11 @@
                 new Models.Usuario
                 {
                     Id = 3,
-                    Nome = "Vinicius Santos",
+                    Nome = "Vinicius Eklund",
                     Email = "vinicius@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "8978498",
+                    UrlImagem = "vinicius.png",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
                     Sexos = Models.Usuario.Sexo.Masculino
@@ -62,30 +64,79 @@
                 new Models.Curso
                 {
                     Id = 1,
-                    Nome = "Java",
+                    Nome = "Programação com Java",
                     Duracao = 200.00,
-                    Url_imagem = null
+                    Url_imagem = "java.jpg"
                 },
                 new Models.Curso
                 {
                     Id = 2,
-                    Nome = "C##",
+                    Nome = "Programação com C##",
                     Duracao = 200.00,
-                    Url_imagem = null
+                    Url_imagem = "csharp.png"
                 },
                 new Models.Curso
                 {
                     Id = 3,
-                    Nome = "C++",
+                    Nome = "Programação com C++",
                     Duracao = 200.00,
-                    Url_imagem = null
+                    Url_imagem = "cpp.png"
                 },
                 new Models.Curso
                 {
                     Id = 4,
-                    Nome = "ASP.NET",
+                    Nome = "Programação com JavaScript",
                     Duracao = 200.00,
-                    Url_imagem = null
+                    Url_imagem = "javascript.jpg"
+                },
+                new Models.Curso
+                {
+                    Id = 5,
+                    Nome = "Kotilin",
+                    Duracao = 200.00,
+                    Url_imagem = "Kotilin.jpg"
+                },
+                new Models.Curso
+                {
+                    Id = 6,
+                    Nome = "Banco de dados com MySql",
+                    Duracao = 200.00,
+                    Url_imagem = "mysql.png"
+                },
+                new Models.Curso
+                {
+                    Id = 7,
+                    Nome = "NodeJs",
+                    Duracao = 200.00,
+                    Url_imagem = "nodejs.jpg"
+                },
+                new Models.Curso
+                {
+                    Id = 8,
+                    Nome = "Banco de dados com Oracle",
+                    Duracao = 200.00,
+                    Url_imagem = "oracle.png"
+                },
+                new Models.Curso
+                {
+                    Id = 9,
+                    Nome = "Programação com PHP",
+                    Duracao = 200.00,
+                    Url_imagem = "PHP.png"
+                },
+                new Models.Curso
+                {
+                    Id = 10,
+                    Nome = "Programação com Python",
+                    Duracao = 200.00,
+                    Url_imagem = "python.png"
+                },
+                new Models.Curso
+                {
+                    Id = 11,
+                    Nome = "Banco de dados com SqlServer",
+                    Duracao = 200.00,
+                    Url_imagem = "sql_server.png"
                 });
             context.Modulo.AddOrUpdate(
                 new Models.Modulo

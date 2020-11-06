@@ -1,23 +1,43 @@
 ﻿@model IEnumerable<_30Code.Models.Curso>
+<style>
+    .card {
+        border-radius: 20px;
+        width: 17rem;
+    }
 
-<div class="mt-2 container">
-<h2>Cursos</h2>
-    <img src="~/Images/1.jpg" class="container" alt="#" />
+    @@media(max-width: 1200px) {
+        .card {
+            width: 100%;
+        }
+    }
+
+    @@media(max-width: 800px) {
+        #anuncio {
+            display: none;
+        }
+    }
+</style>
+
+<div class="mt-2 mb-2 container">
+    <h2>Cursos</h2>
+    <img id="anuncio" src="~/Images/1.jpg" class="container" alt="#" />
     <div class="row mt-3">
         @foreach (var item in Model)
         {
-            <div class="col-lg-4 col-md-6 mt-1">
-                <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/180x100" alt="Imagem de capa do card">
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-1 mb-2">
+                <div class="card h-100 shadow-lg">
+                    <img src="~/assets/img/Cursos/@item.Url_imagem" class="card-img-top" style="border-radius: 20px 20px 0 0" alt="...">
                     <div class="card-body">
-                        <p class="card-text">
-                            @Html.ActionLink(Convert.ToString(@Html.DisplayFor(modelItem => item.Nome)), "Index")
-                            Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.
-                        </p>
+                        <h5 class="card-title">@item.Nome</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="#" class="btn btn-primary">Comece agora!</a>
                     </div>
                 </div>
             </div>
         }
+
     </div>
 </div>
 
