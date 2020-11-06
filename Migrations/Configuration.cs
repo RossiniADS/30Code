@@ -174,6 +174,48 @@
                     Titulo = "POO",
                     ModuloId = 1,
                     TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 4,
+                    Titulo = "Lambda",
+                    ModuloId = 2,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 5,
+                    Titulo = "FrameWorkers",
+                    ModuloId = 2,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 6,
+                    Titulo = "Api",
+                    ModuloId = 2,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 7,
+                    Titulo = "Tratando Exceções",
+                    ModuloId = 3,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 8,
+                    Titulo = "Interfaces",
+                    ModuloId = 3,
+                    TipoId = 1
+                },
+                new Models.Conteudo
+                {
+                    Id = 9,
+                    Titulo = "Herança",
+                    ModuloId = 3,
+                    TipoId = 1
                 });
             context.Anexo.AddOrUpdate(
                 new Models.Anexo
@@ -223,6 +265,102 @@
                     DataPostagem = DateTime.Now,
                     Url = "aulasvariaveis.mp4",
                     ConteudoId = 3
+                },
+                 new Models.Anexo
+                 {
+                     Id = 1,
+                     Titulo = "Apostila Lambda",
+                     DataPostagem = DateTime.Now,
+                     Url = "Dia2.pdf",
+                     ConteudoId = 4
+                 },
+                new Models.Anexo
+                {
+                    Id = 2,
+                    Titulo = "Video Aula Lambda",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 4
+                },
+                 new Models.Anexo
+                 {
+                     Id = 3,
+                     Titulo = "Apostila FrameWorkers",
+                     DataPostagem = DateTime.Now,
+                     Url = "Dia2.pdf",
+                     ConteudoId = 5
+                 },
+                new Models.Anexo
+                {
+                    Id = 4,
+                    Titulo = "Video Aula FrameWorkers",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 5
+                },
+                 new Models.Anexo
+                 {
+                     Id = 5,
+                     Titulo = "Apostila Api",
+                     DataPostagem = DateTime.Now,
+                     Url = "Dia2.pdf",
+                     ConteudoId = 6
+                 },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Video Aula Api",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 6
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Apostila Tratando Exceções",
+                    DataPostagem = DateTime.Now,
+                    Url = "Dia2.pdf",
+                    ConteudoId = 7
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Video Aula Tratando Exceções",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 7
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Apostila Interfaces",
+                    DataPostagem = DateTime.Now,
+                    Url = "Dia2.pdf",
+                    ConteudoId = 8
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Video Aula Interfaces",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 8
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Apostila Herança",
+                    DataPostagem = DateTime.Now,
+                    Url = "Dia2.pdf",
+                    ConteudoId = 9
+                },
+                new Models.Anexo
+                {
+                    Id = 6,
+                    Titulo = "Video Aula Herança",
+                    DataPostagem = DateTime.Now,
+                    Url = "aulasvariaveis.mp4",
+                    ConteudoId = 9
                 });
         }
     }

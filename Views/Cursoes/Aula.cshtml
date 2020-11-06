@@ -169,6 +169,7 @@
 <div class="wrapper">
     @{
         var i = 0;
+        var dia = 1;
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -182,21 +183,22 @@
                         foreach (var cont in mod.Conteudos)
                         {
                             <li class="active">
-                                <a href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia 1 - @cont.Titulo</a>
+                                <a href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia @dia - @cont.Titulo</a>
                                 <ul id="homeSubmenu_@i" class="collapse list-unstyled">
                                     @{
                                         i += 1;
+                                        dia += 1;
                                     }
                                     @foreach (var conte in cont.Anexos)
                                     {
                                         <li>
-                                            <button class="a link" href="~/@conte.Conteudo.Anexos.FirstOrDefault().Url" onclick="mostrar('div1')">@conte.Conteudo.Anexos.FirstOrDefault().Titulo</button>
+                                            <button class="a link" href="~/@conte.Url" onclick="mostrar('div1')">@conte.Titulo</button>
                                         </li>
                                     }
                                 </ul>
                             </li>
-                            <br />
                         }
+                        <br />
                     }
                 </ul>
             </div>
@@ -214,10 +216,9 @@
         </nav>
         <div id="pai">
             <div id="div1" class="hidden">
-                @*<iframe src="" style="width: 100%;height: 590px;border: none;"></iframe>
-                    </div>
-                    <div id="div2" class="hidden">*@
-                <iframe style="width:100%; height:590px;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
             </div>
             <div id="div3" class="hidden">
                 <h1>Exercicio</h1>
