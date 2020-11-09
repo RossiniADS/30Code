@@ -21,20 +21,20 @@ namespace _30Code.Controllers
             var userId = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
             return View(db.Usuario.Find(userId));
         }
-
-        // GET: Usuarios/Details/5
+        // GET: Cursoes/Details/5
+        // GET: Comarcas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (User.Identity.IsAuthenticated == true)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+                Usuario usuario = db.Usuario.Find(id);
+                return View(usuario);
             }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Index");
             }
-            return View(usuario);
         }
 
         // GET: Usuarios/Create
@@ -80,8 +80,8 @@ namespace _30Code.Controllers
             if (User.Identity.IsAuthenticated == true)
             {
                 id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
-                Usuario usuario = db.Usuario.Find(id);
-                return View(usuario);
+                Usuario usuario = db.Usuario.Find(id); 
+                return View(usuario); 
             }
             else
             {
@@ -98,6 +98,7 @@ namespace _30Code.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

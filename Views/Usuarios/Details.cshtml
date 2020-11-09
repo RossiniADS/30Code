@@ -9,65 +9,38 @@
     <div>
         <h4>Usuario</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Nome) :
+                    @Html.DisplayFor(model => model.Nome)
 
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Email)  :
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Celular) :
+                    @Html.DisplayFor(model => model.Celular)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Nascimento) :
+                    @Html.DisplayFor(model => model.Nascimento)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.TiposUsuarios) :
+                    @Html.DisplayFor(model => model.TiposUsuarios)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Sexos) :
+                    @Html.DisplayFor(model => model.Sexos)
+                </div> 
+            </div> 
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Senha)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Senha)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Celular)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Celular)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Nascimento)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nascimento)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.TiposUsuarios)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.TiposUsuarios)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Sexos)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Sexos)
-            </dd>
-
-        </dl>
+        </div>
     </div>
+    <hr />
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Index")

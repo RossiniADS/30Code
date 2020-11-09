@@ -10,12 +10,13 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <h4>Usuario</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.Id)
-
+<div class="form-horizontal">
+    <h4>Usuario</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="col-6">
             <div class="form-group">
                 @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -23,7 +24,8 @@
                     @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -31,15 +33,9 @@
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
+        </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
+        <div class="col-6">
             <div class="form-group">
                 @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -47,23 +43,26 @@
                     @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+        </div>
+        <div class="col-6">
             <div class="form-group">
-                @Html.LabelFor(model => model.Nascimento, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label>&nbsp;&nbsp;&nbsp; Nascimento</label>
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Nascimento, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Nascimento, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+        </div>
+        <div class="col-6">
             <div class="form-group">
-                @Html.LabelFor(model => model.TiposUsuarios, htmlAttributes: new { @class = "control-label col-md-2" })
+                <label>&nbsp;&nbsp;&nbsp; Usuario</label>
                 <div class="col-md-10">
                     @Html.EnumDropDownListFor(model => model.TiposUsuarios, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.TiposUsuarios, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 @Html.LabelFor(model => model.Sexos, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -71,17 +70,26 @@
                     @Html.ValidationMessageFor(model => model.Sexos, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+        <div class="col-6">
+            <div class="form-group  ">
+                <div class="col-md-10 btn-light btn">
+                    <a href="https://localhost:44390/Usuarios/EsqueceuSenha">Atualizar Senha</a>
                 </div>
             </div>
-        </div>}
+        </div>
+    </div> 
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </div>
 
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
+</div>}
+ 
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
