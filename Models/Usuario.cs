@@ -24,8 +24,8 @@ namespace _30Code.Models
         [Display(Name = "Celular")]
         public string Celular { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Display(Name = "Data de Nascimento")]
         public DateTime? Nascimento { get; set; }
         [MaxLength(100)]
