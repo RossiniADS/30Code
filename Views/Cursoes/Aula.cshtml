@@ -67,15 +67,15 @@
     }
 
     #sidebar {
-        min-width: 250px;
-        max-width: 250px;
+        min-width: 372px;
+        max-width: 372px;
         background: #6959CD;
         color: #fff;
         transition: all 0.3s;
     }
 
         #sidebar.active {
-            margin-left: -250px;
+            margin-left: -372px;
         }
 
         #sidebar .sidebar-header {
@@ -149,7 +149,7 @@
 
     @@media (max-width: 768px) {
         #sidebar {
-            margin-left: -250px;
+            margin-left: -372px;
         }
 
             #sidebar.active {
@@ -175,7 +175,7 @@
             <div class="sidebar-header">
                 <h3>@Model.Nome</h3>
             </div>
-            <div style="overflow:scroll;height:1000px;width:100%; overflow:auto;">
+            <div style="overflow:scroll;height:883px;width:100%; overflow:auto;">
                 <ul class="list-unstyled components">
                     @foreach (var mod in Model.Modulos)
                     {
