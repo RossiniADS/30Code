@@ -51,7 +51,6 @@
             </div>
         </div>
     </section>-->
-
     <!-- ======= Header ======= -->
     <header id="header">
         <div class="container">
@@ -79,11 +78,11 @@
                                 <li>
                                     <input class="form-control login" type="email" placeholder="Email" />
                                     @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control login" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })*@
 
                                     <input class="form-control login" type="password" placeholder="Senha" />
                                     @*@Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control login" } })
-                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
+                                        @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })*@
 
                                     <input class="btn btn-primary form-control" type="submit" value="Login" />
                                 </li>
@@ -123,10 +122,8 @@
                                 <strong>Email:</strong> 30code@hotmail.com<br>
                             </p>
                             <div class="social-links mt-3">
-                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                                 <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
                                 <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                             </div>
                         </div>
@@ -135,21 +132,21 @@
                             <h4>Links uteis</h4>
                             <ul>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre nós</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Fale conosco</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Termos de serviço</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Politica de privacidade</a></li>
                             </ul>
                         </div>
 
                         <div class="col-lg-3 col-md-6 footer-links">
-                            <h4>Nossos serviços</h4>
+                            <h4>Cursos em destaque</h4>
                             <ul>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Programação Java</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Banco de dados MySql</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Programação C#</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">ASP.NET Core</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Spring framework</a></li>
                             </ul>
                         </div>
 
@@ -221,10 +218,9 @@
             break;
             case "info":
             titulo = "Informação";
-            break;
-}swal(titulo, "@Html.Raw(TempData["MSG"].ToString().Split('|')[1])",
-"@TempData["MSG"].ToString().Split('|')[0]");
-});
+                        break;
+                }swal(titulo, "@Html.Raw(TempData["MSG"].ToString().Split('|')[1])", "@TempData["MSG"].ToString().Split('|')[0]");
+            });
         </script>
     }
 

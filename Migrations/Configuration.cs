@@ -415,7 +415,7 @@
                 {
                     Id = 5,
                     Titulo = "Apostila Introdução a linguagem Java",
-                    Tipos = Models.Anexo.Tipo.Aula,
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "assets/ApostilasJava/Dia2.pdf",
                     ConteudoId = 3
@@ -433,7 +433,7 @@
                 {
                     Id = 7,
                     Titulo = "Apostila Variaveis",
-                    Tipos = Models.Anexo.Tipo.Aula,
+                    Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
                     Url = "assets/ApostilasJava/Dia2.pdf",
                     ConteudoId = 4
@@ -793,7 +793,7 @@
                  {
                      Id = 47,
                      Titulo = "Apostila Set",
-                     Tipos = Models.Anexo.Tipo.Aula,
+                     Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
                      Url = "assets/ApostilasJava/Dia2.pdf",
                      ConteudoId = 24
