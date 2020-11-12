@@ -14,6 +14,14 @@ namespace _30Code.Controllers
     {
         private Contexto db = new Contexto();
 
+        public ActionResult MeusCursos()
+        {
+            var id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+
+            var usuCurso = db.Usuario_has_curso.Where(x=> x.Usuario.Id == id).Include(u => u.Curso);
+            return View(usuCurso.ToList());
+        }
+
         // GET: Usuario_has_curso
         public ActionResult Index()
         {

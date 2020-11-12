@@ -49,14 +49,14 @@
     }
 
         #sidebar ul li button:hover {
-            color: black;
-            background: #f3f3f3;
+            color: #7386D5;
+            background: #fff;
         }
 
     ul ul button {
         font-size: 0.9em !important;
         padding-left: 30px !important;
-        background:     ;
+        background: #836FFF;
     }
 
 
@@ -69,7 +69,7 @@
     #sidebar {
         min-width: 450px;
         max-width: 450px;
-        background: #328bcb;
+        background: #6959CD;
         color: #fff;
         transition: all 0.3s;
     }
@@ -80,7 +80,7 @@
 
         #sidebar .sidebar-header {
             padding: 20px;
-            background: #328bcb;
+            background: #836FFF;
         }
 
         #sidebar ul.components {
@@ -110,8 +110,8 @@
     }
 
         #sidebar ul li a:hover {
-            color: black;
-            background: #f3f3f3;
+            color: #7386D5;
+            background: #fff;
         }
 
 
@@ -170,6 +170,7 @@
     @{
         var i = 0;
         var dia = 1;
+        var id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
@@ -216,9 +217,9 @@
                                     }
                                 </ul>
                             </li>
-                            if (cont.Usuario_Has_Curso_Has_Conteudos.FirstOrDefault() != null)
+                            if (cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault() != null)
                             {
-                                conclusao = cont.Usuario_Has_Curso_Has_Conteudos.FirstOrDefault().DataDeConclusao == null ? "" : "Ok";
+                                conclusao = cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault().DataDeConclusao == null ? "" : "Ok";
                             }
                             else
                             {

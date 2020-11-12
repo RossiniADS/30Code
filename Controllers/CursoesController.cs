@@ -27,7 +27,7 @@ namespace _30Code.Controllers
                 return View("Index");
             }
 
-            var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == id && uc.Usuario.Id == usu.Id);
+            var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == curso.Id && uc.Usuario.Id == usu.Id);
             if (alunoCurso != null)
             {
                 return View(curso);
@@ -35,7 +35,7 @@ namespace _30Code.Controllers
             alunoCurso = new Usuario_has_curso
             {
                 UsuarioId = Convert.ToInt32(User.Identity.Name.Split('|')[0]),
-                CursoId = id
+                CursoId = curso.Id
             };
 
             db.Usuario_has_curso.Add(alunoCurso);

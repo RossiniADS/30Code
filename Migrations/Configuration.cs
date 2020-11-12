@@ -1,4 +1,5 @@
-﻿namespace _30Code.Migrations
+﻿
+namespace _30Code.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -914,6 +915,44 @@
                     DataPostagem = DateTime.Now,
                     Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
                     ConteudoId = 30
+                });
+            context.Usuario_has_curso.AddOrUpdate(
+                new Models.Usuario_has_curso
+                {
+                    Id = 1,
+                    UsuarioId = 2,
+                    CursoId = 1,
+                },
+                 new Models.Usuario_has_curso
+                 {
+                     Id = 2,
+                     UsuarioId = 1,
+                     CursoId = 1,
+                 });
+            context.Usuario_has_curso_has_conteudo.AddOrUpdate(
+                new Models.Usuario_has_curso_has_conteudo
+                {
+                    Id = 1,
+                    Usuario_has_cursoId = 1,
+                    ConteudoId = 1,
+                    DataDeConclusao = DateTime.Now,
+                    Aproveitamento = "90"
+                },
+                new Models.Usuario_has_curso_has_conteudo
+                {
+                    Id = 2,
+                    Usuario_has_cursoId = 2,
+                    ConteudoId = 1,
+                    DataDeConclusao = DateTime.Now,
+                    Aproveitamento = "90"
+                },
+                new Models.Usuario_has_curso_has_conteudo
+                {
+                    Id = 3,
+                    Usuario_has_cursoId = 2,
+                    ConteudoId = 2,
+                    DataDeConclusao = DateTime.Now,
+                    Aproveitamento = "90"
                 });
         }
     }

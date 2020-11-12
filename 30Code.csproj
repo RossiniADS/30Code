@@ -143,9 +143,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011060423377_Banco.cs" />
-    <Compile Include="Migrations\202011060423377_Banco.designer.cs">
-      <DependentUpon>202011060423377_Banco.cs</DependentUpon>
+    <Compile Include="Migrations\202011122034576_Banco.cs" />
+    <Compile Include="Migrations\202011122034576_Banco.designer.cs">
+      <DependentUpon>202011122034576_Banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternativa.cs" />
@@ -697,6 +697,7 @@
     <Content Include="Views\Usuarios\Email.cshtml" />
     <Content Include="Views\Usuarios\EsqueceuSenha.cshtml" />
     <Content Include="Views\Usuarios\Redefinir.cshtml" />
+    <Content Include="Views\Usuario_has_curso\MeusCursos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -705,8 +706,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011060423377_Banco.resx">
-      <DependentUpon>202011060423377_Banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011122034576_Banco.resx">
+      <DependentUpon>202011122034576_Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
