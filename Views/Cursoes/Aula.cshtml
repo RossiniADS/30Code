@@ -180,10 +180,29 @@
                     @foreach (var mod in Model.Modulos)
                     {
                         <p>@mod.Titulo</p>
+                        var conclusao = "";
+                        if (dia == 1)
+                        {
+                            conclusao = "Ok";
+                        }
                         foreach (var cont in mod.Conteudos)
                         {
                             <li class="active">
-                                <a href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dia @dia - @cont.Titulo</a>
+                                @if (conclusao != "")
+                                {
+
+                                    <a href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                        Dia @dia - @cont.Titulo
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#homeSubmenu_@i" disabled="disabled" aria-expanded="false" class="dropdown-toggle">
+                                        Dia @dia - @cont.Titulo
+                                        <i class="icofont-lock" style="float:right; padding-right:6px;"></i>
+                                    </a>
+
+                                }
                                 <ul id="homeSubmenu_@i" class="collapse list-unstyled">
                                     @{
                                         i += 1;
@@ -197,6 +216,15 @@
                                     }
                                 </ul>
                             </li>
+                            if (cont.Usuario_Has_Curso_Has_Conteudos.FirstOrDefault() != null)
+                            {
+                                conclusao = cont.Usuario_Has_Curso_Has_Conteudos.FirstOrDefault().DataDeConclusao == null ? "" : "Ok";
+                            }
+                            else
+                            {
+                                conclusao = "";
+                            }
+
                         }
                         <br />
                     }

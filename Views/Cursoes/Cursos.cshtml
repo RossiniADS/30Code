@@ -32,7 +32,7 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                     <div class="card-footer text-right">
-                        <a href="#" class="btn btn-primary">Comece agora!</a>
+                        @Html.ActionLink("Comece agora!", "Aula", "Cursoes", new { id = item.Id}, new { @class = "btn btn-primary", @role = "button" })
                     </div>
                 </div>
             </div>

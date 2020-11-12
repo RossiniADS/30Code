@@ -12,5 +12,6 @@ namespace _30Code.Models
         public virtual Usuario Usuario { get; set; }
         public int CursoId { get; set; }
         public virtual Curso Curso { get; set; }
+        public virtual ICollection<Usuario_has_curso_has_conteudo> Usuario_Has_Curso_Has_Conteudos { get; set; }
     }
 }

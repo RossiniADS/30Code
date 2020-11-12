@@ -18,9 +18,28 @@ namespace _30Code.Controllers
             return View(db.Curso.ToList());
         }
 
-        public ActionResult Aula()
+        public ActionResult Aula(int id)
         {
-            var curso = db.Curso.Find(1);
+            var curso = db.Curso.Find(id);
+            var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
+            if (usu == null || curso == null)
+            {
+                return View("Index");
+            }
+
+            var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == id && uc.Usuario.Id == usu.Id);
+            if (alunoCurso != null)
+            {
+                return View(curso);
+            }
+            alunoCurso = new Usuario_has_curso
+            {
+                UsuarioId = Convert.ToInt32(User.Identity.Name.Split('|')[0]),
+                CursoId = id
+            };
+
+            db.Usuario_has_curso.Add(alunoCurso);
+            db.SaveChanges();
             return View(curso);
         }
         // GET: Cursoes
@@ -30,7 +49,7 @@ namespace _30Code.Controllers
         }
 
         // GET: Cursoes/Details/5
-         // GET: Comarcas/Details/5
+        // GET: Comarcas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

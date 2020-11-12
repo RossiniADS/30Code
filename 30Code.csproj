@@ -244,7 +244,8 @@
     <Content Include="assets\vendor\venobox\venobox.min.css" />
     <Content Include="assets\vendor\venobox\venobox.min.js" />
     <Content Include="assets\vendor\waypoints\jquery.waypoints.min.js" />
-    <Content Include="aulasvariaveis.mp4" />
+    <Content Include="assets\VideoAulaJava\AulaJavaDate.mp4" />
+    <Content Include="assets\VideoAulaJava\AulaJavaVariavel.mp4" />
     <Content Include="bin\30Code.dll" />
     <Content Include="bin\30Code.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -406,7 +407,8 @@
     <Content Include="assets\vendor\owl.carousel\README.md" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Dia2.pdf" />
+    <Content Include="assets\ApostilasJava\Dia16.pdf" />
+    <Content Include="assets\ApostilasJava\Dia2.pdf" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />

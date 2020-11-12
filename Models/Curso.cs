@@ -17,5 +17,6 @@ namespace _30Code.Models
         public double Duracao { get; set; }
         public string Url_imagem { get; set; }
         public virtual ICollection<Modulo> Modulos { get; set; }
+        public virtual ICollection<Usuario_has_curso> Usuario_Has_Cursos { get; set; }
     }
 }
