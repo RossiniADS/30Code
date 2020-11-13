@@ -215,6 +215,9 @@
                                             <button class="a link" href="~/@conte.Url" onclick="mostrar('div1')">@conte.Tipos</button>
                                         </li>
                                     }
+                                    <li>
+                                        <button class="a link" onclick="mostrar('div3')">Prova</button>
+                                    </li>
                                 </ul>
                             </li>
                             if (cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault() != null)
@@ -251,65 +254,31 @@
             </div>
             <div id="div3" class="hidden">
                 <h1>Exercicio</h1>
+                @{
+                    var contador = 1;
+                    <form id="questionario" name="nomeDoQuestionario" method="post" action="resposta">
+                        <p> 1) De acordo com o estudo do texto que acabamos de lê, assinale o que ele representa:</p>
 
-                <h4>1) Uma Senhora chamada Maria tem 40 anos de idade,e um programador que declarar uma variavel chamada idade armazenando a idade dela .Qual das alternativas ira retornar a sua idade(em decimal) de forma correta!</h4>
-                <form>
-                </form>
-                <input type="radio" id="questaoA" name="A" value="radio" checked>
-                <i for="respotaA">
-                    public class Idade{public static void main(String[] args){int idade = 20;System.out.println(idade);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaB">
-                    public class Idade{public static void main(String[] args){int idade;System.out.println(idade);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaC">
-                    public class Idade{public static void main(String[] args){float idade = 20f;System.out.println(idade);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaD">
-                    public class Idade{public static void main(String[] args){String idade = "20";System.out.println(idade);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaE">
-                    public class Idade{public static void main(String[] args){double idade = 20;System.out.println(idade);}}
-                </i>
-                <hr />
-
-                <h4>2) Um Senhor Chamado Jõao quer um programa para ele. Um programador quer declarar uma variavel chamada nome armazenando o nome do Jõao .Qual das alternativas ira retornar seu nome de forma correta!</h4>
-                <form>
-                </form>
-                <input type="radio" id="questaoA" name="A" value="radio" checked>
-                <i for="respotaA">
-                    public class Idade{public static void main(String[] args){String nome = João;System.out.println(nome);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaB">
-                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(nome);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaC">
-                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(João);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaD">
-                    public class Idade{public static void main(String[] args){String nome = "João";System.out.println(String);}}
-                </i>
-                <br />
-                <input type="radio">
-                <i for="respotaE">
-                    public class Idade{public static void main(String[] args){String nome = João;System.out.println(João);}}
-                </i>
-                <br />
-                <input type="submit" value="Confirmar Resposta" />
+                        <label>
+                            <input type="radio" name="questao_@contador++" value="a" /> A) resposta1;
+                        </label>
+                        <br />
+                        <label>
+                            <input type="radio" name="questao_@contador++" value="b" /> B) resposta2;
+                        </label>
+                        <br />
+                        <label>
+                            <input type="radio" name="questao_@contador++" value="c" /> C) resposta3;
+                        </label>
+                        <br />
+                        <label>
+                            <input type="radio" name="questao_@contador++" value="d" /> D) resposta4.
+                        </label>
+                        <br />
+                    </form>
+                    <input type="submit" value="Confirmar Resposta" />
+                    contador = 1;
+                }
             </div>
 
             <div id="div4" class="hidden"><h1>Prova</h1></div>
@@ -331,7 +300,6 @@
     function mostrar(id) {
         $('#pai > div').each(function () {
             $(this).hide();
-
         });
         $("#" + id).show();
     }
