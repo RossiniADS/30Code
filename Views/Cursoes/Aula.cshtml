@@ -1,4 +1,4 @@
-﻿@model _30Code.Models.Curso
+﻿@model _30Code.Models.Aula
 
 @{ ViewBag.Title = "Aula"; }
 <style>
@@ -174,11 +174,11 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>@Model.Nome</h3>
+                <h3>@Model.Cursos.Nome<</h3>
             </div>
             <div style="overflow:scroll;height:883px;width:100%; overflow:auto;">
                 <ul class="list-unstyled components">
-                    @foreach (var mod in Model.Modulos)
+                    @foreach (var mod in Model.Cursos.Modulos)
                     {
                         <p>@mod.Titulo</p>
                         var conclusao = "";
@@ -209,10 +209,10 @@
                                         i += 1;
                                         dia += 1;
                                     }
-                                    @foreach (var conte in cont.Anexos)
+                                    @foreach (var ane in cont.Anexos)
                                     {
                                         <li>
-                                            <button class="a link" href="~/@conte.Url" onclick="mostrar('div1')">@conte.Tipos</button>
+                                            <button class="a link" href="~/@ane.Url" onclick="mostrar('div1')">@ane.Tipos</button>
                                         </li>
                                     }
                                     <li>

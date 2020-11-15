@@ -14,6 +14,18 @@ namespace _30Code.Models
         public string Resposta { get; set; }
         [Required]
         [MaxLength(80)]
+        public string Resposta2 { get; set; }
+        [Required]
+        [MaxLength(80)]
+        public string Resposta3 { get; set; }
+        [Required]
+        [MaxLength(80)]
+        public string Resposta4 { get; set; }
+        [Required]
+        [MaxLength(80)]
+        public string Resposta5 { get; set; }
+        [Required]
+        [MaxLength(80)]
         public string AlternativaCorreta { get; set; }
         [Required]
         public int QuestaoId { get; set; }

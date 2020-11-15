@@ -954,6 +954,59 @@ namespace _30Code.Migrations
                     DataDeConclusao = DateTime.Now,
                     Aproveitamento = "90"
                 });
+            context.Questoes.AddOrUpdate(
+                new Models.Questoes
+                {
+                    Id = 1,
+                    Titulo = "Qual a melhor linguagem?",
+                    ConteudoId = 1
+                },
+                new Models.Questoes
+                {
+                    Id = 2,
+                    Titulo = "Qual a linguagem da moda?",
+                    ConteudoId = 1
+                },
+                new Models.Questoes
+                {
+                    Id = 3,
+                    Titulo = "Qual a melhor profissão?",
+                    ConteudoId = 1
+                });
+            context.Alternativa.AddOrUpdate(
+                new Models.Alternativa
+                {
+                    Id = 1,
+                    Resposta = "Java",
+                    Resposta2 = "C#",
+                    Resposta3 = "Python",
+                    Resposta4 = "MySQL",
+                    Resposta5 = "C++",
+                    AlternativaCorreta = "Java",
+                    QuestaoId = 1
+                },
+                new Models.Alternativa
+                {
+                    Id = 1,
+                    Resposta = "Java",
+                    Resposta2 = "C#",
+                    Resposta3 = "Python",
+                    Resposta4 = "MySQL",
+                    Resposta5 = "C++",
+                    AlternativaCorreta = "Python",
+                    QuestaoId = 1
+                },
+                new Models.Alternativa
+                {
+                    Id = 1,
+                    Resposta = "Programador",
+                    Resposta2 = "Engenheiro",
+                    Resposta3 = "Médico",
+                    Resposta4 = "Analista",
+                    Resposta5 = "Jogador",
+                    AlternativaCorreta = "Programador",
+                    QuestaoId = 1
+                });
         }
     }
 }

@@ -143,9 +143,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011122034576_Banco.cs" />
-    <Compile Include="Migrations\202011122034576_Banco.designer.cs">
-      <DependentUpon>202011122034576_Banco.cs</DependentUpon>
+    <Compile Include="Migrations\202011142112410_Banco.cs" />
+    <Compile Include="Migrations\202011142112410_Banco.designer.cs">
+      <DependentUpon>202011142112410_Banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternativa.cs" />
@@ -160,6 +160,7 @@
     <Compile Include="Models\Usuario_has_curso.cs" />
     <Compile Include="Models\Usuario_has_curso_has_conteudo.cs" />
     <Compile Include="Models\Usuario_has_curso_has_conteudo_has_questoes.cs" />
+    <Compile Include="Models\VMCurso.cs" />
     <Compile Include="Models\VMUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -644,8 +645,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011122034576_Banco.resx">
-      <DependentUpon>202011122034576_Banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011142112410_Banco.resx">
+      <DependentUpon>202011142112410_Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
