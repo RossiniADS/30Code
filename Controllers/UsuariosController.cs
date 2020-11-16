@@ -15,6 +15,18 @@ namespace _30Code.Controllers
     {
         private Contexto db = new Contexto();
 
+        public ActionResult SejaPremium()
+        {
+            if (User.Identity.IsAuthenticated == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Create");
+            }
+        }
+
         // GET: Usuarios
         public ActionResult Index()
         {

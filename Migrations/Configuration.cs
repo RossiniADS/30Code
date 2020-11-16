@@ -382,7 +382,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Introdução ao curso",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia1.pdf",
                     ConteudoId = 1
                 },
                 new Models.Anexo
@@ -418,7 +418,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Introdução a linguagem Java",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia3.pdf",
                     ConteudoId = 3
                 },
                 new Models.Anexo
@@ -436,7 +436,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Variaveis",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia4.pdf",
                     ConteudoId = 4
                 },
                 new Models.Anexo
@@ -454,7 +454,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia5pdf",
                     ConteudoId = 5
                 },
                 new Models.Anexo
@@ -472,7 +472,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Estruturas condicionais",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia6.pdf",
                     ConteudoId = 6
                 },
                 new Models.Anexo
@@ -490,7 +490,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Estruturas de repetição",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia7.pdf",
                      ConteudoId = 7
                  },
                 new Models.Anexo
@@ -508,7 +508,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Outros tópicos basicos",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia8.pdf",
                      ConteudoId = 8
                  },
                 new Models.Anexo
@@ -526,7 +526,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Introdução a POO",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia9.pdf",
                     ConteudoId = 9
                 },
                 new Models.Anexo
@@ -544,7 +544,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Construtores",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia10.pdf",
                     ConteudoId = 10
                 },
                 new Models.Anexo
@@ -562,7 +562,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Sobrecarga",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia11.pdf",
                     ConteudoId = 11
                 },
                 new Models.Anexo
@@ -580,7 +580,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila encapsulamento",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia12.pdf",
                     ConteudoId = 12
                 },
                 new Models.Anexo
@@ -598,7 +598,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Gets e Sets",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia13.pdf",
                      ConteudoId = 13
                  },
                 new Models.Anexo
@@ -616,7 +616,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Arrays",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia14.pdf",
                      ConteudoId = 14
                  },
                 new Models.Anexo
@@ -634,7 +634,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Listas",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia15.pdf",
                      ConteudoId = 15
                  },
                 new Models.Anexo
@@ -652,7 +652,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Dates",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia16.pdf",
                      ConteudoId = 16
                  },
                 new Models.Anexo
@@ -670,7 +670,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Enumeração",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia17.pdf",
                     ConteudoId = 17
                 },
                 new Models.Anexo
@@ -688,7 +688,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Herança",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia18.pdf",
                     ConteudoId = 18
                 },
                 new Models.Anexo
@@ -706,7 +706,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Polimorfismo",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia19.pdf",
                     ConteudoId = 19
                 },
                 new Models.Anexo
@@ -724,7 +724,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Tratamento de exceções",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia20.pdf",
                      ConteudoId = 20
                  },
                 new Models.Anexo
@@ -742,7 +742,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Lendo arquivos de texto",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia21.pdf",
                      ConteudoId = 21
                  },
                 new Models.Anexo
@@ -760,7 +760,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Interfaces",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia22.pdf",
                      ConteudoId = 22
                  },
                 new Models.Anexo
@@ -778,7 +778,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Generics",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia23.pdf",
                      ConteudoId = 23
                  },
                  new Models.Anexo
@@ -796,7 +796,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Set",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia24.pdf",
                      ConteudoId = 24
                  },
                  new Models.Anexo
@@ -814,7 +814,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Map",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia25.pdf",
                      ConteudoId = 25
                  },
                 new Models.Anexo
@@ -832,7 +832,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Expressões Lambda",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia26.pdf",
                     ConteudoId = 26
                 },
                 new Models.Anexo
@@ -850,7 +850,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Conexão com banco de dados",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia27.pdf",
                     ConteudoId = 27
                 },
                 new Models.Anexo
@@ -868,7 +868,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Interface grafica JavaFX",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia28.pdf",
                     ConteudoId = 28
                 },
                 new Models.Anexo
@@ -886,7 +886,7 @@ namespace _30Code.Migrations
                     Titulo = "Apostila Projeto de revisão",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "assets/ApostilasJava/Dia29.pdf",
                     ConteudoId = 29
                 },
                 new Models.Anexo
@@ -904,7 +904,7 @@ namespace _30Code.Migrations
                      Titulo = "Apostila Prova final",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia2.pdf",
+                     Url = "assets/ApostilasJava/Dia30.pdf",
                      ConteudoId = 30
                  },
                 new Models.Anexo
