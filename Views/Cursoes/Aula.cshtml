@@ -174,7 +174,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>@Model.Cursos.Nome<</h3>
+                <h3>@Model.Cursos.Nome</h3>
             </div>
             <div style="overflow:scroll;height:883px;width:100%; overflow:auto;">
                 <ul class="list-unstyled components">
@@ -216,7 +216,7 @@
                                         </li>
                                     }
                                     <li>
-                                        <button class="a link" onclick="mostrar('div3')">Prova</button>
+                                        <button class="a link" id="btnExercicio" value="@cont.Id" onclick="mostrar('div3');">Prova</button>
                                     </li>
                                 </ul>
                             </li>
@@ -254,31 +254,28 @@
             </div>
             <div id="div3" class="hidden">
                 <h1>Exercicio</h1>
-                @{
-                    var contador = 1;
-                    <form id="questionario" name="nomeDoQuestionario" method="post" action="resposta">
-                        <p> 1) De acordo com o estudo do texto que acabamos de lê, assinale o que ele representa:</p>
+                <form id="questionario" name="nomeDoQuestionario" method="post" action="resposta">
+                    <p id="questao"> 1)  </p>
 
-                        <label>
-                            <input type="radio" name="questao_@contador++" value="a" /> A) resposta1;
-                        </label>
-                        <br />
-                        <label>
-                            <input type="radio" name="questao_@contador++" value="b" /> B) resposta2;
-                        </label>
-                        <br />
-                        <label>
-                            <input type="radio" name="questao_@contador++" value="c" /> C) resposta3;
-                        </label>
-                        <br />
-                        <label>
-                            <input type="radio" name="questao_@contador++" value="d" /> D) resposta4.
-                        </label>
-                        <br />
-                    </form>
-                    <input type="submit" value="Confirmar Resposta" />
-                    contador = 1;
-                }
+                    <label>
+                        <input type="radio" id="alt1" name="questao" value="a" /> A) resposta1;
+                    </label>
+                    <br />
+                    <label>
+                        <input type="radio" id="alt2" name="questao" value="b" /> B) resposta2;
+                    </label>
+                    <br />
+                    <label>
+                        <input type="radio" id="alt3" name="questao" value="c" /> C) resposta3;
+                    </label>
+                    <br />
+                    <label>
+                        <input type="radio" id="alt4" name="questao" value="d" /> D) resposta4.
+                    </label>
+                    <br />
+                </form>
+                <input type="submit" value="Confirmar Resposta" />
+
             </div>
 
             <div id="div4" class="hidden"><h1>Prova</h1></div>
@@ -291,6 +288,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
+
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
@@ -322,4 +320,42 @@
     //        }
     //    });
     //});
+
+
+
+
+    //function myFunction() {
+    //    var x = document.getElementById("btnExercicio").value;
+    //    $.ajax({
+    //        dataType: "json",
+    //        type: "POST",
+    //        data: { x },
+    //        url: "/Usuarios/getExercicio/",
+    //        success: function (retorno) {
+    //            if (retorno != null) {
+    //                //$("#questao").append(retorno[0]);
+    //                document.getElementById("questao").innerHTML = x;
+    //            } else {
+    //                document.getElementById("questao").innerHTML = x;
+    //            }
+    //        }
+    //    });
+    //};
+
+    $("#btnExercicio").click(function () {
+        var id = $(this).val();
+        $.ajax({
+            dataType: "json",
+            type: "POST",
+            data: { id },
+            url: "/Cursoes/getExercicio",
+            success: function (retorno) {
+                if (retorno != null) {
+                    document.getElementById("questao").innerHTML = "FOi";
+                } else {
+                    document.getElementById("questao").innerHTML = "RUIM";
+                }
+            }
+        });
+    });
 </script>

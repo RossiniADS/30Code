@@ -391,7 +391,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Introdução ao curso",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia1.mp4",
                     ConteudoId = 1
                 },
                 new Models.Anexo
@@ -409,7 +409,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Linguagem de programação",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia2.mp4",
                     ConteudoId = 2
                 },
                 new Models.Anexo
@@ -427,7 +427,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Introdução a linguagem Java",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia3.mp4",
                     ConteudoId = 3
                 },
                 new Models.Anexo
@@ -445,7 +445,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Variaveis",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia4.mp4",
                     ConteudoId = 4
                 },
                 new Models.Anexo
@@ -463,7 +463,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia5pdf.mp4",
                     ConteudoId = 5
                 },
                 new Models.Anexo
@@ -481,7 +481,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Estruturas condicionais",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia6.mp4",
                     ConteudoId = 6
                 },
                  new Models.Anexo
@@ -499,7 +499,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Estruturas de repetição",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia7.mp4",
                     ConteudoId = 7
                 },
                  new Models.Anexo
@@ -517,7 +517,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Outros tópicos basicos",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia8.mp4",
                     ConteudoId = 8
                 },
                 new Models.Anexo
@@ -535,7 +535,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Introdução a POO",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia9.mp4",
                     ConteudoId = 9
                 },
                 new Models.Anexo
@@ -553,7 +553,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Construtores",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia10.mp4",
                     ConteudoId = 10
                 },
                 new Models.Anexo
@@ -571,7 +571,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Sobrecarga",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia11.mp4",
                     ConteudoId = 11
                 },
                 new Models.Anexo
@@ -589,7 +589,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula encapsulamento",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia12.mp4",
                     ConteudoId = 12
                 },
                  new Models.Anexo
@@ -607,7 +607,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Gets e Sets",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia13.mp4",
                     ConteudoId = 13
                 },
                  new Models.Anexo
@@ -625,7 +625,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Arrays",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia14.mp4",
                     ConteudoId = 14
                 },
                  new Models.Anexo
@@ -643,7 +643,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Listas",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia15.mp4",
                     ConteudoId = 15
                 },
                  new Models.Anexo
@@ -661,7 +661,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Dates",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia16.mp4",
                     ConteudoId = 16
                 },
                 new Models.Anexo
@@ -679,7 +679,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Enumeração",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia17.mp4",
                     ConteudoId = 17
                 },
                 new Models.Anexo
@@ -697,7 +697,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Herança",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia18.mp4",
                     ConteudoId = 18
                 },
                 new Models.Anexo
@@ -715,7 +715,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Polimorfismo",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia19.mp4",
                     ConteudoId = 19
                 },
                  new Models.Anexo
@@ -733,7 +733,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Tratamento de exceções",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia20.mp4",
                     ConteudoId = 20
                 },
                  new Models.Anexo
@@ -751,7 +751,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Lendo arquivos de texto",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia21.mp4",
                     ConteudoId = 21
                 },
                  new Models.Anexo
@@ -769,7 +769,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Interfaces",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia22.mp4",
                     ConteudoId = 22
                 },
                  new Models.Anexo
@@ -787,7 +787,7 @@ namespace _30Code.Migrations
                      Titulo = "Aula Generics",
                      Tipos = Models.Anexo.Tipo.Aula,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                     Url = "assets/VideoAulaJava/Dia23.mp4",
                      ConteudoId = 23
                  },
                  new Models.Anexo
@@ -805,7 +805,7 @@ namespace _30Code.Migrations
                      Titulo = "Aula Set",
                      Tipos = Models.Anexo.Tipo.Aula,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                     Url = "assets/VideoAulaJava/Dia24.mp4",
                      ConteudoId = 24
                  },
                  new Models.Anexo
@@ -823,7 +823,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Map",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia25.mp4",
                     ConteudoId = 25
                 },
                 new Models.Anexo
@@ -841,7 +841,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Expressões Lambda",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia26.mp4",
                     ConteudoId = 26
                 },
                 new Models.Anexo
@@ -859,7 +859,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Conexão com banco de dados",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia27.mp4",
                     ConteudoId = 27
                 },
                 new Models.Anexo
@@ -877,7 +877,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Interface grafica JavaFX",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia28.mp4",
                     ConteudoId = 28
                 },
                 new Models.Anexo
@@ -895,7 +895,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Projeto de revisão",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia29.mp4",
                     ConteudoId = 29
                 },
                  new Models.Anexo
@@ -913,7 +913,7 @@ namespace _30Code.Migrations
                     Titulo = "Aula Prova final",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/AulaJavaVariavel.mp4",
+                    Url = "assets/VideoAulaJava/Dia30.mp4",
                     ConteudoId = 30
                 });
             context.Usuario_has_curso.AddOrUpdate(

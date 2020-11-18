@@ -18,17 +18,26 @@ namespace _30Code.Controllers
             return View(db.Curso.ToList());
         }
 
+        [AcceptVerbs(HttpVerbs.Post)]
+        [ValidateInput(false)]
+        public JsonResult getExercicio(string id)
+        {
+            var id2 = Convert.ToInt32(id);
+            var resultado = db.Questoes.Where(x => x.Id == id2).ToList();
+            if (resultado == null)
+            {
+                return Json("n");
+            }
+            else
+            {
+                return Json(resultado);
+            }
+        }
+
         public ActionResult Aula(int id)
         {
             Aula aula = new Aula();
             var curso = db.Curso.Find(id);
-
-            //Conteudo cont = new Conteudo();
-            //var questao = db.Questoes.Find();
-
-            //Alternativa alter = new Alternativa();
-            //var alt = db.Alternativa.Find(alter.QuestaoId);
-
 
             aula.Cursos = new Cursos();
 
@@ -36,22 +45,6 @@ namespace _30Code.Controllers
             aula.Cursos.Url_imagem = curso.Url_imagem;
             aula.Cursos.Modulos = curso.Modulos;
             aula.Cursos.Usuario_Has_Cursos = curso.Usuario_Has_Cursos;
-
-            //aula.Questao = new Questao();
-            //aula.Questao.Titulo = questao.Titulo;
-            //aula.Questao.Conteudo = questao.Conteudo;
-            //aula.Questao.ConteudoId = questao.ConteudoId;
-            //aula.Questao.Usuario_has_curso_Has_Conteudo_Has_Questoes = questao.Usuario_has_curso_Has_Conteudo_Has_Questoes;
-
-            //aula.Alternativas = new Alternativas();
-            //aula.Alternativas.Resposta = alt.Resposta;
-            //aula.Alternativas.Resposta2 = alt.Resposta2;
-            //aula.Alternativas.Resposta3 = alt.Resposta3;
-            //aula.Alternativas.Resposta4 = alt.Resposta4;
-            //aula.Alternativas.Resposta5 = alt.Resposta5;
-            //aula.Alternativas.AlternativaCorreta = alt.AlternativaCorreta;
-            //aula.Alternativas.Questoes = alt.Questoes;
-            //aula.Alternativas.QuestaoId = alt.QuestaoId;
 
             var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
             if (usu == null || curso == null)
