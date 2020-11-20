@@ -26,76 +26,81 @@ namespace _30Code.Controllers
 
         public ActionResult Aula(int id)
         {
-            Aula aula = new Aula();
-            var curso = db.Curso.Find(id);
-
-            aula.Cursos = new Cursos();
-
-            aula.Cursos.Nome = curso.Nome;
-            aula.Cursos.Url_imagem = curso.Url_imagem;
-            aula.Cursos.Modulos = curso.Modulos;
-            aula.Cursos.Usuario_Has_Cursos = curso.Usuario_Has_Cursos;
-
-            var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
-            if (usu == null || curso == null)
+            if (User.Identity.IsAuthenticated == true)
             {
-                return View("Index");
-            }
+                Aula aula = new Aula();
+                var curso = db.Curso.Find(id);
 
-            aula.ModuloVMs = new List<ModuloVM>();
-            var mods = db.Modulo.Where(x => x.CursoId == curso.Id).ToList();
-            foreach (var item in mods)
-            {
-                ModuloVM moduloVM = new ModuloVM();
-                moduloVM.Id = item.Id;
-                moduloVM.ConteudoVMs = new List<ConteudoVM>();
-                var conteudo = db.Conteudo.Where(x => x.ModuloId == item.Id).ToList();
-                foreach (var cont in conteudo)
+                aula.CursoVMs = new CursoVM();
+
+                aula.CursoVMs.Nome = curso.Nome;
+                aula.CursoVMs.Url_imagem = curso.Url_imagem;
+                aula.CursoVMs.Modulos = curso.Modulos;
+                aula.CursoVMs.Usuario_Has_Cursos = curso.Usuario_Has_Cursos;
+
+                var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
+                if (usu == null || curso == null)
                 {
-                    ConteudoVM conteudoVM = new ConteudoVM();
-                    conteudoVM.Id = cont.Id;
-                    conteudoVM.Titulo = cont.Titulo;
-                    conteudoVM.QuestaoVMs = new List<QuestaoVM>();
-                    var questao = db.Questoes.Where(x => x.ConteudoId == cont.Id).ToList();
-                    foreach (var que in questao)
-                    {
-                        QuestaoVM questaoVM = new QuestaoVM();
-                        questaoVM.Id = que.Id;
-                        questaoVM.Titulo = que.Titulo;
-                        questaoVM.AlternativaVMs = new List<AlternativaVM>();
-
-                        var alternativas = db.Alternativa.Where(x => x.QuestoesId == que.Id).ToList();
-                        foreach (var alt in alternativas)
-                        {
-                            AlternativaVM alternativaVM = new AlternativaVM();
-                            alternativaVM.Id = alt.Id;
-                            alternativaVM.Resposta = alt.Resposta;
-
-                            questaoVM.AlternativaVMs.Add(alternativaVM);
-                        }
-                        conteudoVM.QuestaoVMs.Add(questaoVM);
-                    }
-                    moduloVM.ConteudoVMs.Add(conteudoVM);
+                    return View("Index");
                 }
-                aula.ModuloVMs.Add(moduloVM);
-            }
 
-            var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == curso.Id && uc.Usuario.Id == usu.Id);
-            if (alunoCurso != null)
-            {
+                aula.ModuloVMs = new List<ModuloVM>();
+                var mods = db.Modulo.Where(x => x.CursoId == curso.Id).ToList();
+                foreach (var item in mods)
+                {
+                    ModuloVM moduloVM = new ModuloVM();
+                    moduloVM.Id = item.Id;
+                    moduloVM.ConteudoVMs = new List<ConteudoVM>();
+                    var conteudo = db.Conteudo.Where(x => x.ModuloId == item.Id).ToList();
+                    foreach (var cont in conteudo)
+                    {
+                        ConteudoVM conteudoVM = new ConteudoVM();
+                        conteudoVM.Id = cont.Id;
+                        conteudoVM.Titulo = cont.Titulo;
+                        conteudoVM.QuestaoVMs = new List<QuestaoVM>();
+                        var questao = db.Questoes.Where(x => x.ConteudoId == cont.Id).ToList();
+                        foreach (var que in questao)
+                        {
+                            QuestaoVM questaoVM = new QuestaoVM();
+                            questaoVM.Id = que.Id;
+                            questaoVM.Titulo = que.Titulo;
+                            questaoVM.AlternativaVMs = new List<AlternativaVM>();
+
+                            var alternativas = db.Alternativa.Where(x => x.QuestoesId == que.Id).ToList();
+                            foreach (var alt in alternativas)
+                            {
+                                AlternativaVM alternativaVM = new AlternativaVM();
+                                alternativaVM.Id = alt.Id;
+                                alternativaVM.Resposta = alt.Resposta;
+
+                                questaoVM.AlternativaVMs.Add(alternativaVM);
+                            }
+                            conteudoVM.QuestaoVMs.Add(questaoVM);
+                        }
+                        moduloVM.ConteudoVMs.Add(conteudoVM);
+                    }
+                    aula.ModuloVMs.Add(moduloVM);
+                }
+
+                var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == curso.Id && uc.Usuario.Id == usu.Id);
+                if (alunoCurso != null)
+                {
+                    return View(aula);
+                }
+                alunoCurso = new Usuario_has_curso
+                {
+                    UsuarioId = Convert.ToInt32(User.Identity.Name.Split('|')[0]),
+                    CursoId = curso.Id
+                };
+
+                db.Usuario_has_curso.Add(alunoCurso);
+                db.SaveChanges();
                 return View(aula);
             }
-            alunoCurso = new Usuario_has_curso
+            else
             {
-                UsuarioId = Convert.ToInt32(User.Identity.Name.Split('|')[0]),
-                CursoId = curso.Id
-            };
-
-
-
-            db.Usuario_has_curso.Add(alunoCurso);
-            db.SaveChanges();
-            return View(aula);
+                return RedirectToAction("Create", "Usuarios");
+            }
         }
         // GET: Cursoes
         public ActionResult Index()

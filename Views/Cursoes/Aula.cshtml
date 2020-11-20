@@ -215,10 +215,12 @@
                                             <button class="a link" href="~/@ane.Url" onclick="mostrar('div1')">@ane.Tipos</button>
                                         </li>
                                     }
-                                    <li>
-                                        <button class="a link" id="btnexercicio" value="@cont.Id" onclick="mostrar('div_@cont.Id');">prova</button>
-
-                                    </li>
+                                    @if (dia != 1)
+                                    {
+                                        <li>
+                                            <button class="a link" id="btnexercicio" value="@cont.Id" onclick="mostrar('div_@cont.Id');">prova</button>
+                                        </li>
+                                    }
                                 </ul>
                             </li>
                             if (cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault() != null)
