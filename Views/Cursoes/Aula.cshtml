@@ -174,11 +174,11 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>@Model.Cursos.Nome</h3>
+                <h3>@Model.CursoVMs.Nome</h3>
             </div>
             <div style="overflow:scroll;height:883px;width:100%; overflow:auto;">
                 <ul class="list-unstyled components">
-                    @foreach (var mod in Model.Cursos.Modulos)
+                    @foreach (var mod in Model.CursoVMs.Modulos)
                     {
                         <p>@mod.Titulo</p>
                         var conclusao = "";
@@ -216,7 +216,8 @@
                                         </li>
                                     }
                                     <li>
-                                        <button class="a link" id="btnExercicio" value="@cont.Id" onclick="mostrar('div3');">Prova</button>
+                                        <button class="a link" id="btnexercicio" value="@cont.Id" onclick="mostrar('div_@cont.Id');">prova</button>
+
                                     </li>
                                 </ul>
                             </li>
@@ -252,32 +253,17 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
-            <div id="div3" class="hidden">
-                <h1>Exercicio</h1>
-                <form id="questionario" name="nomeDoQuestionario" method="post" action="resposta">
-                    <p id="questao"> 1)  </p>
-
-                    <label>
-                        <input type="radio" id="alt1" name="questao" value="a" /> A) resposta1;
-                    </label>
-                    <br />
-                    <label>
-                        <input type="radio" id="alt2" name="questao" value="b" /> B) resposta2;
-                    </label>
-                    <br />
-                    <label>
-                        <input type="radio" id="alt3" name="questao" value="c" /> C) resposta3;
-                    </label>
-                    <br />
-                    <label>
-                        <input type="radio" id="alt4" name="questao" value="d" /> D) resposta4.
-                    </label>
-                    <br />
-                </form>
-                <input type="submit" value="Confirmar Resposta" />
-
-            </div>
-
+            @{
+                foreach (var mod in Model.ModuloVMs)
+                {
+                    foreach (var cont in mod.ConteudoVMs)
+                    {
+                        <div id="div_@cont.Id" class="hidden">
+                            @Html.Partial("_Quizz", cont)
+                        </div>
+                    }
+                }
+            }
             <div id="div4" class="hidden"><h1>Prova</h1></div>
         </div>
 
@@ -322,40 +308,4 @@
     //});
 
 
-
-
-    //function myFunction() {
-    //    var x = document.getElementById("btnExercicio").value;
-    //    $.ajax({
-    //        dataType: "json",
-    //        type: "POST",
-    //        data: { x },
-    //        url: "/Usuarios/getExercicio/",
-    //        success: function (retorno) {
-    //            if (retorno != null) {
-    //                //$("#questao").append(retorno[0]);
-    //                document.getElementById("questao").innerHTML = x;
-    //            } else {
-    //                document.getElementById("questao").innerHTML = x;
-    //            }
-    //        }
-    //    });
-    //};
-
-    $("#btnExercicio").click(function () {
-        var id = $(this).val();
-        $.ajax({
-            dataType: "json",
-            type: "POST",
-            data: { id },
-            url: "/Cursoes/getExercicio",
-            success: function (retorno) {
-                if (retorno != null) {
-                    document.getElementById("questao").innerHTML = "FOi";
-                } else {
-                    document.getElementById("questao").innerHTML = "RUIM";
-                }
-            }
-        });
-    });
 </script>

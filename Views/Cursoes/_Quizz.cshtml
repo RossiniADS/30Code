@@ -1,0 +1,183 @@
+﻿@model _30Code.Models.ConteudoVM
+
+<style>
+
+    #qtext {
+        font-size: 18px;
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .checkedlabel {
+        background-color: #ddd;
+    }
+
+        .checkedlabel:hover {
+            background-color: #d3d3d3;
+        }
+
+    .radiocontainer {
+        background-color: #f1f1f1;
+        display: block;
+        position: relative;
+        padding: 10px 10px 10px 50px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        font-size: 18px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        word-wrap: break-word;
+    }
+
+        .radiocontainer input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+            .radiocontainer input:checked ~ .checkmark {
+                background-color: #2196F3;
+            }
+
+    .checkmark {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        height: 19px;
+        width: 19px;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    .radiocontainer .checkmark:after {
+        top: 6px;
+        left: 6px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: white;
+    }
+
+    .radiocontainer input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    #answerbuttoncontainer {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    #resposta button {
+        text-rendering: auto;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: center;
+        align-items: flex-start;
+        cursor: default;
+        box-sizing: border-box;
+        margin: 0em;
+        font: 400 13.3333px Arial;
+        padding: 1px 6px;
+        border-width: 2px;
+        border-style: outset;
+        border-image: initial;
+        border-radius: 2px;
+        font: inherit;
+        margin: 0;
+        overflow: visible;
+    }
+
+    .answerbutton {
+        background-color: #4CAF50;
+        padding: 12px 30px !important;
+        font-size: 17px;
+        margin-top: 10px;
+    }
+
+
+    .w3-btn, .w3-button {
+        border: none;
+        display: inline-block;
+        padding: 8px 16px;
+        vertical-align: middle;
+        overflow: hidden;
+        text-decoration: none;
+        color: inherit;
+        background-color: inherit;
+        text-align: center;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    .w3-btn, .w3-button {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+        .w3-btn, .w3-btn:link, .w3-btn:visited {
+            color: #FFFFFF;
+            background-color: #4CAF50;
+        }
+</style>
+
+@using (Html.BeginForm("Resposta", "Cursoes"))
+{
+    var contador = 1;
+    @Html.HiddenFor(model => model.Id)
+
+    for (int i = 0; i < Model.QuestaoVMs.Count(); i++)
+    {
+        @Html.HiddenFor(model => Model.QuestaoVMs[i].Id)
+        @Html.HiddenFor(model => Model.QuestaoVMs[i].Titulo)
+
+        <p id="qtext">@Model.QuestaoVMs[i].Titulo</p>
+
+        for (int j = 0; j < Model.QuestaoVMs[i].AlternativaVMs.Count(); j++)
+        {
+            <label id="label_@contador" class="radiocontainer checkedlabel">
+                @Html.HiddenFor(model => Model.QuestaoVMs[i].AlternativaVMs[j].Id)
+                @Html.RadioButtonFor(model => Model.QuestaoVMs[i].Selecionado, Model.QuestaoVMs[i].AlternativaVMs[j].Id)
+                @Model.QuestaoVMs[i].AlternativaVMs[j].Resposta
+                <span class="checkmark"></span>
+            </label>
+        }
+    }
+    <button id="resposta" type="submit" class="answerbutton w3-btn">Confirmar resposta</button>
+}
+
+<script>
+    //function clickRadio(elmnt) {
+    //    var n, i, x;
+    //    n = elmnt.id;
+    //    for (i = 1; i < 3; i++) {
+    //        x = document.getElementById("label_" + i);
+    //        if (x) { x.className = x.className.replace(" checkedlabel", ""); }
+    //    }
+    //    document.getElementById("label_" + n).className += " checkedlabel";
+    //}
+
+</script>

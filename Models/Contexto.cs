@@ -64,11 +64,8 @@ namespace _30Code.Models
             alt.ToTable("alt_alternativas");
             alt.Property(x => x.Id).HasColumnName("alt_id");
             alt.Property(x => x.Resposta).HasColumnName("alt_resposta");
-            alt.Property(x => x.Resposta).HasColumnName("alt_resposta2");
-            alt.Property(x => x.Resposta).HasColumnName("alt_resposta3");
-            alt.Property(x => x.Resposta).HasColumnName("alt_resposta4");
-            alt.Property(x => x.Resposta).HasColumnName("alt_resposta5");
-            alt.Property(x => x.AlternativaCorreta).HasColumnName("que_id");
+            alt.Property(x => x.AlternativaCorreta).HasColumnName("alt_correta");
+            alt.Property(x => x.QuestoesId).HasColumnName("que_id");
 
             var ane = mb.Entity<Anexo>();
             ane.ToTable("ane_anexos");

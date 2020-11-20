@@ -18,20 +18,10 @@ namespace _30Code.Controllers
             return View(db.Curso.ToList());
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
-        [ValidateInput(false)]
-        public JsonResult getExercicio(string id)
+        [HttpPost]
+        public ActionResult Resposta(ConteudoVM conteudoVM)
         {
-            var id2 = Convert.ToInt32(id);
-            var resultado = db.Questoes.Where(x => x.Id == id2).ToList();
-            if (resultado == null)
-            {
-                return Json("n");
-            }
-            else
-            {
-                return Json(resultado);
-            }
+            return View();
         }
 
         public ActionResult Aula(int id)
@@ -52,6 +42,44 @@ namespace _30Code.Controllers
                 return View("Index");
             }
 
+            aula.ModuloVMs = new List<ModuloVM>();
+            var mods = db.Modulo.Where(x => x.CursoId == curso.Id).ToList();
+            foreach (var item in mods)
+            {
+                ModuloVM moduloVM = new ModuloVM();
+                moduloVM.Id = item.Id;
+                moduloVM.ConteudoVMs = new List<ConteudoVM>();
+                var conteudo = db.Conteudo.Where(x => x.ModuloId == item.Id).ToList();
+                foreach (var cont in conteudo)
+                {
+                    ConteudoVM conteudoVM = new ConteudoVM();
+                    conteudoVM.Id = cont.Id;
+                    conteudoVM.Titulo = cont.Titulo;
+                    conteudoVM.QuestaoVMs = new List<QuestaoVM>();
+                    var questao = db.Questoes.Where(x => x.ConteudoId == cont.Id).ToList();
+                    foreach (var que in questao)
+                    {
+                        QuestaoVM questaoVM = new QuestaoVM();
+                        questaoVM.Id = que.Id;
+                        questaoVM.Titulo = que.Titulo;
+                        questaoVM.AlternativaVMs = new List<AlternativaVM>();
+
+                        var alternativas = db.Alternativa.Where(x => x.QuestoesId == que.Id).ToList();
+                        foreach (var alt in alternativas)
+                        {
+                            AlternativaVM alternativaVM = new AlternativaVM();
+                            alternativaVM.Id = alt.Id;
+                            alternativaVM.Resposta = alt.Resposta;
+
+                            questaoVM.AlternativaVMs.Add(alternativaVM);
+                        }
+                        conteudoVM.QuestaoVMs.Add(questaoVM);
+                    }
+                    moduloVM.ConteudoVMs.Add(conteudoVM);
+                }
+                aula.ModuloVMs.Add(moduloVM);
+            }
+
             var alunoCurso = db.Usuario_has_curso.FirstOrDefault(uc => uc.Curso.Id == curso.Id && uc.Usuario.Id == usu.Id);
             if (alunoCurso != null)
             {
@@ -62,6 +90,8 @@ namespace _30Code.Controllers
                 UsuarioId = Convert.ToInt32(User.Identity.Name.Split('|')[0]),
                 CursoId = curso.Id
             };
+
+
 
             db.Usuario_has_curso.Add(alunoCurso);
             db.SaveChanges();

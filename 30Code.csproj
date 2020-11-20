@@ -143,9 +143,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011142112410_Banco.cs" />
-    <Compile Include="Migrations\202011142112410_Banco.designer.cs">
-      <DependentUpon>202011142112410_Banco.cs</DependentUpon>
+    <Compile Include="Migrations\202011190048464_Banco.cs" />
+    <Compile Include="Migrations\202011190048464_Banco.designer.cs">
+      <DependentUpon>202011190048464_Banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternativa.cs" />
@@ -245,8 +245,34 @@
     <Content Include="assets\vendor\venobox\venobox.min.css" />
     <Content Include="assets\vendor\venobox\venobox.min.js" />
     <Content Include="assets\vendor\waypoints\jquery.waypoints.min.js" />
-    <Content Include="assets\VideoAulaJava\AulaJavaDate.mp4" />
-    <Content Include="assets\VideoAulaJava\AulaJavaVariavel.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia1.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia10.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia11.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia12.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia13.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia14.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia15.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia16.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia17.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia18.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia19.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia2.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia20.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia21.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia22.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia23.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia25.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia26.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia27.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia28.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia29.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia3.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia4.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia5.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia6.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia7.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia8.mp4" />
+    <Content Include="assets\VideoAulaJava\Dia9.mp4" />
     <Content Include="bin\30Code.dll" />
     <Content Include="bin\30Code.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -348,6 +374,33 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="assets\ApostilasJava\Dia16.pdf" />
     <Content Include="assets\ApostilasJava\Dia2.pdf" />
+    <Content Include="assets\ApostilasJava\Dia1.pdf" />
+    <Content Include="assets\ApostilasJava\Dia10.pdf" />
+    <Content Include="assets\ApostilasJava\Dia11.pdf" />
+    <Content Include="assets\ApostilasJava\Dia12.pdf" />
+    <Content Include="assets\ApostilasJava\Dia13.pdf" />
+    <Content Include="assets\ApostilasJava\Dia14.pdf" />
+    <Content Include="assets\ApostilasJava\Dia15.pdf" />
+    <Content Include="assets\ApostilasJava\Dia17.pdf" />
+    <Content Include="assets\ApostilasJava\Dia18.pdf" />
+    <Content Include="assets\ApostilasJava\Dia19.pdf" />
+    <Content Include="assets\ApostilasJava\Dia20.pdf" />
+    <Content Include="assets\ApostilasJava\Dia21.pdf" />
+    <Content Include="assets\ApostilasJava\Dia22.pdf" />
+    <Content Include="assets\ApostilasJava\Dia23.pdf" />
+    <Content Include="assets\ApostilasJava\Dia25.pdf" />
+    <Content Include="assets\ApostilasJava\Dia26.pdf" />
+    <Content Include="assets\ApostilasJava\Dia27.pdf" />
+    <Content Include="assets\ApostilasJava\Dia28.pdf" />
+    <Content Include="assets\ApostilasJava\Dia29.pdf" />
+    <Content Include="assets\ApostilasJava\Dia3.pdf" />
+    <Content Include="assets\ApostilasJava\Dia30.pdf" />
+    <Content Include="assets\ApostilasJava\Dia4.pdf" />
+    <Content Include="assets\ApostilasJava\Dia5.pdf" />
+    <Content Include="assets\ApostilasJava\Dia6.pdf" />
+    <Content Include="assets\ApostilasJava\Dia7.pdf" />
+    <Content Include="assets\ApostilasJava\Dia8.pdf" />
+    <Content Include="assets\ApostilasJava\Dia9.pdf" />
     <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
     <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
@@ -638,6 +691,7 @@
     <Content Include="Views\Usuarios\Redefinir.cshtml" />
     <Content Include="Views\Usuario_has_curso\MeusCursos.cshtml" />
     <Content Include="Views\Usuarios\SejaPremium.cshtml" />
+    <Content Include="Views\Cursoes\_Quizz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -646,8 +700,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011142112410_Banco.resx">
-      <DependentUpon>202011142112410_Banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011190048464_Banco.resx">
+      <DependentUpon>202011190048464_Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

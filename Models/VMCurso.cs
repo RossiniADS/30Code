@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _30Code.Models
 {
-    public class Cursos
+    public class CursoVM
     {
         [Required]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "O Campo nome deve estar entre 3 a 100 caracteres")]
@@ -16,45 +16,35 @@ namespace _30Code.Models
         public virtual ICollection<Modulo> Modulos { get; set; }
         public virtual ICollection<Usuario_has_curso> Usuario_Has_Cursos { get; set; }
     }
-    public class Alternativas
+    public class AlternativaVM
     {
-        [Required]
-        [MaxLength(80)]
+        public int Id { get; set; }
         public string Resposta { get; set; }
-        [Required]
-        [MaxLength(80)]
-        public string Resposta2 { get; set; }
-        [Required]
-        [MaxLength(80)]
-        public string Resposta3 { get; set; }
-        [Required]
-        [MaxLength(80)]
-        public string Resposta4 { get; set; }
-        [Required]
-        [MaxLength(80)]
-        public string Resposta5 { get; set; }
-        [Required]
-        [MaxLength(80)]
-        public string AlternativaCorreta { get; set; }
-        [Required]
-        public int QuestaoId { get; set; }
-        public virtual Questoes Questoes { get; set; }
-
     }
-    public class Questao
+    public class QuestaoVM
     {
-        [Required]
-        [MaxLength(80)]
+        public int Id { get; set; }
         public string Titulo { get; set; }
-        public int ConteudoId { get; set; }
-        public virtual Conteudo Conteudo { get; set; }
-        public virtual ICollection<Usuario_has_curso_has_conteudo_has_questoes> Usuario_has_curso_Has_Conteudo_Has_Questoes { get; set; }
-
+        public int Selecionado { get; set; }
+        public List<AlternativaVM> AlternativaVMs { get; set; }
     }
+
+    public class ModuloVM
+    {
+        public int Id { get; set; }
+        public List<ConteudoVM> ConteudoVMs { get; set; }
+    }
+    public class ConteudoVM
+    {
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public List<QuestaoVM> QuestaoVMs { get; set; }
+    }
+
     public class Aula
     {
-        public Cursos Cursos { get; set; }
-        public Alternativas Alternativas { get; set; }
-        public Questao Questao { get; set; }
+        public CursoVM CursoVMs { get; set; }
+        public List<ModuloVM> ModuloVMs { get; set; }
+
     }
 }

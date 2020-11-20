@@ -115,6 +115,6 @@ C:\Users\gabri\Source\Repos\30Code\obj\Debug\30Code.csproj.CoreCompileInputs.cac
 C:\Users\gabri\Source\Repos\30Code\obj\Debug\30Code.csproj.CopyComplete
 C:\Users\gabri\Source\Repos\30Code\obj\Debug\30Code.dll
 C:\Users\gabri\Source\Repos\30Code\obj\Debug\30Code.pdb
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csprojAssemblyReference.cache
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\_30Code.Migrations.Banco.resources
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.GenerateResource.cache
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csprojAssemblyReference.cache

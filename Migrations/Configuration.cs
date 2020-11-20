@@ -978,34 +978,66 @@ namespace _30Code.Migrations
                 {
                     Id = 1,
                     Resposta = "Java",
-                    Resposta2 = "C#",
-                    Resposta3 = "Python",
-                    Resposta4 = "MySQL",
-                    Resposta5 = "C++",
-                    AlternativaCorreta = "Java",
-                    QuestaoId = 1
+                    AlternativaCorreta = true,
+                    QuestoesId = 1
                 },
                 new Models.Alternativa
                 {
-                    Id = 1,
-                    Resposta = "Java",
-                    Resposta2 = "C#",
-                    Resposta3 = "Python",
-                    Resposta4 = "MySQL",
-                    Resposta5 = "C++",
-                    AlternativaCorreta = "Python",
-                    QuestaoId = 1
+                    Id = 2,
+                    Resposta = "C#",
+                    AlternativaCorreta = false,
+                    QuestoesId = 1
                 },
                 new Models.Alternativa
                 {
-                    Id = 1,
+                    Id = 3,
                     Resposta = "Programador",
-                    Resposta2 = "Engenheiro",
-                    Resposta3 = "Médico",
-                    Resposta4 = "Analista",
-                    Resposta5 = "Jogador",
-                    AlternativaCorreta = "Programador",
-                    QuestaoId = 1
+                    AlternativaCorreta = false,
+                    QuestoesId = 1
+                },
+
+                 new Models.Alternativa
+                 {
+                     Id = 4,
+                     Resposta = "Java",
+                     AlternativaCorreta = false,
+                     QuestoesId = 2
+                 },
+                new Models.Alternativa
+                {
+                    Id = 5,
+                    Resposta = "Python",
+                    AlternativaCorreta = true,
+                    QuestoesId = 2
+                },
+                new Models.Alternativa
+                {
+                    Id = 6,
+                    Resposta = "Programador",
+                    AlternativaCorreta = false,
+                    QuestoesId = 2
+                },
+
+                 new Models.Alternativa
+                 {
+                     Id = 7,
+                     Resposta = "Java",
+                     AlternativaCorreta = false,
+                     QuestoesId = 3
+                 },
+                new Models.Alternativa
+                {
+                    Id = 8,
+                    Resposta = "ASP",
+                    AlternativaCorreta = false,
+                    QuestoesId = 3
+                },
+                new Models.Alternativa
+                {
+                    Id = 9,
+                    Resposta = "Programador",
+                    AlternativaCorreta = true,
+                    QuestoesId = 3
                 });
         }
     }
