@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using _30Code.Models;
+using Rotativa;
 
 namespace _30Code.Controllers
 {
@@ -26,7 +27,12 @@ namespace _30Code.Controllers
                 return RedirectToAction("Create");
             }
         }
+             
 
+        public ActionResult MeuCertificado()
+        {
+            return new ViewAsPdf("PDF", db.Usuario.ToList()) { FileName = "dados.pdf" };
+        } 
         // GET: Usuarios
         public ActionResult Index()
         {
@@ -40,6 +46,7 @@ namespace _30Code.Controllers
                 return RedirectToAction("Create");
             }
         }
+
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
