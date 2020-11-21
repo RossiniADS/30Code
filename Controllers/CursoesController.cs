@@ -19,9 +19,39 @@ namespace _30Code.Controllers
         }
 
         [HttpPost]
-        public ActionResult Resposta(ConteudoVM conteudoVM)
+        public ActionResult Resposta(ConteudoVM ConteudoVM)
         {
-            return View();
+            List<QuestaoVM> AlternativasCorreta = new List<QuestaoVM>();
+
+            foreach (QuestaoVM answser in ConteudoVM.QuestaoVMs)
+            {
+                QuestaoVM correta = db.Questoes.Where(a => a.Id == answser.Id).Select(a => new QuestaoVM
+                {
+                    Id = a.Id,
+                    Titulo = a.Titulo,
+                    Selecionado = a.Alternativas.Where(x => x.AlternativaCorreta == true).Select(x => x.Id).FirstOrDefault()
+
+                }).FirstOrDefault();
+
+                AlternativasCorreta.Add(correta);
+            }
+
+            for (int i = 0; i < AlternativasCorreta.Count(); i++)
+            {
+                Usuario_has_curso_has_conteudo_has_questoes teste = new Usuario_has_curso_has_conteudo_has_questoes
+                {
+                    Usuario_has_curso_has_conteudoId = 1,
+                    QuestoesId = ConteudoVM.QuestaoVMs[i].Id,
+                    AlternativaId = ConteudoVM.QuestaoVMs[i].AlternativaVMs[i].Id,
+                    Resposta = ConteudoVM.QuestaoVMs[i].Selecionado,
+                    Aproveitamento = ConteudoVM.QuestaoVMs[i].Selecionado == AlternativasCorreta[i].Selecionado ? "100" : "0"
+                };
+                db.Usuario_has_curso_has_conteudo_has_questoes.Add(teste);
+            }
+
+            db.SaveChanges();
+
+            return View("Aula");
         }
 
         public ActionResult Aula(int id)

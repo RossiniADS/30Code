@@ -972,6 +972,24 @@ namespace _30Code.Migrations
                     Id = 3,
                     Titulo = "Qual a melhor profissão?",
                     ConteudoId = 1
+                },
+                 new Models.Questoes
+                 {
+                     Id = 4,
+                     Titulo = "Será q vai?",
+                     ConteudoId = 2
+                 },
+                new Models.Questoes
+                {
+                    Id = 5,
+                    Titulo = "Acho q sim?",
+                    ConteudoId = 2
+                },
+                new Models.Questoes
+                {
+                    Id = 6,
+                    Titulo = "FOOOOI?",
+                    ConteudoId = 2
                 });
             context.Alternativa.AddOrUpdate(
                 new Models.Alternativa
@@ -1038,6 +1056,71 @@ namespace _30Code.Migrations
                     Resposta = "Programador",
                     AlternativaCorreta = true,
                     QuestoesId = 3
+                },
+                new Models.Alternativa
+                {
+                    Id = 10,
+                    Resposta = "Sei não",
+                    AlternativaCorreta = true,
+                    QuestoesId = 4
+                },
+                new Models.Alternativa
+                {
+                    Id = 11,
+                    Resposta = "talvez",
+                    AlternativaCorreta = false,
+                    QuestoesId = 4
+                },
+                new Models.Alternativa
+                {
+                    Id = 12,
+                    Resposta = "SIM",
+                    AlternativaCorreta = false,
+                    QuestoesId = 4
+                },
+
+                 new Models.Alternativa
+                 {
+                     Id = 13,
+                     Resposta = "acho que sim",
+                     AlternativaCorreta = false,
+                     QuestoesId = 5
+                 },
+                new Models.Alternativa
+                {
+                    Id = 14,
+                    Resposta = "acho que nao",
+                    AlternativaCorreta = true,
+                    QuestoesId = 5
+                },
+                new Models.Alternativa
+                {
+                    Id = 15,
+                    Resposta = "sei de nada",
+                    AlternativaCorreta = false,
+                    QuestoesId = 5
+                },
+
+                 new Models.Alternativa
+                 {
+                     Id = 16,
+                     Resposta = "nao",
+                     AlternativaCorreta = false,
+                     QuestoesId = 6
+                 },
+                new Models.Alternativa
+                {
+                    Id = 17,
+                    Resposta = "sim",
+                    AlternativaCorreta = false,
+                    QuestoesId = 6
+                },
+                new Models.Alternativa
+                {
+                    Id = 18,
+                    Resposta = "vou ver",
+                    AlternativaCorreta = true,
+                    QuestoesId = 6
                 });
         }
     }

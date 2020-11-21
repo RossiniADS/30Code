@@ -95,6 +95,7 @@ namespace _30Code.Models
             usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.Id).HasColumnName("id");
             usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.Usuario_has_curso_has_conteudoId).HasColumnName("usuario_has_curso_has_conteudo_id");
             usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.QuestoesId).HasColumnName("que_id");
+            usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.AlternativaId).HasColumnName("alt_id");
             usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.Resposta).HasColumnName("resposta");
             usuarioHasCursoHasConteudoHasQuestoes.Property(x => x.Aproveitamento).HasColumnName("aproveitamento");
         }
