@@ -4,20 +4,34 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _30Code.Models;
+using X.PagedList;
 
 namespace _30Code.Controllers
 {
     public class CursoesController : Controller
     {
         private Contexto db = new Contexto();
-        public ActionResult Cursos()
+        // GET: Pessoas
+        public async Task<ActionResult> Cursos()
         {
-            return View(db.Curso.ToList());
+            return View(await db.Curso.ToListAsync());
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult> Cursos(string txtProcurar)
+        {
+            if (!String.IsNullOrEmpty(txtProcurar))
+            {
+                return View(await db.Curso.Where(x => x.Nome.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
+            }
+
+            return View(await db.Curso.ToListAsync());
+        }
         [HttpPost]
         public ActionResult Resposta(ConteudoVM ConteudoVM)
         {
