@@ -13,6 +13,9 @@ namespace _30Code.Models
         [StringLength(100, MinimumLength = 3, ErrorMessage = "O Campo nome deve estar entre 3 a 100 caracteres")]
         public string Nome { get; set; }
         [Required]
+        [StringLength(150, MinimumLength = 30, ErrorMessage = "O Campo nome deve estar entre 3 a 150 caracteres")]
+        public string Descricao { get; set; }
+        [Required]
         [Display(Name = "Duração")]
         public double Duracao { get; set; }
         public string Url_imagem { get; set; }

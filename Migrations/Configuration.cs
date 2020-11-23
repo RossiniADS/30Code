@@ -66,6 +66,7 @@ namespace _30Code.Migrations
                 {
                     Id = 1,
                     Nome = "Programação com Java",
+                    Descricao = "Curso mais didático e completo de Java e OO. UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais.",
                     Duracao = 200.00,
                     Url_imagem = "java.jpg"
                 },
@@ -73,6 +74,7 @@ namespace _30Code.Migrations
                 {
                     Id = 2,
                     Nome = "Programação com C#",
+                    Descricao = "Curso mais didático e completo de C# UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais.",
                     Duracao = 200.00,
                     Url_imagem = "csharp.png"
                 },
@@ -80,6 +82,7 @@ namespace _30Code.Migrations
                 {
                     Id = 3,
                     Nome = "Programação com C++",
+                    Descricao = "Curso mais didático e completo de C++. UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais.",
                     Duracao = 200.00,
                     Url_imagem = "cpp.png"
                 },
@@ -87,6 +90,7 @@ namespace _30Code.Migrations
                 {
                     Id = 4,
                     Nome = "Programação com JavaScript",
+                    Descricao = "Curso mais didático e completo de JavaScript. UML, JDBC, JavaFX, Spring Boot, JPA, Hibernate, MySQL, MongoDB e muito mais.",
                     Duracao = 200.00,
                     Url_imagem = "javascript.jpg"
                 },
@@ -94,6 +98,7 @@ namespace _30Code.Migrations
                 {
                     Id = 5,
                     Nome = "Kotilin",
+                    Descricao = "Curso mais didático e completo de Kotilin. Aprenda do Zero a Criar Apps e Jogos Android com o Kotlin para Desenvolvimento Android.",
                     Duracao = 200.00,
                     Url_imagem = "Kotilin.jpg"
                 },
@@ -101,6 +106,7 @@ namespace _30Code.Migrations
                 {
                     Id = 6,
                     Nome = "Banco de dados com MySql",
+                    Descricao = "Curso mais didático e completo de MySql. Aprenda comandos SQL no sistema de gerenciamento de banco de dados gratuito mais popular do mercado.",
                     Duracao = 200.00,
                     Url_imagem = "mysql.png"
                 },
@@ -108,6 +114,7 @@ namespace _30Code.Migrations
                 {
                     Id = 7,
                     Nome = "NodeJs",
+                    Descricao = "Curso mais didático e completo de NodeJs. Aprenda a criar sites e sistemas web utilizando a plataforma NodeJS e o banco de dados MongoDB.",
                     Duracao = 200.00,
                     Url_imagem = "nodejs.jpg"
                 },
@@ -115,6 +122,7 @@ namespace _30Code.Migrations
                 {
                     Id = 8,
                     Nome = "Banco de dados com Oracle",
+                    Descricao = "Curso mais didático e completo de Oracle. Aprenda do zero SQL e PL/SQL com banco de dados Oracle e prepare-se para cerificações OCA e OCE.",
                     Duracao = 200.00,
                     Url_imagem = "oracle.png"
                 },
@@ -122,6 +130,7 @@ namespace _30Code.Migrations
                 {
                     Id = 9,
                     Nome = "Programação com PHP",
+                    Descricao = "Curso mais didático e completo de PHP. Aprenda com especialistas a programar do básico ao avançado em um projeto completo.",
                     Duracao = 200.00,
                     Url_imagem = "PHP.png"
                 },
@@ -129,13 +138,15 @@ namespace _30Code.Migrations
                 {
                     Id = 10,
                     Nome = "Programação com Python",
+                    Descricao = "Curso mais didático e completo de Python. Aprenda Python 3.8.5 com Expressões Lambdas, Iteradores, Geradores, Orientação a Objetos e muito mais!",
                     Duracao = 200.00,
                     Url_imagem = "python.png"
                 },
                 new Models.Curso
                 {
                     Id = 11,
-                    Nome = "Banco de dados com SqlServer",
+                    Nome = "Banco de dados com SQL Server",
+                    Descricao = "Curso mais didático e completo de Sql Server. Aprenda do zero o ESSENCIAL para administrar e instalar Bancos de Dados SQL Server!",
                     Duracao = 200.00,
                     Url_imagem = "sql_server.png"
                 });

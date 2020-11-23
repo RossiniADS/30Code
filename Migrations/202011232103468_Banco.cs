@@ -10,12 +10,12 @@
             CreateTable(
                 "dbo.alt_alternativas",
                 c => new
-                    {
-                        alt_id = c.Int(nullable: false, identity: true),
-                        alt_resposta = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
-                        alt_correta = c.Boolean(nullable: false),
-                        que_id = c.Int(nullable: false),
-                    })
+                {
+                    alt_id = c.Int(nullable: false, identity: true),
+                    alt_resposta = c.String(nullable: false, maxLength: 80, storeType: "nvarchar"),
+                    alt_correta = c.Boolean(nullable: false),
+                    que_id = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.alt_id)
                 .ForeignKey("dbo.que_questoes", t => t.que_id, cascadeDelete: true);
             
@@ -72,6 +72,7 @@
                     {
                         cur_id = c.Int(nullable: false, identity: true),
                         cur_nome = c.String(nullable: false, maxLength: 100, storeType: "nvarchar"),
+                        cur_descricao = c.String(nullable: false, maxLength: 150, storeType: "nvarchar"),
                         cur_duracao = c.Double(nullable: false),
                         cur_url_imagem = c.String(unicode: false),
                     })

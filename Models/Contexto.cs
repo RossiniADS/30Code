@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +20,33 @@ namespace _30Code.Models
         public DbSet<Usuario_has_curso> Usuario_has_curso { get; set; }
         public DbSet<Usuario_has_curso_has_conteudo> Usuario_has_curso_has_conteudo { get; set; }
         public DbSet<Usuario_has_curso_has_conteudo_has_questoes> Usuario_has_curso_has_conteudo_has_questoes { get; set; }
+
+
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+        }
+
 
         protected override void OnModelCreating(DbModelBuilder mb)
         {
@@ -39,6 +67,7 @@ namespace _30Code.Models
             cur.ToTable("cur_curso");
             cur.Property(x => x.Id).HasColumnName("cur_id");
             cur.Property(x => x.Nome).HasColumnName("cur_nome");
+            cur.Property(x => x.Descricao).HasColumnName("cur_descricao");
             cur.Property(x => x.Duracao).HasColumnName("cur_duracao");
             cur.Property(x => x.Url_imagem).HasColumnName("cur_url_imagem");
 
