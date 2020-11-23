@@ -160,6 +160,17 @@
             display: none;
         }
     }
+
+
+    /*VIDEO*/
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+    }
+
+    .video-container {
+        width: 95%;
+    }
 </style>
 
 <!-- Font Awesome JS -->
@@ -188,6 +199,7 @@
                         }
                         foreach (var cont in mod.Conteudos)
                         {
+                            @Html.Hidden(Convert.ToString(cont.Id))
                             <li class="active">
                                 @if (conclusao != "")
                                 {
@@ -205,21 +217,30 @@
 
                                 }
                                 <ul id="homeSubmenu_@i" class="collapse list-unstyled">
+                                    @foreach (var ane in cont.Anexos)
+                                    {
+                                        if (ane.Tipos.ToString().Equals("Apostila"))
+                                        {
+                                            <li>
+                                                <button class="a link" href="~/@ane.Url" onclick="mostrar('div1')">@ane.Tipos</button>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <button class="b link" href="~/@ane.Url" onclick="mostrar('div2')">@ane.Tipos</button>
+                                            </li>
+                                        }
+                                    }
+                                    @*@if (dia != 1)
+                                        {*@
+                                    <li>
+                                        <button class="link" onclick="mostrar('div_@cont.Id');">prova</button>
+                                    </li>
+                                    @*}*@
                                     @{
                                         i += 1;
                                         dia += 1;
-                                    }
-                                    @foreach (var ane in cont.Anexos)
-                                    {
-                                        <li>
-                                            <button class="a link" href="~/@ane.Url" onclick="mostrar('div1')">@ane.Tipos</button>
-                                        </li>
-                                    }
-                                    @if (dia != 1)
-                                    {
-                                        <li>
-                                            <button class="a link" id="btnexercicio" value="@cont.Id" onclick="mostrar('div_@cont.Id');">prova</button>
-                                        </li>
                                     }
                                 </ul>
                             </li>
@@ -251,9 +272,15 @@
         </nav>
         <div id="pai">
             <div id="div1" class="hidden">
-                <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"></iframe>
+            </div>
+            <div id="div2" class="hidden">
+                <form class="video-container">
+                    <video preload="none" class="jlplayer-video">
+                        <source src="" type="video/mp4">
+                        <!-- <track kind="captions" src="legenda.vtt" default> -->
+                    </video>
+                </form>
             </div>
             @{
                 foreach (var mod in Model.ModuloVMs)
@@ -268,7 +295,6 @@
             }
             <div id="div4" class="hidden"><h1>Prova</h1></div>
         </div>
-
     </div>
 </div>
 
@@ -295,6 +321,11 @@
         $('iframe').attr('src', link)
     })
 
+    $('.b').click(function () {
+        const link = $(this).attr('href')
+        $('source').attr('src', link)
+    })
+
     //$('.div-sel').hide();
 
     //$('#homeSubmenu').on('change', function () {
@@ -308,6 +339,4 @@
     //        }
     //    });
     //});
-
-
 </script>

@@ -50,6 +50,7 @@ namespace _30Code.Controllers
                 AlternativasCorreta.Add(correta);
             }
 
+            var aproveitamento = 0;
             for (int i = 0; i < AlternativasCorreta.Count(); i++)
             {
                 Usuario_has_curso_has_conteudo_has_questoes teste = new Usuario_has_curso_has_conteudo_has_questoes
@@ -58,13 +59,22 @@ namespace _30Code.Controllers
                     QuestoesId = ConteudoVM.QuestaoVMs[i].Id,
                     AlternativaId = ConteudoVM.QuestaoVMs[i].AlternativaVMs[i].Id,
                     Resposta = ConteudoVM.QuestaoVMs[i].Selecionado,
-                    Aproveitamento = ConteudoVM.QuestaoVMs[i].Selecionado == AlternativasCorreta[i].Selecionado ? "100" : "0"
+                    Aproveitamento = ConteudoVM.QuestaoVMs[i].Selecionado == AlternativasCorreta[i].Selecionado ? "100" : "0",
                 };
+
                 db.Usuario_has_curso_has_conteudo_has_questoes.Add(teste);
             }
+            aproveitamento /= 3;
+            Usuario_has_curso_has_conteudo teste2 = new Usuario_has_curso_has_conteudo
+            {
+                Usuario_has_cursoId = 1,
+                ConteudoId = 2,
+                DataDeConclusao = DateTime.Now,
+                Aproveitamento = Convert.ToString(aproveitamento)
+            };
+            db.Usuario_has_curso_has_conteudo.Add(teste2);
 
             db.SaveChanges();
-
             return View("Aula");
         }
 
