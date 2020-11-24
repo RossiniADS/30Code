@@ -883,6 +883,9 @@
     <Content Include="Views\Usuario_has_curso\MeusCursos.cshtml" />
     <Content Include="Views\Usuarios\SejaPremium.cshtml" />
     <Content Include="Views\Cursoes\_Quizz.cshtml" />
+    <Content Include="Views\Usuarios\MeuCertificado.cshtml" />
+    <Content Include="Views\Usuarios\MeuCurso.cshtml" />
+    <Content Include="Views\Usuarios\PDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
