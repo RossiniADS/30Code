@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _30Code.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,26 @@ namespace _30Code.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult Email()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Email(Mensagem msg)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["MSG"] = Funcoes.EnviarEmail(msg.Email,
+                msg.Assunto, msg.CorpoMsg);
+            }
+            else
+            {
+                TempData["MSG"] = "warning|Preencha todos os campos";
+            }
+            return View(msg);
         }
     }
 }
