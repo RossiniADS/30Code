@@ -48,10 +48,13 @@ namespace _30Code.Models
     public class Mensagem
     {
         [Required]
+        public string Nome { get; set; }
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string Assunto { get; set; }
+        [Required]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Mensagem")]
         public string CorpoMsg { get; set; }

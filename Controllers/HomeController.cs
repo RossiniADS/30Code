@@ -13,6 +13,23 @@ namespace _30Code.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Index(Mensagem msg)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["MSG"] = Funcoes.EnviarEmail(msg.Email,
+                msg.Assunto, msg.CorpoMsg);
+            }
+            else
+            {
+                TempData["MSG"] = "warning|Preencha todos os campos";
+            }
+            return View(msg);
+        }
+
         [Authorize]
         public ActionResult About()
         {
@@ -46,5 +63,6 @@ namespace _30Code.Controllers
             }
             return View(msg);
         }
+
     }
 }

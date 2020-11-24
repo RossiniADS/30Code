@@ -864,11 +864,11 @@
     <Content Include="Views\Cursoes\Details.cshtml" />
     <Content Include="Views\Cursoes\Edit.cshtml" />
     <Content Include="Views\Cursoes\Index.cshtml" />
-    <Content Include="Views\Home\Moduloes\Create.cshtml" />
-    <Content Include="Views\Home\Moduloes\Delete.cshtml" />
-    <Content Include="Views\Home\Moduloes\Details.cshtml" />
-    <Content Include="Views\Home\Moduloes\Edit.cshtml" />
-    <Content Include="Views\Home\Moduloes\Index.cshtml" />
+    <Content Include="Views\Moduloes\Create.cshtml" />
+    <Content Include="Views\Moduloes\Delete.cshtml" />
+    <Content Include="Views\Moduloes\Details.cshtml" />
+    <Content Include="Views\Moduloes\Edit.cshtml" />
+    <Content Include="Views\Moduloes\Index.cshtml" />
     <Content Include="Views\Usuario_has_curso\Create.cshtml" />
     <Content Include="Views\Usuario_has_curso\Delete.cshtml" />
     <Content Include="Views\Usuario_has_curso\Details.cshtml" />
@@ -885,7 +885,6 @@
     <Content Include="Views\Usuarios\MeuCertificado.cshtml" />
     <Content Include="Views\Usuarios\MeuCurso.cshtml" />
     <Content Include="Views\Usuarios\PDF.cshtml" />
-    <Content Include="Views\Home\Email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

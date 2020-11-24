@@ -77,7 +77,6 @@ namespace _30Code.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Aula", "Cursoes", new { id = 1 });
-
         }
 
         public ActionResult Aula(int id)

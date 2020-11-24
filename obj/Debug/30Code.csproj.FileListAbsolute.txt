@@ -355,10 +355,10 @@ D:\Usuario\Documentos\GitHub\30Code\bin\System.Diagnostics.DiagnosticSource.xml
 D:\Usuario\Documentos\GitHub\30Code\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\Usuario\Documentos\GitHub\30Code\bin\System.Text.Encodings.Web.xml
 D:\Usuario\Documentos\GitHub\30Code\bin\System.Threading.Tasks.Extensions.xml
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csprojAssemblyReference.cache
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\_30Code.Migrations.Banco.resources
+D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.GenerateResource.cache
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.CoreCompileInputs.cache
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.CopyComplete
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.dll
 D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.pdb
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csprojAssemblyReference.cache
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\_30Code.Migrations.Banco.resources
-D:\Usuario\Documentos\GitHub\30Code\obj\Debug\30Code.csproj.GenerateResource.cache
