@@ -75,7 +75,9 @@ namespace _30Code.Controllers
             db.Usuario_has_curso_has_conteudo.Add(teste2);
 
             db.SaveChanges();
-            return View("Aula");
+
+            return RedirectToAction("Aula", "Cursoes", new { id = 1 });
+
         }
 
         public ActionResult Aula(int id)
