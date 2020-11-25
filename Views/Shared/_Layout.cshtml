@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-@*@model _30Code.Models.Usuario*@
 
 <html>
 <head>
@@ -36,6 +35,33 @@
         .login {
             margin-bottom: 5px;
         }
+
+        .top-bar-profile-picture {
+            display: flex;
+            position: relative;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            pointer-events: auto;
+        }
+
+            .top-bar-profile-picture:before {
+                bottom: -14px;
+                left: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: #253A44;
+                border-width: 10px;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: 0.2s;
+            }
     </style>
 
     <!-- ======= Top Bar ======= -->
@@ -95,10 +121,15 @@
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Resumo", "Index", "Usuarios")</li>
+                        <li> @Html.ActionLink("Resumo", "Index", "Usuarios") </li>
+                        <li>@Html.ActionLink("Meus cursos", "MeusCursos", "Usuario_has_curso")</li>
                         <li>@Html.ActionLink("Cursos", "Cursos", "Cursoes")</li>
-                        <li>@Html.ActionLink("Histórico", "Historico", "Usuarios")</li>
                         <li>@Html.ActionLink(User.Identity.Name.Split('|')[1] + " - Sair", "Sair", "Usuarios")</li>
+                        <li>
+                            <span class="top-bar-profile-picture">
+                                <img src="~/assets/img/Usuarios/mini_user.jpg">
+                            </span>
+                        </li>
                     }
                 </ul>
             </nav><!-- .nav-menu -->

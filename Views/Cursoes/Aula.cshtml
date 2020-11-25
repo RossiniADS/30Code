@@ -272,31 +272,29 @@
                 </button>
             </div>
         </nav>
-        <div id="pai">
-            <div id="div1" name="div" class="hidden">
-                <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"></iframe>
-            </div>
-            <div id="div2" name="div" class="hidden">
-                <form class="video-container">
-                    <video preload="none" src="" class="jlplayer-video">
-                        @*<source src="" type="video/mp4">*@
-                        <!-- <track kind="captions" src="legenda.vtt" default> -->
-                    </video>
-                </form>
-            </div>
-            @{
-                foreach (var mod in Model.ModuloVMs)
+        <div id="div1" name="div" class="hidden">
+            <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"></iframe>
+        </div>
+        <div id="div2" name="div" class="hidden">
+            <form class="video-container">
+                <video preload="none" src="" class="jlplayer-video">
+                    @*<source src="" type="video/mp4">*@
+                    <!-- <track kind="captions" src="legenda.vtt" default> -->
+                </video>
+            </form>
+        </div>
+        @{
+            foreach (var mod in Model.ModuloVMs)
+            {
+                foreach (var cont in mod.ConteudoVMs)
                 {
-                    foreach (var cont in mod.ConteudoVMs)
-                    {
-                        <div id="div_@cont.Id" name="div" class="hidden">
-                            @Html.Partial("_Quizz", cont)
-                        </div>
-                    }
+                    <div id="div_@cont.Id" name="div" class="hidden">
+                        @Html.Partial("_Quizz", cont)
+                    </div>
                 }
             }
-            <div id="div4" class="hidden"><h1>Prova</h1></div>
-        </div>
+        }
+        <div id="div4" class="hidden"><h1>Prova</h1></div>
     </div>
 </div>
 

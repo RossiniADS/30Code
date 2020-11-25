@@ -113,6 +113,7 @@ namespace _30Code.Models
         [Display(Name = "Data de Nascimento")]
         public DateTime? Nascimento { get; set; }
         [MaxLength(100)]
+        [Display(Name = "Foto de perfil")]
         public string UrlImagem { get; set; }
         [Display(Name = "Sexo")]
         public Sexo Sexos { get; set; }

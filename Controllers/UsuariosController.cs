@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -27,12 +28,12 @@ namespace _30Code.Controllers
                 return RedirectToAction("Create");
             }
         }
-             
+
 
         public ActionResult MeuCertificado()
         {
             return new ViewAsPdf("PDF", db.Usuario.ToList()) { FileName = "dados.pdf" };
-        } 
+        }
         // GET: Usuarios
         public ActionResult Index()
         {
@@ -87,7 +88,8 @@ namespace _30Code.Controllers
                     Nome = login.Cadastro.Nome,
                     Email = login.Cadastro.Email,
                     Senha = Funcoes.HashTexto(login.Cadastro.Senha, "SHA512"),
-                    TiposUsuarios = Usuario.TipoUsuario.Comum
+                    TiposUsuarios = Usuario.TipoUsuario.Comum,
+                    UrlImagem = "user.jpg"
                 };
 
 
@@ -125,15 +127,35 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditarUsuario usuario)
+        public ActionResult Edit(EditarUsuario usuario, HttpPostedFileBase arq)
         {
 
             if (ModelState.IsValid)
             {
                 var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
+                string valor = "";
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio("Usuarios");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        usuario.UrlImagem = nomearq;
+                    }
+                    else
+                    {
+                        usuario.UrlImagem = "user.jpg";
+                        //ModelState.AddModelError("", valor);
+                    }
+                }
+                else
+                {
+                    usuario.UrlImagem = "user.jpg";
+                }
                 usu.Nome = usuario.Nome;
                 usu.Email = usuario.Email;
-                //usu.UrlImagem = usuario.UrlImagem;
+                usu.UrlImagem = usuario.UrlImagem;
                 usu.Celular = usuario.Celular;
                 usu.Nascimento = usuario.Nascimento;
                 usu.Sexos = usuario.Sexos == EditarUsuario.Sexo.Masculino ? Usuario.Sexo.Masculino : usuario.Sexos == EditarUsuario.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
