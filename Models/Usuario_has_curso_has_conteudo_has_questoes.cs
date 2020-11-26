@@ -10,7 +10,7 @@ namespace _30Code.Models
     {
         public int Id { get; set; }
         public int Resposta { get; set; }
-        [MaxLength(4)]
+        [MaxLength(100)]
         public string Aproveitamento { get; set; }
         [Required]
         public int Usuario_has_curso_has_conteudoId { get; set; }

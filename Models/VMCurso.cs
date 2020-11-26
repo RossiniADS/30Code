@@ -26,6 +26,7 @@ namespace _30Code.Models
         public int Id { get; set; }
         public string Titulo { get; set; }
         public int Selecionado { get; set; }
+        public int ConteudoId { get; set; }
         public List<AlternativaVM> AlternativaVMs { get; set; }
     }
 

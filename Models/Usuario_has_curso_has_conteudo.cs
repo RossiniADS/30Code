@@ -11,7 +11,7 @@ namespace _30Code.Models
         public int Id { get; set; }
         public DateTime DataDeConclusao { get; set; }
         [Required]
-        [MaxLength(4)]
+        [MaxLength(100)]
         public string Aproveitamento { get; set; }
         [Required]
         public int Usuario_has_cursoId { get; set; }

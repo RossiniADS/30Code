@@ -145,13 +145,14 @@ namespace _30Code.Controllers
                     }
                     else
                     {
-                        usuario.UrlImagem = "user.jpg";
-                        //ModelState.AddModelError("", valor);
+                        usuario.UrlImagem = usu.UrlImagem;
+                        ModelState.AddModelError("", valor);
+                        return View(usuario);
                     }
                 }
                 else
                 {
-                    usuario.UrlImagem = "user.jpg";
+                    usuario.UrlImagem = usu.UrlImagem;
                 }
                 usu.Nome = usuario.Nome;
                 usu.Email = usuario.Email;
@@ -165,7 +166,7 @@ namespace _30Code.Controllers
                 }
                 db.Entry(usu).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
             }
             return View(usuario);
         }
