@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,100,900,100italic,300italic,400italic,700italic,900italic|Oswald:300,400,500,700|Roboto:400,500|Montserrat:300,400,500,600|Source+Serif+Pro:400,600|Roboto+Slab|Roboto:300,300i,400,400i,700,700i' rel='stylesheet'>
 
-    <style>
+    @*<style>
         .picture-container .perfil-preview {
             animation: none;
             position: relative;
@@ -459,7 +459,7 @@
             width: 180px;
         }
 
-        ul {
+        .menu-content ul[name="PagIndexUsuario"] {
             display: block;
             list-style-type: disc;
             margin-top: 1em;
@@ -475,7 +475,7 @@
             filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
         }
 
-        li {
+        .menu-content ul[name="PagIndexUsuario"] li[name="PagIndexUsuario"] {
             display: list-item;
             text-align: match-parent;
         }
@@ -484,7 +484,7 @@
             text-decoration: none;
         }
 
-        a:-webkit-any {
+        a[name="PagIndexUsuario"]:-webkit-any {
             color: -webkit-link;
             cursor: pointer;
             text-decoration: underline;
@@ -505,7 +505,7 @@
         .menu-container a, .link-menu-mvp, .menu-content li a, header nav.lateral > ul li > a {
             text-decoration: none;
         }
-    </style>
+    </style>*@
 
     <div class="container">
 
@@ -526,7 +526,7 @@
                         </div>
 
                         <div class="info-perfil-preview">
-                            <p>Programador</p>
+                            <p name="PagIndexUsuario">Programador</p>
                         </div>
 
                         <div class="numbers-perfil-preview">
@@ -555,30 +555,32 @@
                         </div>
                     </div>
 
-                    <ul class="menu-content">
+                    <ul name="PagIndexUsuario" class="menu-content">
 
-                        <li class="menu-content-item"><a href="#">Continue<br />Estudando</a></li>
-                        <li class="menu-content-item"><a href="~/Usuario_has_curso/MeusCursos">Meus<br />Cursos</a></li>
-                        <li class="menu-content-item"><a href="#">Meus<br />Exercícios</a></li>
-                        <li class="menu-content-item"><a href="~/Usuarios/MeuCertificado">Meus<br />Certificados</a></li>
-                        <li class="menu-content-item"><a href="#">Plano de<br />Estudos</a></li>
-                        <li class="menu-content-item"><a href="#">Simulados</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="#">Continue<br />Estudando</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="~/Usuario_has_curso/MeusCursos">Meus<br />Cursos</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="#">Meus<br />Exercícios</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="~/Usuarios/MeuCertificado">Meus<br />Certificados</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="#">Plano de<br />Estudos</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="#">Simulados</a></li>
 
-                        <li class="menu-content-item"><a href="#">Histórico de <br />testes</a></li>
+                        <li name="PagIndexUsuario" class="menu-content-item"><a name="PagIndexUsuario" href="#">Histórico de <br />testes</a></li>
                         @if (Model.TiposUsuarios == _30Code.Models.Usuario.TipoUsuario.Comum)
                         {
-                            <li class="menu-content-item menu-content-item-destaque"><a href="~/Usuarios/SejaPremium" class="menu-user-assine-topo">Seja Premium</a></li>
+                            <li name="PagIndexUsuario" class="menu-content-item menu-content-item-destaque">
+                                <a name="PagIndexUsuario" href="~/Usuarios/SejaPremium" class="menu-user-assine-topo">Seja Premium</a>
+                            </li>
                         }
                     </ul>
 
                     <div class="menu-container-rodape">
                         <div class="menu-container-rodape-action">
-                            <a class="topo-link-minha-conta" href="~/Usuarios/Edit">
+                            <a name="PagIndexUsuario" class="topo-link-minha-conta" href="~/Usuarios/Edit">
                                 Editar Cadastro
                                 <i class="icofont-pen-alt-2"></i>
                             </a>
 
-                            <a class="topo-link-logout" href="~/Usuarios/Sair">
+                            <a name="PagIndexUsuario" class="topo-link-logout" href="~/Usuarios/Sair">
                                 Logout
                                 <i class="icofont-logout"></i>
                             </a>

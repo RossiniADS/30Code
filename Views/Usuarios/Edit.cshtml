@@ -4,12 +4,6 @@
     @{ ViewBag.Title = "Edit"; }
 
     <h2>Meus dados</h2>
-    <style>
-        .btn {
-            border: 1px solid #000;
-        }
-    </style>
-
     @using (Html.BeginForm("Edit", "Usuarios", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
