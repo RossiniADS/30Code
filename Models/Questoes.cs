@@ -10,7 +10,7 @@ namespace _30Code.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(80)]
+        [MaxLength(300)]
         public string Titulo { get; set; }
         [Required]
         public int ConteudoId { get; set; }

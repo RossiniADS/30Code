@@ -987,21 +987,507 @@ namespace _30Code.Migrations
                  new Models.Questoes
                  {
                      Id = 4,
-                     Titulo = "Será q vai?",
+                     Titulo = "Não é uma funcionalidade de IDE:",
                      ConteudoId = 2
                  },
                 new Models.Questoes
                 {
                     Id = 5,
-                    Titulo = "Acho q sim?",
+                    Titulo = "Não é uma vantagem da abordagem hibrida:",
                     ConteudoId = 2
                 },
                 new Models.Questoes
                 {
                     Id = 6,
-                    Titulo = "FOOOOI?",
+                    Titulo = "A maneira correta de se escrever um codigo é seguindo por:",
                     ConteudoId = 2
+                },
+                new Models.Questoes
+                {
+                    Id = 7,
+                    Titulo = "Qual a diferença entre JRE e JDK aparece incorreta?",
+                    ConteudoId = 3
+                },
+                new Models.Questoes
+                {
+                    Id = 8,
+                    Titulo = "Quais são os componentes da JDK?",
+                    ConteudoId = 3
+                },
+                new Models.Questoes
+                {
+                    Id = 9,
+                    Titulo = "O método main sera reconhecido pelo jvm se ele possuir:",
+                    ConteudoId = 3
+                },
+                 new Models.Questoes
+                 {
+                     Id = 10,
+                     Titulo = "Qual desses é a maneira incorreta de se nomear uma variável?",
+                     ConteudoId = 4
+                 },
+                new Models.Questoes
+                {
+                    Id = 11,
+                    Titulo = "Uma variável é:",
+                    ConteudoId = 4
+                },
+                new Models.Questoes
+                {
+                    Id = 12,
+                    Titulo = "assinale a incorreta:",
+                    ConteudoId = 4
+                },
+                new Models.Questoes
+                {
+                    Id = 13,
+                    Titulo = "A maneira correta de se escrever um codigo sequencial é seguindo por:",
+                    ConteudoId = 5
+                },
+                new Models.Questoes
+                {
+                    Id = 14,
+                    Titulo = "É corretor afirmar de uma estrutura sequencial:",
+                    ConteudoId = 5
+                },
+                new Models.Questoes
+                {
+                    Id = 15,
+                    Titulo = "Para o seu correto funcionamento, os algoritmos devem ser implementados como um conjunto de métodos e mensagens.",
+                    ConteudoId = 5
+                },
+                 new Models.Questoes
+                 {
+                     Id = 16,
+                     Titulo = "é corretor afirmar que:",
+                     ConteudoId = 6
+                 },
+                new Models.Questoes
+                {
+                    Id = 17,
+                    Titulo = "É importante ressaltar:",
+                    ConteudoId = 6
+                },
+                new Models.Questoes
+                {
+                    Id = 18,
+                    Titulo = "Nas estruturas de controle, tais como as estruturas de seleção simples, compostas ou encadeadas, é necessário verificar as condições para a realização de uma instrução ou sequência de instruções.",
+                    ConteudoId = 6
+                },
+                new Models.Questoes
+                {
+                    Id = 19,
+                    Titulo = "É corretor afirmar sobre os laços while:",
+                    ConteudoId = 7
+                },
+                new Models.Questoes
+                {
+                    Id = 20,
+                    Titulo = "O laço mais utilizado para contagem é:",
+                    ConteudoId = 7
+                },
+                new Models.Questoes
+                {
+                    Id = 21,
+                    Titulo = "complete corretamente: For(............... ; ...............; ..............){}",
+                    ConteudoId = 7
+                },
+                 new Models.Questoes
+                 {
+                     Id = 22,
+                     Titulo = "sobre os Operadores bitwise &, | e ^ são respectivamente;",
+                     ConteudoId = 8
+                 },
+                new Models.Questoes
+                {
+                    Id = 23,
+                    Titulo = "dado a operação de split responda corretamente:",
+                    ConteudoId = 8
+                },
+                new Models.Questoes
+                {
+                    Id = 24,
+                    Titulo = "Nas funções matemáticas em Java para se obter a porcentagem de um número devemos fazer a seguinte:",
+                    ConteudoId = 8
+                },
+                new Models.Questoes
+                {
+                    Id = 25,
+                    Titulo = "O que é um Objeto?",
+                    ConteudoId = 9
+                },
+                new Models.Questoes
+                {
+                    Id = 26,
+                    Titulo = "O que é uma classe?",
+                    ConteudoId = 9
+                },
+                new Models.Questoes
+                {
+                    Id = 27,
+                    Titulo = "O que é um método?",
+                    ConteudoId = 9
+                },
+                 new Models.Questoes
+                 {
+                     Id = 28,
+                     Titulo = "Dado as características do construtor afirme o correto:",
+                     ConteudoId = 10
+                 },
+                new Models.Questoes
+                {
+                    Id = 29,
+                    Titulo = "Como ocorre uma chamada de um construtor pai?",
+                    ConteudoId = 10
+                },
+                new Models.Questoes
+                {
+                    Id = 30,
+                    Titulo = "Sobre associações obrigatórias:",
+                    ConteudoId = 10
+                },
+                new Models.Questoes
+                {
+                    Id = 31,
+                    Titulo = "Assine o incorreto sobre sobrecarga:",
+                    ConteudoId = 11
+                },
+                new Models.Questoes
+                {
+                    Id = 32,
+                    Titulo = "assine o correto sobre sobrecarga:",
+                    ConteudoId = 11
+                },
+                new Models.Questoes
+                {
+                    Id = 33,
+                    Titulo = "O que é sobrecarga?",
+                    ConteudoId = 11
+                },
+                 new Models.Questoes
+                 {
+                     Id = 34,
+                     Titulo = "Sobre encapsulamento é incorreto dizer que:",
+                     ConteudoId = 12
+                 },
+                new Models.Questoes
+                {
+                    Id = 35,
+                    Titulo = "Os modificadores de acesso são:",
+                    ConteudoId = 12
+                },
+                new Models.Questoes
+                {
+                    Id = 36,
+                    Titulo = "A regra geral para o uso do encapsulamento diz que:",
+                    ConteudoId = 12
+                },
+                new Models.Questoes
+                {
+                    Id = 37,
+                    Titulo = "Para criar métodos GET e SET:",
+                    ConteudoId = 13
+                },
+                new Models.Questoes
+                {
+                    Id = 38,
+                    Titulo = "Como usar os métodos Get e SET?",
+                    ConteudoId = 13
+                },
+                new Models.Questoes
+                {
+                    Id = 39,
+                    Titulo = "Uso errado do get-set pode ser:",
+                    ConteudoId = 13
+                },
+                 new Models.Questoes
+                 {
+                     Id = 40,
+                     Titulo = "Os erros de NullPointerException vão acontecer se você:",
+                     ConteudoId = 14
+                 },
+                new Models.Questoes
+                {
+                    Id = 41,
+                    Titulo = "Sobre arrays quando iniciados sendo double, float, long e boolean; devem inicialmente ser mostrados respectivamente como",
+                    ConteudoId = 14
+                },
+                new Models.Questoes
+                {
+                    Id = 42,
+                    Titulo = "Sobre a declaração de Array:",
+                    ConteudoId = 14
+                },
+                new Models.Questoes
+                {
+                    Id = 43,
+                    Titulo = "Lista é uma estrutura de dados:",
+                    ConteudoId = 15
+                },
+                new Models.Questoes
+                {
+                    Id = 44,
+                    Titulo = "assine a vantagem incorreta de se usar listas:",
+                    ConteudoId = 15
+                },
+                new Models.Questoes
+                {
+                    Id = 45,
+                    Titulo = "As principais subclasses de uma lista podem ser:",
+                    ConteudoId = 15
+                },
+                 new Models.Questoes
+                 {
+                     Id = 46,
+                     Titulo = "Como instancia um Calendar no Java:",
+                     ConteudoId = 16
+                 },
+                new Models.Questoes
+                {
+                    Id = 47,
+                    Titulo = "Porque não precisa usar o new(instanciar) o Calendar;",
+                    ConteudoId = 16
+                },
+                new Models.Questoes
+                {
+                    Id = 48,
+                    Titulo = "Coloque marque a alternativa correta de acordo com as alternativas:",
+                    ConteudoId = 16
+                },
+                new Models.Questoes
+                {
+                    Id = 49,
+                    Titulo = "Eu Gabriel criei um enumerador chamado “MinhaClasse”Como que declara um Enumerador:",
+                    ConteudoId = 17
+                },
+                new Models.Questoes
+                {
+                    Id = 50,
+                    Titulo = "Quais são as regras e as boas práticas para criar as variáveis dentro de um enumerador",
+                    ConteudoId = 17
+                },
+                new Models.Questoes
+                {
+                    Id = 51,
+                    Titulo = "O que é enum em Java:",
+                    ConteudoId = 17
+                },
+                 new Models.Questoes
+                 {
+                     Id = 52,
+                     Titulo = "A herança  um princípio de orientação a objetos que permite que classes compartilhem atributos e métodos  é utilizada para reaproveitar código ou comportamento generalizado ou especializar operações ou atributos.",
+                     ConteudoId = 18
+                 },
+                new Models.Questoes
+                {
+                    Id = 53,
+                    Titulo = "Quais afirmações são verdadeiras? (Escolha todas as opções aplicáveis.)",
+                    ConteudoId = 18
+                },
+                new Models.Questoes
+                {
+                    Id = 54,
+                    Titulo = "Pessoa - nome: string - idade: int - sexo: char - endereço: varchar Tendo como referência as informações precedentes, julgue o item a seguir, com base na orientação a objetos. sexo é uma herança de outra classe.",
+                    ConteudoId = 18
                 });
+            //new Models.Questoes
+            //{
+            //    Id = 55,
+            //    Titulo = "O que é polimorfismo?",
+            //    ConteudoId = 19
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 56,
+            //    Titulo = "",
+            //    ConteudoId = 19
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 57,
+            //    Titulo = "",
+            //    ConteudoId = 19
+            //},
+            // new Models.Questoes
+            // {
+            //     Id = 58,
+            //     Titulo = "",
+            //     ConteudoId = 20
+            // },
+            //new Models.Questoes
+            //{
+            //    Id = 59,
+            //    Titulo = "",
+            //    ConteudoId = 20
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 60,
+            //    Titulo = "",
+            //    ConteudoId = 20
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 61,
+            //    Titulo = "",
+            //    ConteudoId = 21
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 62,
+            //    Titulo = "",
+            //    ConteudoId = 21
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 63,
+            //    Titulo = "",
+            //    ConteudoId = 21
+            //},
+            // new Models.Questoes
+            // {
+            //     Id = 64,
+            //     Titulo = "",
+            //     ConteudoId = 22
+            // },
+            //new Models.Questoes
+            //{
+            //    Id = 65,
+            //    Titulo = "",
+            //    ConteudoId = 22
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 66,
+            //    Titulo = "",
+            //    ConteudoId = 22
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 67,
+            //    Titulo = "",
+            //    ConteudoId = 23
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 68,
+            //    Titulo = "",
+            //    ConteudoId = 23
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 69,
+            //    Titulo = "",
+            //    ConteudoId = 23
+            //},
+            // new Models.Questoes
+            // {
+            //     Id = 70,
+            //     Titulo = "",
+            //     ConteudoId = 24
+            // },
+            //new Models.Questoes
+            //{
+            //    Id = 71,
+            //    Titulo = "",
+            //    ConteudoId = 24
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 72,
+            //    Titulo = "",
+            //    ConteudoId = 24
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 73,
+            //    Titulo = "",
+            //    ConteudoId = 25
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 74,
+            //    Titulo = "",
+            //    ConteudoId = 25
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 75,
+            //    Titulo = "",
+            //    ConteudoId = 25
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 76,
+            //    Titulo = "",
+            //    ConteudoId = 26
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 77,
+            //    Titulo = "",
+            //    ConteudoId = 26
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 78,
+            //    Titulo = "",
+            //    ConteudoId = 26
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 79,
+            //    Titulo = "",
+            //    ConteudoId = 27
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 80,
+            //    Titulo = "",
+            //    ConteudoId = 27
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 81,
+            //    Titulo = "",
+            //    ConteudoId = 27
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 82,
+            //    Titulo = "",
+            //    ConteudoId = 28
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 83,
+            //    Titulo = "",
+            //    ConteudoId = 28
+            //},
+            // new Models.Questoes
+            // {
+            //     Id = 84,
+            //     Titulo = "",
+            //     ConteudoId = 28
+            // },
+            //new Models.Questoes
+            //{
+            //    Id = 85,
+            //    Titulo = "",
+            //    ConteudoId = 29
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 86,
+            //    Titulo = "",
+            //    ConteudoId = 29
+            //},
+            //new Models.Questoes
+            //{
+            //    Id = 87,
+            //    Titulo = "",
+            //    ConteudoId = 29
+            //});
             context.Alternativa.AddOrUpdate(
                 new Models.Alternativa
                 {
@@ -1025,13 +1511,13 @@ namespace _30Code.Migrations
                     QuestoesId = 1
                 },
 
-                 new Models.Alternativa
-                 {
-                     Id = 4,
-                     Resposta = "Java",
-                     AlternativaCorreta = false,
-                     QuestoesId = 2
-                 },
+                new Models.Alternativa
+                {
+                    Id = 4,
+                    Resposta = "Java",
+                    AlternativaCorreta = false,
+                    QuestoesId = 2
+                },
                 new Models.Alternativa
                 {
                     Id = 5,
@@ -1047,13 +1533,13 @@ namespace _30Code.Migrations
                     QuestoesId = 2
                 },
 
-                 new Models.Alternativa
-                 {
-                     Id = 7,
-                     Resposta = "Java",
-                     AlternativaCorreta = false,
-                     QuestoesId = 3
-                 },
+                new Models.Alternativa
+                {
+                    Id = 7,
+                    Resposta = "Java",
+                    AlternativaCorreta = false,
+                    QuestoesId = 3
+                },
                 new Models.Alternativa
                 {
                     Id = 8,
@@ -1068,71 +1554,336 @@ namespace _30Code.Migrations
                     AlternativaCorreta = true,
                     QuestoesId = 3
                 },
+
                 new Models.Alternativa
                 {
                     Id = 10,
-                    Resposta = "Sei não",
+                    Resposta = "autocorreção de bugs",
                     AlternativaCorreta = true,
                     QuestoesId = 4
                 },
                 new Models.Alternativa
                 {
                     Id = 11,
-                    Resposta = "talvez",
+                    Resposta = "sugestão de modelos",
                     AlternativaCorreta = false,
                     QuestoesId = 4
                 },
                 new Models.Alternativa
                 {
                     Id = 12,
-                    Resposta = "SIM",
+                    Resposta = "depuração de testes",
                     AlternativaCorreta = false,
                     QuestoesId = 4
                 },
 
-                 new Models.Alternativa
-                 {
-                     Id = 13,
-                     Resposta = "acho que sim",
-                     AlternativaCorreta = false,
-                     QuestoesId = 5
-                 },
+                new Models.Alternativa
+                {
+                    Id = 13,
+                    Resposta = "Velocidade do programa",
+                    AlternativaCorreta = false,
+                    QuestoesId = 5
+                },
                 new Models.Alternativa
                 {
                     Id = 14,
-                    Resposta = "acho que nao",
-                    AlternativaCorreta = true,
+                    Resposta = "Expressividade da linguagem",
+                    AlternativaCorreta = false,
                     QuestoesId = 5
                 },
                 new Models.Alternativa
                 {
                     Id = 15,
-                    Resposta = "sei de nada",
-                    AlternativaCorreta = false,
+                    Resposta = "Automação na interpretação de códigos",
+                    AlternativaCorreta = true,
                     QuestoesId = 5
                 },
 
-                 new Models.Alternativa
-                 {
-                     Id = 16,
-                     Resposta = "nao",
-                     AlternativaCorreta = false,
-                     QuestoesId = 6
-                 },
+                new Models.Alternativa
+                {
+                    Id = 16,
+                    Resposta = "início – entrada - resultados - processamento - fim",
+                    AlternativaCorreta = false,
+                    QuestoesId = 6
+                },
                 new Models.Alternativa
                 {
                     Id = 17,
-                    Resposta = "sim",
+                    Resposta = "início - variáveis – processamento – informações - fim",
                     AlternativaCorreta = false,
                     QuestoesId = 6
                 },
                 new Models.Alternativa
                 {
                     Id = 18,
-                    Resposta = "vou ver",
+                    Resposta = "início – entrada – processamento – saida - fim",
                     AlternativaCorreta = true,
                     QuestoesId = 6
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 19,
+                    Resposta = "O JRE contém tudo aquilo que um usuário comum precisa para executar uma aplicação Java.",
+                    AlternativaCorreta = false,
+                    QuestoesId = 7
+                },
+                new Models.Alternativa
+                {
+                    Id = 20,
+                    Resposta = "O JDK é composto pelo JRE e um conjunto de ferramentas úteis ao desenvolvedor Java.",
+                    AlternativaCorreta = false,
+                    QuestoesId = 7
+                },
+                new Models.Alternativa
+                {
+                    Id = 21,
+                    Resposta = "O JDK é uma máquina imaginária que emula uma aplicação em uma máquina real.",
+                    AlternativaCorreta = true,
+                    QuestoesId = 7
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 22,
+                    Resposta = "Javac, javaw, jit",
+                    AlternativaCorreta = false,
+                    QuestoesId = 8
+                },
+                new Models.Alternativa
+                {
+                    Id = 23,
+                    Resposta = "Javac, jar, debugging tools, javap",
+                    AlternativaCorreta = false,
+                    QuestoesId = 8
+                },
+                new Models.Alternativa
+                {
+                    Id = 24,
+                    Resposta = "Java, javaw, libraries,rt.jar",
+                    AlternativaCorreta = true,
+                    QuestoesId = 8
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 25,
+                    Resposta = "Um valor nulo (void).",
+                    AlternativaCorreta = false,
+                    QuestoesId = 9
+                },
+                new Models.Alternativa
+                {
+                    Id = 26,
+                    Resposta = "ser público (static).",
+                    AlternativaCorreta = false,
+                    QuestoesId = 9
+                },
+                new Models.Alternativa
+                {
+                    Id = 27,
+                    Resposta = "Receber como parâmetro um array de string.",
+                    AlternativaCorreta = true,
+                    QuestoesId = 9
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 28,
+                    Resposta = "int salario;",
+                    AlternativaCorreta = false,
+                    QuestoesId = 10
+                },
+                new Models.Alternativa
+                {
+                    Id = 29,
+                    Resposta = "int salário;",
+                    AlternativaCorreta = true,
+                    QuestoesId = 10
+                },
+                new Models.Alternativa
+                {
+                    Id = 30,
+                    Resposta = "int _5minutos;",
+                    AlternativaCorreta = false,
+                    QuestoesId = 10
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 31,
+                    Resposta = "Um método de nomeação ",
+                    AlternativaCorreta = false,
+                    QuestoesId = 11
+                },
+                new Models.Alternativa
+                {
+                    Id = 32,
+                    Resposta = "Uma porção de memória que armazena dados.",
+                    AlternativaCorreta = true,
+                    QuestoesId = 11
+                },
+                new Models.Alternativa
+                {
+                    Id = 33,
+                    Resposta = "Uma variação de código ",
+                    AlternativaCorreta = false,
+                    QuestoesId = 11
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 34,
+                    Resposta = "Variáveis byte são do tipo numéricos inteiros.",
+                    AlternativaCorreta = false,
+                    QuestoesId = 12
+                },
+                new Models.Alternativa
+                {
+                    Id = 35,
+                    Resposta = "Variáveis boolean são do tipo numéricos inteiros.",
+                    AlternativaCorreta = true,
+                    QuestoesId = 12
+                },
+                new Models.Alternativa
+                {
+                    Id = 36,
+                    Resposta = "Variáveis float são numéricos com ponto flutuantes.",
+                    AlternativaCorreta = false,
+                    QuestoesId = 12
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 19,
+                    Resposta = "início – entrada - resultados - processamento - fim",
+                    AlternativaCorreta = false,
+                    QuestoesId = 13
+                },
+                new Models.Alternativa
+                {
+                    Id = 20,
+                    Resposta = "início - variáveis – processamento – informações - fim",
+                    AlternativaCorreta = false,
+                    QuestoesId = 13
+                },
+                new Models.Alternativa
+                {
+                    Id = 21,
+                    Resposta = "início – entrada – processamento – saida – fim",
+                    AlternativaCorreta = true,
+                    QuestoesId = 13
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 22,
+                    Resposta = "Os comandos serão executados na ordem que foram escritos",
+                    AlternativaCorreta = false,
+                    QuestoesId = 14
+                },
+                new Models.Alternativa
+                {
+                    Id = 23,
+                    Resposta = "Os comandos serão escritos seguindo uma ordem de semântica",
+                    AlternativaCorreta = false,
+                    QuestoesId = 14
+                },
+                new Models.Alternativa
+                {
+                    Id = 24,
+                    Resposta = "O algoritmo pode ser finalizado no meio do processo a qualquer momento",
+                    AlternativaCorreta = true,
+                    QuestoesId = 14
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 25,
+                    Resposta = "certo",
+                    AlternativaCorreta = false,
+                    QuestoesId = 15
+                },
+                new Models.Alternativa
+                {
+                    Id = 26,
+                    Resposta = "errado",
+                    AlternativaCorreta = true,
+                    QuestoesId = 15
+                },
+                //new Models.Alternativa
+                //{
+                //    Id = 27,
+                //    Resposta = "",
+                //    AlternativaCorreta = true,
+                //    QuestoesId = 15
+                //},
+
+                new Models.Alternativa
+                {
+                    Id = 28,
+                    Resposta = "O if em java sempre será escrito como uma expressao boolean",
+                    AlternativaCorreta = true,
+                    QuestoesId = 16
+                },
+                new Models.Alternativa
+                {
+                    Id = 29,
+                    Resposta = "O if em java sempre será escrito como uma expressao Integer",
+                    AlternativaCorreta = false,
+                    QuestoesId = 16
+                },
+                new Models.Alternativa
+                {
+                    Id = 30,
+                    Resposta = "O if em java sempre será escrito como uma expressao String",
+                    AlternativaCorreta = false,
+                    QuestoesId = 16
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 31,
+                    Resposta = "o else só ocorrerá se o if for F",
+                    AlternativaCorreta = true,
+                    QuestoesId = 17
+                },
+                new Models.Alternativa
+                {
+                    Id = 32,
+                    Resposta = "o else ocorrerá sempre após o if",
+                    AlternativaCorreta = false,
+                    QuestoesId = 17
+                },
+                new Models.Alternativa
+                {
+                    Id = 33,
+                    Resposta = "o else só ocorrerá quando o if for V",
+                    AlternativaCorreta = false,
+                    QuestoesId = 17
+                },
+
+                new Models.Alternativa
+                {
+                    Id = 34,
+                    Resposta = "Errado",
+                    AlternativaCorreta = false,
+                    QuestoesId = 18
+                },
+                new Models.Alternativa
+                {
+                    Id = 35,
+                    Resposta = "Certo",
+                    AlternativaCorreta = true,
+                    QuestoesId = 18
                 });
+            //new Models.Alternativa
+            //{
+            //    Id = 36,
+            //    Resposta = "Variáveis float são numéricos com ponto flutuantes.",
+            //    AlternativaCorreta = false,
+            //    QuestoesId = 18
+            //}
         }
     }
 }
