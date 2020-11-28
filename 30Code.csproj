@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -46,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Antiforgery, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -326,9 +325,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AnexoesController.cs" />
+    <Compile Include="Controllers\ConteudoesController.cs" />
+    <Compile Include="Controllers\CursoadminController.cs" />
     <Compile Include="Controllers\CursoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModuloesController.cs" />
+    <Compile Include="Controllers\QuestoesController.cs" />
+    <Compile Include="Controllers\UsuariosadminController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\Usuario_has_cursoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -698,7 +702,6 @@
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Usuarios\Historico.cshtml" />
-    <Content Include="Views\Cursoes\Create.cshtml" />
     <Content Include="Views\Cursoes\Delete.cshtml" />
     <Content Include="Views\Cursoes\Details.cshtml" />
     <Content Include="Views\Cursoes\Edit.cshtml" />
@@ -721,13 +724,35 @@
     <Content Include="Views\Usuario_has_curso\MeusCursos.cshtml" />
     <Content Include="Views\Usuarios\SejaPremium.cshtml" />
     <Content Include="Views\Cursoes\_Quizz.cshtml" />
-    <Content Include="Views\Admin\Anexo.cshtml" />
-    <Content Include="Views\Admin\Conteudo.cshtml" />
-    <Content Include="Views\Admin\Curso.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\QuestaoAndResposta.cshtml" />
     <Content Include="Views\Admin\Usuarios.cshtml" />
+    <Content Include="Views\Anexoes\Create.cshtml" />
+    <Content Include="Views\Anexoes\Delete.cshtml" />
+    <Content Include="Views\Anexoes\Details.cshtml" />
+    <Content Include="Views\Anexoes\Edit.cshtml" />
+    <Content Include="Views\Anexoes\Index.cshtml" />
+    <Content Include="Views\Cursoadmin\Create.cshtml" />
+    <Content Include="Views\Cursoadmin\Delete.cshtml" />
+    <Content Include="Views\Cursoadmin\Details.cshtml" />
+    <Content Include="Views\Cursoadmin\Edit.cshtml" />
+    <Content Include="Views\Cursoadmin\Index.cshtml" />
+    <Content Include="Views\Usuariosadmin\Create.cshtml" />
+    <Content Include="Views\Usuariosadmin\Delete.cshtml" />
+    <Content Include="Views\Usuariosadmin\Details.cshtml" />
+    <Content Include="Views\Usuariosadmin\Edit.cshtml" />
+    <Content Include="Views\Usuariosadmin\Index.cshtml" />
+    <Content Include="Views\Questoes\Create.cshtml" />
+    <Content Include="Views\Questoes\Delete.cshtml" />
+    <Content Include="Views\Questoes\Details.cshtml" />
+    <Content Include="Views\Questoes\Edit.cshtml" />
+    <Content Include="Views\Questoes\Index.cshtml" />
+    <Content Include="Views\Conteudoes\Create.cshtml" />
+    <Content Include="Views\Conteudoes\Delete.cshtml" />
+    <Content Include="Views\Conteudoes\Details.cshtml" />
+    <Content Include="Views\Conteudoes\Edit.cshtml" />
+    <Content Include="Views\Conteudoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -774,10 +799,7 @@
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
