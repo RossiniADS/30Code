@@ -31,38 +31,6 @@
     <link href="~/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <style>
-        .login {
-            margin-bottom: 5px;
-        }
-
-        .top-bar-profile-picture {
-            display: flex;
-            position: relative;
-            cursor: pointer;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            overflow: hidden;
-            pointer-events: auto;
-        }
-
-            .top-bar-profile-picture:before {
-                bottom: -14px;
-                left: 50%;
-                border: solid transparent;
-                content: " ";
-                height: 0;
-                width: 0;
-                position: absolute;
-                pointer-events: none;
-                border-bottom-color: #253A44;
-                border-width: 10px;
-                transform: translateX(-50%);
-                opacity: 0;
-                transition: 0.2s;
-            }
-    </style>
 
     <!-- ======= Top Bar ======= -->
     <!--<section id="topbar" class="d-none d-lg-block">
@@ -81,6 +49,7 @@
         </div>
     </section>-->
     <!-- ======= Header ======= -->
+
     <header id="header">
         <div class="container">
             <div class="logo float-left">
@@ -136,10 +105,7 @@
         </div>
     </header><!-- End Header -->
 
-
-
-
-    <div class="">
+    <div>
         @RenderBody()
         <!-- ======= Footer ======= -->
         <footer id="footer">
@@ -207,7 +173,9 @@
             <!--Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                 </div>
             </div>-->
-        </footer><!-- End Footer -->
+
+        </footer>
+        <!-- End Footer -->
     </div>
 
     <!-- Vendor JS Files -->
@@ -229,6 +197,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     <!-- Scripts para o Esqueceu Senha!!!-->
     <script src="https://cdn.tiny.cloud/1/no-apikey/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -258,7 +227,6 @@
             });
         </script>
     }
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

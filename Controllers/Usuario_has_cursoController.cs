@@ -16,10 +16,16 @@ namespace _30Code.Controllers
 
         public ActionResult MeusCursos()
         {
-            var id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
-
-            var usuCurso = db.Usuario_has_curso.Where(x=> x.Usuario.Id == id).Include(u => u.Curso);
-            return View(usuCurso.ToList());
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            {
+                var id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+                var usuCurso = db.Usuario_has_curso.Where(x => x.Usuario.Id == id).Include(u => u.Curso);
+                return View(usuCurso.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Create", "Usuarios");
+            }
         }
 
         // GET: Usuario_has_curso

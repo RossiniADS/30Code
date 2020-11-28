@@ -19,7 +19,7 @@ namespace _30Code.Controllers
 
         public ActionResult SejaPremium()
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 return View();
             }
@@ -37,7 +37,7 @@ namespace _30Code.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 var userId = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
                 return View(db.Usuario.Find(userId));
@@ -51,7 +51,7 @@ namespace _30Code.Controllers
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
                 Usuario usuario = db.Usuario.Find(id);
@@ -104,7 +104,7 @@ namespace _30Code.Controllers
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 Usuario usuario = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
                 EditarUsuario usu = new EditarUsuario();
@@ -130,7 +130,7 @@ namespace _30Code.Controllers
         public ActionResult Edit(EditarUsuario usuario, HttpPostedFileBase arq)
         {
 
-            if (ModelState.IsValid)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
                 string valor = "";
