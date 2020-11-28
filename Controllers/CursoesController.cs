@@ -35,65 +35,72 @@ namespace _30Code.Controllers
         [HttpPost]
         public ActionResult Resposta(ConteudoVM ConteudoVM, int id)
         {
-            int contID = 0;
-            foreach (var item in ConteudoVM.QuestaoVMs)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
-                if (item.Selecionado == 0)
-                {
-                    return RedirectToAction("Aula", "Cursoes", new { id = id });
-                }
-                contID = item.ConteudoId;
-            }
-            var userID = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
 
-            List<Usuario_has_curso_has_conteudo_has_questoes> teste = db.Usuario_has_curso_has_conteudo_has_questoes.Where(x => x.Usuario_Has_Curso_Has_Conteudo.ConteudoId == contID && x.Usuario_Has_Curso_Has_Conteudo.Usuario_Has_Curso.UsuarioId == userID).ToList();
-
-            if (teste.Count > 0)
-            {
-                db.Usuario_has_curso_has_conteudo.Remove(teste.FirstOrDefault().Usuario_Has_Curso_Has_Conteudo);
-                foreach (var item in teste)
+                int contID = 0;
+                foreach (var item in ConteudoVM.QuestaoVMs)
                 {
-                    db.Usuario_has_curso_has_conteudo_has_questoes.Remove(item);
+                    if (item.Selecionado == 0)
+                    {
+                        return RedirectToAction("Aula", "Cursoes", new { id = id });
+                    }
+                    contID = item.ConteudoId;
                 }
-                db.SaveChanges();
-            }
-            double soma = 0;
-            Usuario_has_curso_has_conteudo ucc = new Usuario_has_curso_has_conteudo();
-            ucc.ConteudoId = contID;
-            ucc.DataDeConclusao = DateTime.Now;
-            ucc.Usuario_has_cursoId = id;
-            ucc.Usuario_has_curso_Has_Conteudo_Has_Questoes = new List<Usuario_has_curso_has_conteudo_has_questoes>();
-            foreach (var item in ConteudoVM.QuestaoVMs)
-            {
-                Usuario_has_curso_has_conteudo_has_questoes uccq = new Usuario_has_curso_has_conteudo_has_questoes();
-                uccq.AlternativaId = item.Selecionado;
-                if (db.Alternativa.Find(uccq.AlternativaId).AlternativaCorreta)
+                var userID = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+
+                List<Usuario_has_curso_has_conteudo_has_questoes> teste = db.Usuario_has_curso_has_conteudo_has_questoes.Where(x => x.Usuario_Has_Curso_Has_Conteudo.ConteudoId == contID && x.Usuario_Has_Curso_Has_Conteudo.Usuario_Has_Curso.UsuarioId == userID).ToList();
+
+                if (teste.Count > 0)
                 {
-                    uccq.Aproveitamento = "100";
-                    soma += 100;
+                    db.Usuario_has_curso_has_conteudo.Remove(teste.FirstOrDefault().Usuario_Has_Curso_Has_Conteudo);
+                    foreach (var item in teste)
+                    {
+                        db.Usuario_has_curso_has_conteudo_has_questoes.Remove(item);
+                    }
+                    db.SaveChanges();
+                }
+                double soma = 0;
+                Usuario_has_curso_has_conteudo ucc = new Usuario_has_curso_has_conteudo();
+                ucc.ConteudoId = contID;
+                ucc.DataDeConclusao = DateTime.Now;
+                ucc.Usuario_has_cursoId = id;
+                ucc.Usuario_has_curso_Has_Conteudo_Has_Questoes = new List<Usuario_has_curso_has_conteudo_has_questoes>();
+                foreach (var item in ConteudoVM.QuestaoVMs)
+                {
+                    Usuario_has_curso_has_conteudo_has_questoes uccq = new Usuario_has_curso_has_conteudo_has_questoes();
+                    uccq.AlternativaId = item.Selecionado;
+                    if (db.Alternativa.Find(uccq.AlternativaId).AlternativaCorreta)
+                    {
+                        uccq.Aproveitamento = "100";
+                        soma += 100;
+                    }
+                    else
+                    {
+                        uccq.Aproveitamento = "0";
+                    }
+                    uccq.QuestoesId = item.Id;
+                    uccq.Resposta = item.Selecionado;
+                    ucc.Usuario_has_curso_Has_Conteudo_Has_Questoes.Add(uccq);
+                }
+                if (soma != 0)
+                {
+                    ucc.Aproveitamento = (soma / ConteudoVM.QuestaoVMs.Count()).ToString();
                 }
                 else
                 {
-                    uccq.Aproveitamento = "0";
+                    ucc.Aproveitamento = "0";
                 }
-                uccq.QuestoesId = item.Id;
-                uccq.Resposta = item.Selecionado;
-                ucc.Usuario_has_curso_Has_Conteudo_Has_Questoes.Add(uccq);
-            }
-            if (soma != 0)
-            {
-                ucc.Aproveitamento = (soma / ConteudoVM.QuestaoVMs.Count()).ToString();
+
+                db.Usuario_has_curso_has_conteudo.Add(ucc);
+                db.SaveChanges();
+
+                return RedirectToAction("Aula", "Cursoes", new { id = id });
             }
             else
             {
-                ucc.Aproveitamento = "0";
+                return View("Index", "Home");
             }
-
-            db.Usuario_has_curso_has_conteudo.Add(ucc);
-            db.SaveChanges();
-
-            return RedirectToAction("Aula", "Cursoes", new { id = id });
-
 
 
 
@@ -144,7 +151,7 @@ namespace _30Code.Controllers
 
         public ActionResult Aula(int id)
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 Aula aula = new Aula();
                 var curso = db.Curso.Find(id);
