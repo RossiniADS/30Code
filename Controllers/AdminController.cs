@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace _30Code.Controllers
 {
-
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private Contexto db = new Contexto();
