@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _30Code.Models;
@@ -20,6 +21,16 @@ namespace _30Code.Controllers
             return View(db.Curso.ToList());
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Index(string txtProcurar)
+        {
+            if (!String.IsNullOrEmpty(txtProcurar))
+            {
+                return View(await db.Curso.Where(x => x.Nome.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
+            }
+
+            return View(await db.Curso.ToListAsync());
+        }
         // GET: Cursoadmin/Details/5
         public ActionResult Details(int? id)
         {

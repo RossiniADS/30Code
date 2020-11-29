@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _30Code.Models;
@@ -19,6 +20,18 @@ namespace _30Code.Controllers
         {
             var modulo = db.Modulo.Include(m => m.Curso);
             return View(modulo.ToList());
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> Index(string txtProcurar)
+        {
+            if (!String.IsNullOrEmpty(txtProcurar))
+            {
+                return View(await db.Modulo.Where(x => x.Curso.Nome.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
+            }
+
+            return View(await db.Modulo.ToListAsync());
         }
 
         // GET: Moduloes/Details/5

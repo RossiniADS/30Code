@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _30Code.Models;
@@ -20,7 +21,16 @@ namespace _30Code.Controllers
             var anexo = db.Anexo.Include(a => a.Conteudo);
             return View(anexo.ToList());
         }
+        [HttpPost]
+        public async Task<ActionResult> Index(string txtProcurar)
+        {
+            if (!String.IsNullOrEmpty(txtProcurar))
+            {
+                return View(await db.Anexo.Where(x => x.Titulo.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
+            }
 
+            return View(await db.Curso.ToListAsync());
+        }
         // GET: Anexoes/Details/5
         public ActionResult Details(int? id)
         {

@@ -9,6 +9,19 @@
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
+    <form class="row" asp-controller="Usuariosadmin" asp-action="Index" method="post">
+        <div class="col-6">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
+            </div>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn-sm btn-success">Procurar</button>
+        </div>
+    </form>
     <table class="table">
         <tr>
             <th>

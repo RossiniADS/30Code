@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using _30Code.Models;
@@ -20,7 +21,16 @@ namespace _30Code.Controllers
             var conteudo = db.Conteudo.Include(c => c.Modulo);
             return View(conteudo.ToList());
         }
+        [HttpPost]
+        public async Task<ActionResult> Index(string txtProcurar)
+        {
+            if (!String.IsNullOrEmpty(txtProcurar))
+            {
+                return View(await db.Conteudo.Where(x => x.Modulo.Titulo.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
+            }
 
+            return View(await db.Conteudo.ToListAsync());
+        }
         // GET: Conteudoes/Details/5
         public ActionResult Details(int? id)
         {
