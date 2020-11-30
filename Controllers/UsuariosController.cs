@@ -95,7 +95,7 @@ namespace _30Code.Controllers
 
                 db.Usuario.Add(usu);
                 db.SaveChanges();
-                FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome, false);
+                FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, false);
                 return RedirectToAction("Index");
             }
             return View(login);
@@ -130,7 +130,7 @@ namespace _30Code.Controllers
         public ActionResult Edit(EditarUsuario usuario, HttpPostedFileBase arq)
         {
 
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var usu = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
                 string valor = "";
@@ -141,7 +141,14 @@ namespace _30Code.Controllers
                     valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
                     if (valor == "sucesso")
                     {
+                        if (usuario.UrlImagem != "user.jpg")
+                        {
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\" + usu.UrlImagem);
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\mini_" + usu.UrlImagem);
+                        }
                         usuario.UrlImagem = nomearq;
+                        FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome + "|" + usuario.UrlImagem, false);
+
                     }
                     else
                     {
@@ -166,7 +173,7 @@ namespace _30Code.Controllers
                 }
                 db.Entry(usu).State = EntityState.Modified;
                 db.SaveChanges();
-                //return RedirectToAction("Index");
+                return RedirectToAction("Edit");
             }
             return View(usuario);
         }
@@ -324,7 +331,7 @@ namespace _30Code.Controllers
                 Usuario usu = db.Usuario.Where(t => t.Email == login.Acesso.Email && t.Senha == senhacrip).ToList().FirstOrDefault();
                 if (usu != null)
                 {
-                    FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome, false);
+                    FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, false);
                     return RedirectToAction("Index");
                 }
                 else

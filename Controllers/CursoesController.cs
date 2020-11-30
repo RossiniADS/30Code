@@ -149,9 +149,9 @@ namespace _30Code.Controllers
 
         }
 
-        public ActionResult Aula(int id)
+        public ActionResult Aula(int? id)
         {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (User.Identity.IsAuthenticated == true && id != null)
             {
                 Aula aula = new Aula();
                 var curso = db.Curso.Find(id);

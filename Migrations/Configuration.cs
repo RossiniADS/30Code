@@ -29,7 +29,7 @@ namespace _30Code.Migrations
                     Email = "gabriel@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "233123123",
-                    UrlImagem = "gabriel.jpeg",
+                    UrlImagem = "user.jpg",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Comum,
                     Sexos = Models.Usuario.Sexo.Masculino
@@ -42,7 +42,7 @@ namespace _30Code.Migrations
                     Email = "rossini_rodrigues_alves@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "35498198",
-                    UrlImagem = "rossini.jpeg",
+                    UrlImagem = "user.jpg",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Admin,
                     Sexos = Models.Usuario.Sexo.Masculino
@@ -54,7 +54,7 @@ namespace _30Code.Migrations
                     Email = "vinicius@hotmail.com",
                     Senha = "CeCdDgvpJbV7rS0EZn7JgpqYv3UogkIhEnFBspLR/+hAkI3kSRFTjeN9Cb+/HSBuSfDjrJBbk3lLNjS1CNHSyg==",
                     Celular = "8978498",
-                    UrlImagem = "vinicius.png",
+                    UrlImagem = "user.jpg",
                     Nascimento = dt,
                     TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
                     Sexos = Models.Usuario.Sexo.Masculino

@@ -1,7 +1,9 @@
 ﻿@model _30Code.Models.EditarUsuario
 <div class="container">
 
-    @{ ViewBag.Title = "Edit"; }
+    @{ ViewBag.Title = "Edit";
+        Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    }
 
     <h2>Meus dados</h2>
     <style>
@@ -103,4 +105,3 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-    
