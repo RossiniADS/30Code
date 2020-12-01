@@ -93,11 +93,20 @@
                         <li> @Html.ActionLink("Resumo", "Index", "Usuarios") </li>
                         <li>@Html.ActionLink("Meus cursos", "MeusCursos", "Usuario_has_curso")</li>
                         <li>@Html.ActionLink("Cursos", "Cursos", "Cursoes")</li>
-                        <li>@Html.ActionLink(User.Identity.Name.Split('|')[1] + " - Sair", "Sair", "Usuarios")</li>
-                        <li>
-                            <span class="top-bar-profile-picture">
-                                <img src="~/assets/img/Usuarios/mini_@User.Identity.Name.Split('|')[2]">
-                            </span>
+                        <li></li>
+                        <li><a href=""><img src="~/Icons/notificacao.png" /></a></li>
+                        <li class="drop-down">
+                            <a href="" class="p-0 m-0">
+                                <span class="top-bar-profile-picture">
+                                    <img src="~/assets/img/Usuarios/mini_@User.Identity.Name.Split('|')[2]" />
+                                </span>
+                            </a>
+                            <ul>
+                                <li><a href="#">Favoritos</a></li>
+                                <li><a href="#">Notificações</a></li>
+                                <li><a href="#">Ajuda</a></li>
+                                <li>@Html.ActionLink("Sair", "Sair", "Usuarios")</li>
+                            </ul>
                         </li>
                     }
                 </ul>
