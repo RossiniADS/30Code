@@ -62,7 +62,7 @@ namespace _30Code.Models
 
         public static bool CriarDiretorio()
         {
-            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\";
+            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\Usuarios";
 
             if (!Directory.Exists(dir))
             {
@@ -139,8 +139,8 @@ namespace _30Code.Models
                 {
                     string arq = Path.GetFileName(flpUpload.FileName);
                     double tamanho = Convert.ToDouble(flpUpload.ContentLength) / 1024;
-                    string extensao = Path.GetExtension(flpUpload.FileName).ToLower();
-                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\";
+                    string extensao = Path.GetExtension(flpUpload.FileName).ToLower();  
+                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\Usuarios";
                     if (tamanho > permitido)
                         return "Tamanho Máximo permitido é de " + permitido + " kb!";
                     else if ((extensao != ".png" && extensao != ".jpg"))

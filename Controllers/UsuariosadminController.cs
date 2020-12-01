@@ -56,16 +56,16 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem")] Usuario pessoa, HttpPostedFileBase arq)
+        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha")] Usuario pessoa, HttpPostedFileBase arq)
         {
             string valor = "";
             if (ModelState.IsValid)
             {
                 if (arq != null)
                 {
-                    Funcoes.CriarDiretorio();
+                    Upload.CriarDiretorio();
                     string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq, nomearq);
+                    valor = Upload.UploadArquivo(arq, nomearq);
                     if (valor == "sucesso")
                     {
                         pessoa.UrlImagem = nomearq;
