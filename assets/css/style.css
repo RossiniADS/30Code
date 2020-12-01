@@ -1895,7 +1895,9 @@ a[name="PagMeusCursos"], a[name="PagMeusCursos"]:hover {
 /*--------------------------------------------------------------
 # IndexUsuario
 --------------------------------------------------------------*/
-
+#usuIndex {
+    background-color: #f7f8fa;
+}
 
 .picture-container .perfil-preview {
     animation: none;
