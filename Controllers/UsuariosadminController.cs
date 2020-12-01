@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -50,23 +51,42 @@ namespace _30Code.Controllers
         public ActionResult Create()
         {
             return View();
-        }
+        } 
 
-        // POST: Usuariosadmin/Create
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario usuario)
+        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem")] Usuario pessoa, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio();
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, nomearq);
+                    if (valor == "sucesso")
+                    {
+                        pessoa.UrlImagem = nomearq;
+                        db.Usuario.Add(pessoa);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", valor);
+                    }
+                }
+                else
+                {
+                    pessoa.UrlImagem = "user.png";
+                    db.Usuario.Add(pessoa);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
-            return View(usuario);
+            return View(pessoa);
         }
 
         // GET: Usuariosadmin/Edit/5

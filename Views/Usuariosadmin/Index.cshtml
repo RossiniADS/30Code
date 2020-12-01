@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
 <div class="container">
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -63,8 +63,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nascimento)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UrlImagem)
+                <td> 
+                    <img src="~/assets/img/Usuarios/@item.UrlImagem"
+                         style="max-width:70px;" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TiposUsuarios)
