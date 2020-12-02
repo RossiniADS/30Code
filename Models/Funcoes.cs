@@ -58,10 +58,6 @@ namespace _30Code.Models
             string resultado = new String(decodeChar);
             return resultado;
         }
-
-
-
-        
         public static string HashTexto(string texto, string nomeHash)
         {
             HashAlgorithm algoritmo = HashAlgorithm.Create(nomeHash);
@@ -72,7 +68,6 @@ namespace _30Code.Models
             byte[] hash = algoritmo.ComputeHash(Encoding.UTF8.GetBytes(texto));
             return Convert.ToBase64String(hash);
         }
-
         public static string RedefinirImagemSalvar(string imagePath, int largura, int altura, string prefixo)
         {
             System.Drawing.Image fullSizeImg = System.Drawing.Image.FromFile(imagePath);
@@ -94,7 +89,6 @@ namespace _30Code.Models
 
             return targetPath;
         }
-
         public static bool CriarDiretorio(string pasta)
         {
             string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\" + pasta + "\\";
@@ -118,7 +112,6 @@ namespace _30Code.Models
             else
                 return false;
         }
-         
         public static string UploadArquivo(HttpPostedFileBase flpUpload, string pasta, string nome)
         {
             try

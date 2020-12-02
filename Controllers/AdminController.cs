@@ -24,19 +24,6 @@ namespace _30Code.Controllers
             var modulo = db.Modulo.Include(m => m.Curso);
             return View(modulo.ToList());
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
-        {
-            Usuario pessoa = db.Usuario.Find(id);
-            if (pessoa.UrlImagem != "user.png")
-                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
-            db.Usuario.Remove(pessoa);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-
-        }
 
         [HttpPost]
         public async Task<ActionResult> ModuloIndex(string txtProcurar)
@@ -138,7 +125,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Moduloes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("ModuloDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult ModuloDeleteConfirmed(int id)
         {
@@ -251,7 +238,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Usuario_has_curso/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("UsuHasCurDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult UsuHasCurDeleteConfirmed(int id)
         {
@@ -356,7 +343,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Cursoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("CursoDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult CursoDeleteConfirmed(int id)
         {
@@ -472,7 +459,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Anexoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("AnexoDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult AnexoDeleteConfirmed(int id)
         {
@@ -589,7 +576,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Conteudoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("ConteudoDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult ConteudoDeleteConfirmed(int id)
         {
@@ -707,7 +694,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Questoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("QuestaoDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult QuestaoDeleteConfirmed(int id)
         {
@@ -820,20 +807,12 @@ namespace _30Code.Controllers
             return RedirectToAction("Index");
         }
 
-
         //------------------ Admin -------------------- 
 
         public ActionResult Index()
         {
             return View();
         }
-
-
-
-
-
-
-
 
         protected override void Dispose(bool disposing)
         {
