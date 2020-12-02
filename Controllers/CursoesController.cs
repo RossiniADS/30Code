@@ -225,7 +225,7 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Create", "Usuarios");
+                return RedirectToAction("Cadastrar", "Usuarios");
             }
         }
         // GET: Cursoes

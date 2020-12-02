@@ -1,0 +1,41 @@
+﻿@model IEnumerable<_30Code.Models.Usuario_has_curso>
+
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="container">
+    <h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "UsuHasCurCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario.Nome)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curso.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.Nome)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UsuHasCurEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "UsuHasCurDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "UsuHasCurDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

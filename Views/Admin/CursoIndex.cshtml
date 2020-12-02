@@ -1,0 +1,45 @@
+﻿@model IEnumerable<_30Code.Models.Curso>
+
+@{ ViewBag.Title = "Index";
+   Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "CursoCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url_imagem)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url_imagem)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "CursoEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "CursoDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "CursoDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

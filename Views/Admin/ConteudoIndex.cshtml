@@ -1,0 +1,54 @@
+﻿@model IEnumerable<_30Code.Models.Conteudo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<div class="container">
+    <p>
+        @Html.ActionLink("Create New", "ConteudoCreate")
+    </p>
+    <form class="row" asp-controller="Conteuoes" asp-action="Index" method="post">
+        <div class="col-6">
+            <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
+            </div>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn-sm btn-success">Procurar</button>
+        </div>
+    </form>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Modulo.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Modulo.Titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titulo)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "ConteudoEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "ConteudoDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "ConteudoDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div> 

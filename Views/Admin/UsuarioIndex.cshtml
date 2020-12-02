@@ -1,0 +1,73 @@
+﻿@model IEnumerable<_30Code.Models.Usuario>
+
+@{
+    ViewBag.Title = "UsuIndex";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+<div class="container">
+    <h2>UsuIndex</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "UsuarioCreate")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlImagem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TiposUsuarios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexos)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrlImagem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TiposUsuarios)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexos)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "UsuarioEdit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "UsuarioDetails", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "UsuarioDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

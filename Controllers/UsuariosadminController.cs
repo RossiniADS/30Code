@@ -115,38 +115,38 @@ namespace _30Code.Controllers
             return View(usuario);
         }
 
-        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,UrlImagem")] Usuario pessoa, HttpPostedFileBase arq)
-        {
-            string valor = "";
-            if (ModelState.IsValid)
-            {
-                if (arq != null)
-                {
-                    Upload.CriarDiretorio();
-                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
-                    Path.GetExtension(arq.FileName);
-                    valor = Upload.UploadArquivo(arq, nomearq);
-                    if (valor == "sucesso")
-                    {
-                        if (pessoa.UrlImagem != "user.png")
-                            Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "Uploads\\" +
-                            pessoa.UrlImagem);
-                        pessoa.UrlImagem = nomearq;
-                        db.Entry(pessoa).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                }
-                else
-                {
-                    Usuario pes = db.Usuario.Find(pessoa.Id);
-                    pes.Nome = pessoa.Nome;
-                    db.Entry(pes).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-                return RedirectToAction("Index");
-            }
-            return View(pessoa);
-        }
+        //public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,UrlImagem")] Usuario pessoa, HttpPostedFileBase arq)
+        //{
+        //    string valor = "";
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (arq != null)
+        //        {
+        //            Upload.CriarDiretorio();
+        //            string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
+        //            Path.GetExtension(arq.FileName);
+        //            valor = Upload.UploadArquivo(arq, nomearq);
+        //            if (valor == "sucesso")
+        //            {
+        //                if (pessoa.UrlImagem != "user.png")
+        //                    Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "Uploads\\" +
+        //                    pessoa.UrlImagem);
+        //                pessoa.UrlImagem = nomearq;
+        //                db.Entry(pessoa).State = EntityState.Modified;
+        //                db.SaveChanges();
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Usuario pes = db.Usuario.Find(pessoa.Id);
+        //            pes.Nome = pessoa.Nome;
+        //            db.Entry(pes).State = EntityState.Modified;
+        //            db.SaveChanges();
+        //        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(pessoa);
+        //}
 
         // GET: Usuariosadmin/Delete/5
         public ActionResult Delete(int? id)

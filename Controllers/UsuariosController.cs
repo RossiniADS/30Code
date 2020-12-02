@@ -25,7 +25,7 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Create");
+                return RedirectToAction("Cadastrar");
             }
         }
 
@@ -44,7 +44,7 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Create");
+                return RedirectToAction("Cadastrar");
             }
         }
 
@@ -59,22 +59,22 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Create");
+                return RedirectToAction("Cadastrar");
             }
         }
 
-        // GET: Usuarios/Create
-        public ActionResult Create()
+        // GET: Usuarios/Cadastrar
+        public ActionResult Cadastrar()
         {
             return View();
         }
 
-        // POST: Usuarios/Create
+        // POST: Usuarios/Cadastrar
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Login login)
+        public ActionResult Cadastrar(Login login)
         {
             if (ModelState.IsValid)
             {
@@ -101,8 +101,8 @@ namespace _30Code.Controllers
             return View(login);
         }
 
-        // GET: Usuarios/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Usuarios/EditarDados/5
+        public ActionResult EditarDados(int? id)
         {
             if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
@@ -118,7 +118,7 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Create");
+                return RedirectToAction("Cadastrar");
             }
         }
 
@@ -141,7 +141,7 @@ namespace _30Code.Controllers
                     valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
                     if (valor == "sucesso")
                     {
-                        if (usuario.UrlImagem != "user.jpg")
+                        if (usu.UrlImagem != "user.jpg")
                         {
                             Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\" + usu.UrlImagem);
                             Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\mini_" + usu.UrlImagem);
@@ -173,7 +173,7 @@ namespace _30Code.Controllers
                 }
                 db.Entry(usu).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Edit");
+                return RedirectToAction("EditarDados");
             }
             return View(usuario);
         }
@@ -201,7 +201,7 @@ namespace _30Code.Controllers
             Usuario usuario = db.Usuario.Find(id);
             db.Usuario.Remove(usuario);
             db.SaveChanges();
-            return RedirectToAction("Create");
+            return RedirectToAction("Cadastrar");
         }
 
         public ActionResult EsqueceuSenha()
@@ -312,7 +312,7 @@ namespace _30Code.Controllers
         public ActionResult Sair()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Create");
+            return RedirectToAction("Cadastrar");
         }
 
         [Authorize]
@@ -337,7 +337,7 @@ namespace _30Code.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Usuário/Senha inválidos");
-                    return View("Create");
+                    return View("Cadastrar");
                 }
             }
             return View(login);
