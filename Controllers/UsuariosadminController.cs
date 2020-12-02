@@ -12,6 +12,8 @@ using _30Code.Models;
 
 namespace _30Code.Controllers
 {
+
+    
     public class UsuariosadminController : Controller
     {
         private Contexto db = new Contexto();
@@ -21,19 +23,22 @@ namespace _30Code.Controllers
         {
             return View(db.Usuario.ToList());
         }
-
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
         {
             Usuario pessoa = db.Usuario.Find(id);
             if (pessoa.UrlImagem != "user.png")
                 Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "/assets/img/Usuarios/" + pessoa.UrlImagem);
+                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
             db.Usuario.Remove(pessoa);
             db.SaveChanges();
             return RedirectToAction("Index");
+        
         }
+        
 
-        [HttpPost]
+       [HttpPost]
         public async Task<ActionResult> Index(string txtProcurar)
         {
             if (!String.IsNullOrEmpty(txtProcurar))
@@ -76,7 +81,7 @@ namespace _30Code.Controllers
                 {
                     Funcoes.CriarDiretorio("Usuarios");
                     string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq, "Usuarios",nomearq);
+                    valor = Funcoes.UploadArquivo(arq,"Usuarios", nomearq);
                     if (valor == "sucesso")
                     {
                         pessoa.UrlImagem = nomearq;

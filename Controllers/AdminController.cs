@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace _30Code.Controllers
 {
-
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private Contexto db = new Contexto();
@@ -24,7 +24,19 @@ namespace _30Code.Controllers
             var modulo = db.Modulo.Include(m => m.Curso);
             return View(modulo.ToList());
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Usuario pessoa = db.Usuario.Find(id);
+            if (pessoa.UrlImagem != "user.png")
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+            db.Usuario.Remove(pessoa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
+        }
 
         [HttpPost]
         public async Task<ActionResult> ModuloIndex(string txtProcurar)
@@ -798,7 +810,7 @@ namespace _30Code.Controllers
         }
 
         // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("UsuarioDelete")]
         [ValidateAntiForgeryToken]
         public ActionResult UsuarioDeleteConfirmed(int id)
         {

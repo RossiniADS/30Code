@@ -56,11 +56,10 @@
             <dt>
                 @Html.DisplayNameFor(model => model.UrlImagem)
             </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.UrlImagem)
-            </dd>
-
+            <dt>
+                <img src="~/assets/img/Usuarios/@Model.UrlImagem"
+                     style="max-width:70px;" />
+            </dt>
             <dt>
                 @Html.DisplayNameFor(model => model.TiposUsuarios)
             </dt>
@@ -81,8 +80,9 @@
 
         @using (Html.BeginForm())
         {
-            @Html.AntiForgeryToken()
 
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

@@ -320,7 +320,19 @@ namespace _30Code.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            Usuario pessoa = db.Usuario.Find(id);
+            if (pessoa.UrlImagem != "user.png")
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+            db.Usuario.Remove(pessoa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Acesso(Login login, string ReturnUrl)
@@ -332,6 +344,15 @@ namespace _30Code.Controllers
                 if (usu != null)
                 {
                     FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, false);
+                    string permissoes = "";
+                    permissoes = "Admin";
+                    FormsAuthenticationTicket ticket = new
+                    FormsAuthenticationTicket(1, usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, DateTime.Now,
+                    DateTime.Now.AddMinutes(30), false, permissoes);
+                    string hash = FormsAuthentication.Encrypt(ticket);
+                    HttpCookie cookie = new
+                    HttpCookie(FormsAuthentication.FormsCookieName, hash);
+                    Response.Cookies.Add(cookie);
                     return RedirectToAction("Index");
                 }
                 else

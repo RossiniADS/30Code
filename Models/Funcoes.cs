@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Drawing;
 using System.IO;
+using System.Web.Mvc;
 
 namespace _30Code.Models
 {
@@ -60,19 +61,7 @@ namespace _30Code.Models
 
 
 
-        public static bool CriarDiretorio()
-        {
-            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\Usuarios";
-
-            if (!Directory.Exists(dir))
-            {
-                //Caso não exista devermos criar
-                Directory.CreateDirectory(dir);
-                return true;
-            }
-            else
-                return false;
-        }
+        
         public static string HashTexto(string texto, string nomeHash)
         {
             HashAlgorithm algoritmo = HashAlgorithm.Create(nomeHash);
@@ -129,39 +118,7 @@ namespace _30Code.Models
             else
                 return false;
         }
-
-        public static string UploadArquivo(HttpPostedFileBase flpUpload, string nome)
-        {
-            try
-            {
-                double permitido = 900;
-                if (flpUpload != null)
-                {
-                    string arq = Path.GetFileName(flpUpload.FileName);
-                    double tamanho = Convert.ToDouble(flpUpload.ContentLength) / 1024;
-                    string extensao = Path.GetExtension(flpUpload.FileName).ToLower();  
-                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\img\\Usuarios";
-                    if (tamanho > permitido)
-                        return "Tamanho Máximo permitido é de " + permitido + " kb!";
-                    else if ((extensao != ".png" && extensao != ".jpg"))
-                        return "Extensão inválida, só são permitidas .png e .jpg!";
-                    else
-                    {
-                        if (!File.Exists(diretorio))
-                        {
-                            flpUpload.SaveAs(diretorio);
-                            return "sucesso";
-                        }
-                        else
-                            return "Já existe um arquivo com esse nome!";
-                    }
-                }
-                else
-                    return "Erro no Upload!";
-            }
-            catch { return "Erro no Upload"; }
-        }
-
+         
         public static string UploadArquivo(HttpPostedFileBase flpUpload, string pasta, string nome)
         {
             try
