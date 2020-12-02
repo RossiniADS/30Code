@@ -1,0 +1,100 @@
+﻿@model _30Code.Models.Usuario
+
+@{ ViewBag.Title = "Index"; }
+
+<body id="usuIndex">
+
+    <div class="container mt-3 mb-3">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,100,900,100italic,300italic,400italic,700italic,900italic|Oswald:300,400,500,700|Roboto:400,500|Montserrat:300,400,500,600|Source+Serif+Pro:400,600|Roboto+Slab|Roboto:300,300i,400,400i,700,700i' rel='stylesheet'>
+
+        <div class="container">
+
+            <div class="menu-wrapper-content">
+
+                <div class="menu-container">
+                    <div class="picture-container">
+                        <div class="perfil-preview " data-block-preview="5jfdlbdlm5xkhk9z2s12ha07Fnj5rtge4o3q2hnqf90addn4me">
+
+                            <div class="name-perfil-preview">
+                                <div class="preview-nome">
+                                    @Html.Label(User.Identity.Name.Split('|')[1])
+                                </div>
+                            </div>
+
+                            <div class="picture-perfil-preview">
+                                <img class="picture-user-preview" src="~/assets/img/Usuarios/@Model.UrlImagem">
+                            </div>
+
+                            <div class="info-perfil-preview">
+                                <p name="PagIndexUsuario">Programador</p>
+                            </div>
+
+                            <div class="numbers-perfil-preview">
+                                <div class="numbers_preview questions_preview">
+                                    <i class="icofont-check-circled"></i>
+                                    0
+                                </div>
+
+                                <div class="numbers_preview devup_preview">
+                                    <i class="icofont-chart-histogram "></i>
+                                    57
+                                </div>
+
+                                <div class="numbers_preview achievements_preview">
+                                    <i class="icofont-star"></i>
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-container">
+                        <div class="menu-container-title">
+                            <div class="menu-user-name">
+                                Olá @Html.Label(User.Identity.Name.Split('|')[1])
+                            </div>
+                        </div>
+
+                        <ul name="PagIndexUsuario" class="menu-content">
+
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="#">Continue<br />Estudando</a></li>
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="~/Usuario_has_curso/MeusCursos">Meus<br />Cursos</a></li>
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="#">Meus<br />Exercícios</a></li>
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="">Meus<br />Certificados</a></li>
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="#">Plano de<br />Estudos</a></li>
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="#">Simulados</a></li>
+
+                            <li class="menu-content-item"><a name="PagIndexUsuario" href="#">Histórico de <br />testes</a></li>
+                            @if (Model.TiposUsuarios == _30Code.Models.Usuario.TipoUsuario.Comum)
+                            {
+                                <li class="menu-content-item menu-content-item-destaque">
+                                    <a name="PagIndexUsuario" href="~/Usuarios/SejaPremium" class="menu-user-assine-topo">Seja Premium</a>
+                                </li>
+                            }
+                        </ul>
+
+                        <div class="menu-container-rodape">
+                            <div class="menu-container-rodape-action">
+                                <a name="PagIndexUsuario" class="topo-link-minha-conta" href="~/Usuarios/Edit">
+                                    Editar Cadastro
+                                    <i class="icofont-pen-alt-2"></i>
+                                </a>
+
+                                <a name="PagIndexUsuario" class="topo-link-logout" href="~/Usuarios/Sair">
+                                    Logout
+                                    <i class="icofont-logout"></i>
+                                </a>
+                            </div>
+                            <span id="indica-btn-menu">
+                                Indique um amigo
+                                <i class="icofont-ui-user-group"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+

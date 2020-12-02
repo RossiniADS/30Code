@@ -1,0 +1,199 @@
+﻿@model _30Code.Models.Aula
+
+@{ ViewBag.Title = "Aula"; }
+
+<!-- Font Awesome JS -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+<div class="wrapper">
+    @{
+        var i = 0;
+        var dia = 1;
+        var id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>@Model.CursoVMs.Nome</h3>
+            </div>
+            <div style="overflow:scroll;height:883px;width:100%; overflow:auto;">
+                <ul class="list-unstyled components">
+                    @foreach (var mod in Model.CursoVMs.Modulos)
+                    {
+                        <p name="PagAula">@mod.Titulo</p>
+                        var conclusao = "";
+                        if (dia == 1)
+                        {
+                            conclusao = "Ok";
+                        }
+                        foreach (var cont in mod.Conteudos)
+                        {
+                            @Html.Hidden(Convert.ToString(cont.Id))
+                            <li class="active">
+                                @if (conclusao != "")
+                                {
+
+                                    <a name="PagAula" href="#homeSubmenu_@i" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                        Dia @dia - @cont.Titulo
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a name="PagAula" href="#homeSubmenu_@i" disabled="disabled" aria-expanded="false" class="dropdown-toggle">
+                                        Dia @dia - @cont.Titulo
+                                        <i class="icofont-lock" style="float:right; padding-right:6px;"></i>
+                                    </a>
+
+                                }
+                                <ul id="homeSubmenu_@i" class="collapse list-unstyled">
+                                    @foreach (var ane in cont.Anexos)
+                                    {
+                                        if (ane.Tipos.ToString().Equals("Apostila"))
+                                        {
+                                            <li>
+                                                <button name="PagAula" class="a link" href="~/@ane.Url" onclick="mostraDiv('div1','div2','div_@cont.Id')">@ane.Tipos</button>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li>
+                                                <button name="PagAula" class="b link" href="~/@ane.Url" onclick="mostraDiv('div2','div1','div_@cont.Id')">@ane.Tipos</button>
+                                            </li>
+                                        }
+                                    }
+                                    @*@if (dia != 1)
+                                        {*@
+                                    <li>
+                                        <button name="PagAula" class="c link" onclick="mostraDiv('div_@cont.Id','div1','div2')">prova</button>
+                                    </li>
+                                    @*}*@
+                                    @{
+                                        i += 1;
+                                        dia += 1;
+                                    }
+                                </ul>
+                            </li>
+                            if (cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault() != null)
+                            {
+                                conclusao = cont.Usuario_Has_Curso_Has_Conteudos.Where(x => x.Usuario_Has_Curso.UsuarioId == id).FirstOrDefault().DataDeConclusao == null ? "" : "Ok";
+                            }
+                            else
+                            {
+                                conclusao = "";
+                            }
+
+                        }
+                        <br />
+                    }
+                </ul>
+            </div>
+        </nav>
+    }
+    <!-- Page Content  -->
+    <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button  type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Conteúdo</span>
+                </button>
+            </div>
+        </nav>
+        <div id="div1" name="div" class="hidden">
+            <iframe style="width:100%; height:590px; border:none;" src="" frameborder="0"></iframe>
+        </div>
+        <div id="div2" name="div" class="hidden">
+            <form class="video-container">
+                <video preload="none" src="" class="jlplayer-video">
+                    @*<source src="" type="video/mp4">*@
+                    <!-- <track kind="captions" src="legenda.vtt" default> -->
+                </video>
+            </form>
+        </div>
+        @{
+            foreach (var mod in Model.ModuloVMs)
+            {
+                foreach (var cont in mod.ConteudoVMs)
+                {
+                    <div id="div_@cont.Id" name="div" class="hidden">
+                        @Html.Partial("_Quizz", cont)
+                    </div>
+                }
+            }
+        }
+        <div id="div4" class="hidden"><h1>Prova</h1></div>
+    </div>
+</div>
+
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+
+    //function mostrar(id) {
+    //    $('#pai > div').each(function () {
+    //        $(this).hide();
+    //    });
+    //    $("#" + id).show();
+    //}
+
+    function mostraDiv(id, div2, div3) {
+        var divstyle = new String();
+        divstyle = document.getElementById(id).style.display;
+
+        var divAux = new String();
+        divAux = document.getElementById(div2).style.display;
+
+        var divAux3 = new String();
+        divAux3 = document.getElementById(div3).style.display;
+
+        var divAux4 = document.getElementsByName('div');
+
+        if ((divstyle == "block" || divstyle == "") || (divAux == "block" || divAux == "") || (divAux3 == "block" || divAux3 == "")) {
+            document.getElementById(div2).style.display = "none";
+            document.getElementById(div3).style.display = "none";
+        }
+
+        $(divAux4).each(function () {
+            $(this).hide();
+        });
+
+        document.getElementById(id).style.display = "block";
+        return false;
+    }
+
+    $('.a').click(function () {
+        const link = $(this).attr('href')
+        $('iframe').attr('src', link)
+        $('video').attr('src', "")
+    })
+
+    $('.b').click(function () {
+        const link = $(this).attr('href')
+        $('video').attr('src', link)
+    })
+
+    $('.c').click(function () {
+        $('video').attr('src', "")
+    })
+
+    //$('.div-sel').hide();
+
+    //$('#homeSubmenu').on('change', function () {
+    //    var selecionado = $(this).val();
+
+    //    $('.div-sel').each(function () {
+    //        if ($(this).attr('id') == selecionado) {
+    //            $(this).toggle();
+    //        } else {
+    //            $(this).hide();
+    //        }
+    //    });
+    //});
+</script>

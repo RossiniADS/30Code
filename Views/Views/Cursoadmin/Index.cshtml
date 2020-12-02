@@ -1,15 +1,14 @@
-﻿@model IEnumerable<_30Code.Models.Usuario>
+﻿@model IEnumerable<_30Code.Models.Curso>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="container">
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <form class="row" asp-controller="Usuariosadmin" asp-action="Index" method="post">
+    <form class="row" asp-controller="Index" asp-action="Index" method="post">
         <div class="col-6">
             <div class="input-group input-group-sm mb-3">
                 <div class="input-group-prepend">
@@ -28,22 +27,13 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.Descricao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Celular)
+                @Html.DisplayNameFor(model => model.Duracao)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Nascimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UrlImagem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TiposUsuarios)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Sexos)
+                @Html.DisplayNameFor(model => model.Url_imagem)
             </th>
             <th></th>
         </tr>
@@ -55,26 +45,13 @@
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    @Html.DisplayFor(modelItem => item.Descricao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Celular)
+                    @Html.DisplayFor(modelItem => item.Duracao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Nascimento)
-                </td>
-                <td>  
-                        <img src="~/assets/img/Usuarios/@item.UrlImagem"
-                             style="max-width:70px;" />
-                    
-
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TiposUsuarios)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Sexos)
+                    @Html.DisplayFor(modelItem => item.Url_imagem)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -85,4 +62,4 @@
         }
 
     </table>
-</div>
+</div> 

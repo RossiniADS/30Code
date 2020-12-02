@@ -63,10 +63,19 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Nascimento)
                 </td>
-                <td>  
+                <td>
+                    @if (item.UrlImagem != "vinicius.png" && item.UrlImagem != "gabriel.png" && item.UrlImagem != "rossini.png")
+                    {
+
+                        <img src="~/Uploads/@item.UrlImagem"
+                             style="max-width:70px;" />
+                    }
+                    else
+                    { 
+
                         <img src="~/assets/img/Usuarios/@item.UrlImagem"
                              style="max-width:70px;" />
-                    
+                    }
 
 
                 </td>

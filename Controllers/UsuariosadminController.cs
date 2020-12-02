@@ -22,6 +22,17 @@ namespace _30Code.Controllers
             return View(db.Usuario.ToList());
         }
 
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Usuario pessoa = db.Usuario.Find(id);
+            if (pessoa.UrlImagem != "user.png")
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "/assets/img/Usuarios/" + pessoa.UrlImagem);
+            db.Usuario.Remove(pessoa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public async Task<ActionResult> Index(string txtProcurar)
         {
@@ -63,9 +74,9 @@ namespace _30Code.Controllers
             {
                 if (arq != null)
                 {
-                    Upload.CriarDiretorio();
+                    Funcoes.CriarDiretorio("Usuarios");
                     string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Upload.UploadArquivo(arq, nomearq);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios",nomearq);
                     if (valor == "sucesso")
                     {
                         pessoa.UrlImagem = nomearq;
@@ -104,20 +115,37 @@ namespace _30Code.Controllers
             return View(usuario);
         }
 
-        // POST: Usuariosadmin/Edit/5
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario usuario)
+        public ActionResult Edit([Bind(Include = "Id,Nome,Email,Senha,UrlImagem")] Usuario pessoa, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
+                if (arq != null)
+                {
+                    Upload.CriarDiretorio();
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
+                    Path.GetExtension(arq.FileName);
+                    valor = Upload.UploadArquivo(arq, nomearq);
+                    if (valor == "sucesso")
+                    {
+                        if (pessoa.UrlImagem != "user.png")
+                            Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "Uploads\\" +
+                            pessoa.UrlImagem);
+                        pessoa.UrlImagem = nomearq;
+                        db.Entry(pessoa).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Usuario pes = db.Usuario.Find(pessoa.Id);
+                    pes.Nome = pessoa.Nome;
+                    db.Entry(pes).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
-            return View(usuario);
+            return View(pessoa);
         }
 
         // GET: Usuariosadmin/Delete/5
@@ -135,16 +163,7 @@ namespace _30Code.Controllers
             return View(usuario);
         }
 
-        // POST: Usuariosadmin/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
 
         protected override void Dispose(bool disposing)
         {

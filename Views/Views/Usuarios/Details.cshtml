@@ -1,0 +1,47 @@
+﻿@model _30Code.Models.Usuario
+
+<div class="container">
+
+    @{ ViewBag.Title = "Details"; }
+
+    <h2>Detalhes</h2>
+
+    <div>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Nome) :
+                    @Html.DisplayFor(model => model.Nome)
+
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Email)  :
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Celular) :
+                    @Html.DisplayFor(model => model.Celular)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Nascimento) :
+                    @Html.DisplayFor(model => model.Nascimento)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.TiposUsuarios) :
+                    @Html.DisplayFor(model => model.TiposUsuarios)
+                </div>
+                <div class="col-6">
+                    @Html.DisplayNameFor(model => model.Sexos) :
+                    @Html.DisplayFor(model => model.Sexos)
+                </div> 
+            </div> 
+
+        </div>
+    </div>
+    <hr />
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

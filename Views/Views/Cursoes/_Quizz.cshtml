@@ -1,0 +1,38 @@
+﻿@model _30Code.Models.ConteudoVM
+
+@using (Html.BeginForm("Resposta", "Cursoes"))
+{
+    var contador = 1;
+    @Html.HiddenFor(model => Model.Id)
+
+    for (int i = 0; i < Model.QuestaoVMs.Count(); i++)
+    {
+        @Html.HiddenFor(model => Model.QuestaoVMs[i].Id)
+        @Html.HiddenFor(model => Model.QuestaoVMs[i].ConteudoId)
+        @Html.HiddenFor(model => Model.QuestaoVMs[i].Titulo)
+
+        <p id="qtext">@Model.QuestaoVMs[i].Titulo</p>
+
+        for (int j = 0; j < Model.QuestaoVMs[i].AlternativaVMs.Count(); j++)
+        {
+            <label id="label_@contador" class="radiocontainer checkedlabel">
+                @Html.HiddenFor(model => Model.QuestaoVMs[i].AlternativaVMs[j].Id)
+                @Html.RadioButtonFor(model => Model.QuestaoVMs[i].Selecionado, Model.QuestaoVMs[i].AlternativaVMs[j].Id)
+                @Model.QuestaoVMs[i].AlternativaVMs[j].Resposta
+                <span class="checkmark"></span>
+            </label>
+        }
+    }
+    <button id="resposta_@Model.Id" name="PagQuizz" type="submit" class="answerbutton w3-btn">Confirmar resposta</button>
+}
+<script>
+    //function clickRadio(elmnt) {
+    //    var n, i, x;
+    //    n = elmnt.id;
+    //    for (i = 1; i < 3; i++) {
+    //        x = document.getElementById("label_" + i);
+    //        if (x) { x.className = x.className.replace(" checkedlabel", ""); }
+    //    }
+    //    document.getElementById("label_" + n).className += " checkedlabel";
+    //}
+</script>
