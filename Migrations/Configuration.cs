@@ -1,5 +1,4 @@
-﻿
-namespace _30Code.Migrations
+﻿namespace _30Code.Migrations
 {
     using System;
     using System.Data.Entity;
@@ -16,7 +15,6 @@ namespace _30Code.Migrations
 
             SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());
         }
-
         DateTime dt = DateTime.Parse("10/10/2010");
         protected override void Seed(_30Code.Models.Contexto context)
         {
