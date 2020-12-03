@@ -1,4 +1,4 @@
-﻿@model _30Code.Models.Anexo
+﻿@model _30Code.Models.Usuario_has_curso_has_conteudo
 
 @{
     ViewBag.Title = "Details";
@@ -12,7 +12,8 @@
 </style>
 <div class="page-wrapper mt-2">
     <div class="container">
-        <h2>Detalhes do anexo</h2>
+
+        <h2>Detalhes do aproveitamento de conteúdo</h2>
 
         <div>
             <hr />
@@ -26,41 +27,33 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Titulo)
+                    @Html.DisplayNameFor(model => model.Usuario_Has_Curso.Id)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Titulo)
+                    @Html.DisplayFor(model => model.Usuario_Has_Curso.Id)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.DataPostagem)
+                    @Html.DisplayNameFor(model => model.DataDeConclusao)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.DataPostagem)
+                    @Html.DisplayFor(model => model.DataDeConclusao)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Url)
+                    @Html.DisplayNameFor(model => model.Aproveitamento)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Url)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Tipos)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Tipos)
+                    @Html.DisplayFor(model => model.Aproveitamento)
                 </dd>
 
             </dl>
         </div>
         <p>
-            @Html.ActionLink("Editar", "AnexoEdit", new { id = Model.Id }) |
+            @Html.ActionLink("Editar", "UsuHasCurHasContEdit", new { id = Model.Id }) |
             @Html.ActionLink("Voltar para Home", "Index")
         </p>
     </div>

@@ -4,38 +4,47 @@
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
-    <h2>Index</h2>
-    <p>
-        @Html.ActionLink("Create New", "UsuHasCurCreate")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Curso.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario.Nome)
-            </th>
-            <th></th>
-        </tr>
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Cursos dos usuários</h2>
+        <p>
+            @Html.ActionLink("Criar novo", "UsuHasCurCreate")
+        </p>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Curso.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario.Nome)
+                    </th>
+                    <th></th>
+                </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Curso.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Usuario.Nome)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "UsuHasCurEdit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "UsuHasCurDetails", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "UsuHasCurDelete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Curso.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario.Nome)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "UsuHasCurEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Detalhes", "UsuHasCurDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Deletar", "UsuHasCurDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
 
-    </table>
+            </table>
+        </div>
+    </div>
 </div>

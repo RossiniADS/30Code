@@ -5,86 +5,92 @@
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
-    <h2>UsuDelete</h2>
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Deletar usuário</h2>
 
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>Usuario</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
+        <h3>Tem certeza que deseja deletar esse usuário?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Senha)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Senha)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Senha)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Senha)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Celular)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Celular)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Celular)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Celular)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Nascimento)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nascimento)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nascimento)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Nascimento)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.UrlImagem)
-            </dt>
-            <dt>
-                <img src="~/assets/img/Usuarios/@Model.UrlImagem"
-                     style="max-width:70px;" />
-            </dt>
-            <dt>
-                @Html.DisplayNameFor(model => model.TiposUsuarios)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UrlImagem)
+                </dt>
+                <dt>
+                    <img src="~/assets/img/Usuarios/@Model.UrlImagem"
+                         style="max-width:70px;" />
+                </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TiposUsuarios)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.TiposUsuarios)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.TiposUsuarios)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Sexos)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sexos)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Sexos)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Sexos)
+                </dd>
 
-        </dl>
+            </dl>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
-            </div>
-        }
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-actions no-color">
+                    <input type="submit" value="Deletar" class="btn btn-default" /> |
+                    @Html.ActionLink("Voltar para Home", "Index")
+                </div>
+            }
+        </div>
     </div>
 </div>

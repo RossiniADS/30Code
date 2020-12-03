@@ -1,45 +1,50 @@
 ﻿@model _30Code.Models.Curso
 
 @{ ViewBag.Title = "Details";
-   Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Detalhes do curso</h2>
 
-    <h2>Details</h2>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
 
-    <div>
-        <h4>Curso</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Nome)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nome)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Duracao)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Duracao)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Duracao)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Duracao)
-            </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Url_imagem)
+                </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Url_imagem)
-            </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Url_imagem)
+                </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Url_imagem)
-            </dd>
-
-        </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "CursoEdit", new { id = Model.Id }) |
+            @Html.ActionLink("Voltar para Home", "Index")
+        </p>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "CursoEdit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 </div>

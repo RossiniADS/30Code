@@ -1,9 +1,10 @@
-﻿@model _30Code.Models.Anexo
+﻿@model _30Code.Models.Usuario_has_curso_has_conteudo_has_questoes
 
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
+
 
 <style>
     .page-wrapper {
@@ -12,50 +13,50 @@
 </style>
 <div class="page-wrapper mt-2">
     <div class="container">
+        <h2>Deletar aproveitamento das questões</h2>
 
-        <h2>Deletar anexo</h2>
-        <h3>Tem certeza que deseja deletar esse anexo?</h3>
+        <h3>Tem certeza que deseja deletar esse aproveitamento?</h3>
         <div>
             <hr />
             <dl class="dl-horizontal">
                 <dt>
-                    @Html.DisplayNameFor(model => model.Conteudo.Titulo)
+                    @Html.DisplayNameFor(model => model.Alternativa.Resposta)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Conteudo.Titulo)
+                    @Html.DisplayFor(model => model.Alternativa.Resposta)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Titulo)
+                    @Html.DisplayNameFor(model => model.Questoes.Titulo)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Titulo)
+                    @Html.DisplayFor(model => model.Questoes.Titulo)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.DataPostagem)
+                    @Html.DisplayNameFor(model => model.Usuario_Has_Curso_Has_Conteudo.Aproveitamento)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.DataPostagem)
+                    @Html.DisplayFor(model => model.Usuario_Has_Curso_Has_Conteudo.Aproveitamento)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Url)
+                    @Html.DisplayNameFor(model => model.Resposta)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Url)
+                    @Html.DisplayFor(model => model.Resposta)
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Tipos)
+                    @Html.DisplayNameFor(model => model.Aproveitamento)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Tipos)
+                    @Html.DisplayFor(model => model.Aproveitamento)
                 </dd>
 
             </dl>
@@ -66,7 +67,7 @@
 
                 <div class="form-actions no-color">
                     <input type="submit" value="Deletar" class="btn btn-default" /> |
-                    @Html.ActionLink("Voltar para home", "Index")
+                    @Html.ActionLink("Voltar para Home", "Index")
                 </div>
             }
         </div>

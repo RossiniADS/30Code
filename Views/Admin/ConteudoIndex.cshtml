@@ -4,51 +4,61 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
- 
-<div class="container">
-    <p>
-        @Html.ActionLink("Create New", "ConteudoCreate")
-    </p>
-    <form class="row" asp-controller="Conteuoes" asp-action="Index" method="post">
-        <div class="col-6">
-            <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Conteudos</h2>
+        <p>
+            @Html.ActionLink("Criar novo", "ConteudoCreate")
+        </p>
+        <form class="row" asp-controller="Conteuoes" asp-action="Index" method="post">
+            <div class="col-6">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
             </div>
-        </div>
-        <div class="col-6">
-            <button type="submit" class="btn-sm btn-success">Procurar</button>
-        </div>
-    </form>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Modulo.Titulo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th></th>
-        </tr>
+            <div class="col-6">
+                <button type="submit" class="btn-sm btn-success">Procurar</button>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Modulo.Titulo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Titulo)
+                    </th>
+                    <th></th>
+                </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Modulo.Titulo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "ConteudoEdit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "ConteudoDetails", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "ConteudoDelete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modulo.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "ConteudoEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Detalhes", "ConteudoDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Deletar", "ConteudoDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
 
-    </table>
-</div> 
+            </table>
+        </div>
+    </div>
+</div>

@@ -4,50 +4,60 @@
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
-    <p>
-        @Html.ActionLink("Create New", "ModuloCreate")
-    </p>
-    <form class="row" asp-controller="Moduloes" asp-action="Index" method="post">
-        <div class="col-6">
-            <div class="input-group input-group-sm mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Módulos</h2>
+        <p>
+            @Html.ActionLink("Criar novo", "ModuloCreate")
+        </p>
+        <form class="row" asp-controller="Moduloes" asp-action="Index" method="post">
+            <div class="col-6">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Procurar</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
                 </div>
-                <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="txtProcurar">
             </div>
-        </div>
-        <div class="col-6">
-            <button type="submit" class="btn-sm btn-success">Procurar</button>
-        </div>
-    </form>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Curso.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </th>
-            <th></th>
-        </tr>
+            <div class="col-6">
+                <button type="submit" class="btn-sm btn-success">Procurar</button>
+            </div>
+        </form>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Curso.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Titulo)
+                    </th>
+                    <th></th>
+                </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Curso.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Titulo)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "ModuloEdit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "ModuloDetails", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "ModuloDelete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Curso.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "ModuloEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Detalhes", "ModuloDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Deletar", "ModuloDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
 
-    </table>
+            </table>
+        </div>
+    </div>
 </div>

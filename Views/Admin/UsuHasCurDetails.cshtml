@@ -4,34 +4,39 @@
     Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
-    <h2>Details</h2>
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Detalhes do usuário/curso</h2>
 
-    <div>
-        <h4>Usuario_has_curso</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Curso.Nome)
-            </dt>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Curso.Nome)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Curso.Nome)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Curso.Nome)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Usuario.Nome)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuario.Nome)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Usuario.Nome)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Usuario.Nome)
+                </dd>
 
-        </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "UsuHasCurEdit", new { id = Model.Id }) |
+            @Html.ActionLink("Voltar para Home", "Index")
+        </p>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "UsuHasCurEdit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-
 </div>

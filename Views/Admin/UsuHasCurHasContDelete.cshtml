@@ -1,4 +1,4 @@
-﻿@model _30Code.Models.Questoes
+﻿@model _30Code.Models.Usuario_has_curso_has_conteudo
 
 @{
     ViewBag.Title = "Delete";
@@ -12,9 +12,10 @@
 </style>
 <div class="page-wrapper mt-2">
     <div class="container">
-        <h2>Deletar questão</h2>
 
-        <h3>Tem certeza que deseja deletar essa questão?</h3>
+        <h2>Deletar aproveitamento de conteúdo</h2>
+
+        <h3>Tem certeza que deseja deletar esse aproveitamento?</h3>
         <div>
             <hr />
             <dl class="dl-horizontal">
@@ -27,11 +28,27 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Titulo)
+                    @Html.DisplayNameFor(model => model.Usuario_Has_Curso.Id)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Titulo)
+                    @Html.DisplayFor(model => model.Usuario_Has_Curso.Id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataDeConclusao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DataDeConclusao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Aproveitamento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Aproveitamento)
                 </dd>
 
             </dl>

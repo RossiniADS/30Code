@@ -16,6 +16,7 @@ namespace _30Code.Models
         public DateTime DataPostagem { get; set; }
         [Required]
         [MaxLength(100)]
+        [Display(Name = "Anexar arquivo")]
         public string Url { get; set; }
         [Required]
         public Tipo Tipos { get; set; }
@@ -23,10 +24,9 @@ namespace _30Code.Models
         {
             Apostila = 0,
             Aula = 1,
-            Exercicio = 2,
-            Prova = 3
         }
         [Required]
+        [Display(Name = "Conteudo")]
         public int ConteudoId { get; set; }
         public virtual Conteudo Conteudo { get; set; }
     }

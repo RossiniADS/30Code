@@ -807,9 +807,245 @@ namespace _30Code.Controllers
             return RedirectToAction("Index");
         }
 
+
+        // ----------------- UsuHasCurHasCont ------------------------ 
+
+
+        // GET: Usuario_has_curso_has_conteudo
+        public ActionResult UsuHasCurHasContIndex()
+        {
+            var usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Include(u => u.Conteudo).Include(u => u.Usuario_Has_Curso);
+            return View(usuario_has_curso_has_conteudo.ToList());
+        }
+
+        // GET: Usuario_has_curso_has_conteudo/Details/5
+        public ActionResult UsuHasCurHasContDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
+            if (usuario_has_curso_has_conteudo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario_has_curso_has_conteudo);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo/Create
+        public ActionResult UsuHasCurHasContCreate()
+        {
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo");
+            ViewBag.Usuario_has_cursoId = new SelectList(db.Usuario_has_curso, "Id", "Id");
+            return View();
+        }
+
+        // POST: Usuario_has_curso_has_conteudo/Create
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContCreate([Bind(Include = "Id,DataDeConclusao,Aproveitamento,Usuario_has_cursoId,ConteudoId")] Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Usuario_has_curso_has_conteudo.Add(usuario_has_curso_has_conteudo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", usuario_has_curso_has_conteudo.ConteudoId);
+            ViewBag.Usuario_has_cursoId = new SelectList(db.Usuario_has_curso, "Id", "Id", usuario_has_curso_has_conteudo.Usuario_has_cursoId);
+            return View(usuario_has_curso_has_conteudo);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo/Edit/5
+        public ActionResult UsuHasCurHasContEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
+            if (usuario_has_curso_has_conteudo == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", usuario_has_curso_has_conteudo.ConteudoId);
+            ViewBag.Usuario_has_cursoId = new SelectList(db.Usuario_has_curso, "Id", "Id", usuario_has_curso_has_conteudo.Usuario_has_cursoId);
+            return View(usuario_has_curso_has_conteudo);
+        }
+
+        // POST: Usuario_has_curso_has_conteudo/Edit/5
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContEdit([Bind(Include = "Id,DataDeConclusao,Aproveitamento,Usuario_has_cursoId,ConteudoId")] Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(usuario_has_curso_has_conteudo).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", usuario_has_curso_has_conteudo.ConteudoId);
+            ViewBag.Usuario_has_cursoId = new SelectList(db.Usuario_has_curso, "Id", "Id", usuario_has_curso_has_conteudo.Usuario_has_cursoId);
+            return View(usuario_has_curso_has_conteudo);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo/Delete/5
+        public ActionResult UsuHasCurHasContDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
+            if (usuario_has_curso_has_conteudo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario_has_curso_has_conteudo);
+        }
+
+        // POST: Usuario_has_curso_has_conteudo/Delete/5
+        [HttpPost, ActionName("UsuHasCurHasContDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContDeleteConfirmed(int id)
+        {
+            Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
+            db.Usuario_has_curso_has_conteudo.Remove(usuario_has_curso_has_conteudo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        // ----------------- UsuHasCurHasContHasQue ------------------------ 
+
+
+        // GET: Usuario_has_curso_has_conteudo_has_questoes
+        public ActionResult UsuHasCurHasContHasQueIndex()
+        {
+            var usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Include(u => u.Alternativa).Include(u => u.Questoes).Include(u => u.Usuario_Has_Curso_Has_Conteudo);
+            return View(usuario_has_curso_has_conteudo_has_questoes.ToList());
+        }
+
+        // GET: Usuario_has_curso_has_conteudo_has_questoes/Details/5
+        public ActionResult UsuHasCurHasContHasQueDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
+            if (usuario_has_curso_has_conteudo_has_questoes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario_has_curso_has_conteudo_has_questoes);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo_has_questoes/Create
+        public ActionResult UsuHasCurHasContHasQueCreate()
+        {
+            ViewBag.AlternativaId = new SelectList(db.Alternativa, "Id", "Resposta");
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo");
+            ViewBag.Usuario_has_curso_has_conteudoId = new SelectList(db.Usuario_has_curso_has_conteudo, "Id", "Aproveitamento");
+            return View();
+        }
+
+        // POST: Usuario_has_curso_has_conteudo_has_questoes/Create
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContHasQueCreate([Bind(Include = "Id,Resposta,Aproveitamento,Usuario_has_curso_has_conteudoId,QuestoesId,AlternativaId")] Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Usuario_has_curso_has_conteudo_has_questoes.Add(usuario_has_curso_has_conteudo_has_questoes);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.AlternativaId = new SelectList(db.Alternativa, "Id", "Resposta", usuario_has_curso_has_conteudo_has_questoes.AlternativaId);
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", usuario_has_curso_has_conteudo_has_questoes.QuestoesId);
+            ViewBag.Usuario_has_curso_has_conteudoId = new SelectList(db.Usuario_has_curso_has_conteudo, "Id", "Aproveitamento", usuario_has_curso_has_conteudo_has_questoes.Usuario_has_curso_has_conteudoId);
+            return View(usuario_has_curso_has_conteudo_has_questoes);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo_has_questoes/Edit/5
+        public ActionResult UsuHasCurHasContHasQueEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
+            if (usuario_has_curso_has_conteudo_has_questoes == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.AlternativaId = new SelectList(db.Alternativa, "Id", "Resposta", usuario_has_curso_has_conteudo_has_questoes.AlternativaId);
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", usuario_has_curso_has_conteudo_has_questoes.QuestoesId);
+            ViewBag.Usuario_has_curso_has_conteudoId = new SelectList(db.Usuario_has_curso_has_conteudo, "Id", "Aproveitamento", usuario_has_curso_has_conteudo_has_questoes.Usuario_has_curso_has_conteudoId);
+            return View(usuario_has_curso_has_conteudo_has_questoes);
+        }
+
+        // POST: Usuario_has_curso_has_conteudo_has_questoes/Edit/5
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContHasQueEdit([Bind(Include = "Id,Resposta,Aproveitamento,Usuario_has_curso_has_conteudoId,QuestoesId,AlternativaId")] Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(usuario_has_curso_has_conteudo_has_questoes).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.AlternativaId = new SelectList(db.Alternativa, "Id", "Resposta", usuario_has_curso_has_conteudo_has_questoes.AlternativaId);
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", usuario_has_curso_has_conteudo_has_questoes.QuestoesId);
+            ViewBag.Usuario_has_curso_has_conteudoId = new SelectList(db.Usuario_has_curso_has_conteudo, "Id", "Aproveitamento", usuario_has_curso_has_conteudo_has_questoes.Usuario_has_curso_has_conteudoId);
+            return View(usuario_has_curso_has_conteudo_has_questoes);
+        }
+
+        // GET: Usuario_has_curso_has_conteudo_has_questoes/Delete/5
+        public ActionResult UsuHasCurHasContHasQueDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
+            if (usuario_has_curso_has_conteudo_has_questoes == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario_has_curso_has_conteudo_has_questoes);
+        }
+
+        // POST: Usuario_has_curso_has_conteudo_has_questoes/Delete/5
+        [HttpPost, ActionName("UsuHasCurHasContHasQueDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuHasCurHasContHasQueDeleteConfirmed(int id)
+        {
+            Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
+            db.Usuario_has_curso_has_conteudo_has_questoes.Remove(usuario_has_curso_has_conteudo_has_questoes);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         //------------------ Admin -------------------- 
 
         public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Graficos()
         {
             return View();
         }

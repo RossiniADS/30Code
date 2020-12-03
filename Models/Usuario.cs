@@ -29,6 +29,7 @@ namespace _30Code.Models
         [Display(Name = "Data de Nascimento")]
         public DateTime? Nascimento { get; set; }
         [MaxLength(100)]
+        [Display(Name = "Imagem")]
         public string UrlImagem { get; set; }
         [Display(Name = "Tipo Usuario")]
         public TipoUsuario TiposUsuarios { get; set; }

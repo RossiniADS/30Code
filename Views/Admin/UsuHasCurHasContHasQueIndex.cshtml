@@ -1,0 +1,69 @@
+﻿@model IEnumerable<_30Code.Models.Usuario_has_curso_has_conteudo_has_questoes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Aproveitamentos de exercícios</h2>
+        <p>
+            @Html.ActionLink("Criar novo", "UsuHasCurHasContHasQueCreate")
+        </p>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Alternativa.Resposta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Questoes.Titulo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario_Has_Curso_Has_Conteudo.Aproveitamento)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Resposta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aproveitamento)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Alternativa.Resposta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Questoes.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario_Has_Curso_Has_Conteudo.Aproveitamento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Resposta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Aproveitamento)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "UsuHasCurHasContHasQueEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Detalhes", "UsuHasCurHasContHasQueDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Deletar", "UsuHasCurHasContHasQueDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,45 +1,55 @@
 ﻿@model IEnumerable<_30Code.Models.Curso>
 
 @{ ViewBag.Title = "Index";
-   Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
 }
 
-<div class="container">
-    <p>
-        @Html.ActionLink("Create New", "CursoCreate")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Duracao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Url_imagem)
-            </th>
-            <th></th>
-        </tr>
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Cursos</h2>
+        <p>
+            @Html.ActionLink("Criar novo", "CursoCreate")
+        </p>
+        <div class="table-responsive">
+            <table id="zero_config" class="table table-striped table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duracao)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Url_imagem)
+                    </th>
+                    <th></th>
+                </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Duracao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Url_imagem)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "CursoEdit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "CursoDetails", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "CursoDelete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    </table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duracao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Url_imagem)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "CursoEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Detalhes", "CursoDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Deletar", "CursoDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
 </div>
