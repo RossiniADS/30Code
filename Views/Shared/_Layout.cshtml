@@ -31,7 +31,6 @@
     <link href="~/assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-
     <!-- ======= Top Bar ======= -->
     <!--<section id="topbar" class="d-none d-lg-block">
         <div class="container clearfix">
@@ -60,7 +59,7 @@
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
 
-            <nav class="nav-menu float-right d-none d-lg-block">
+            <nav id="logado" class="nav-menu float-right d-none d-lg-block">
                 <ul>
                     @if (!User.Identity.IsAuthenticated)
                     {
@@ -94,7 +93,7 @@
                         <li>@Html.ActionLink("Meus cursos", "MeusCursos", "Usuario_has_curso")</li>
                         <li>@Html.ActionLink("Cursos", "Cursos", "Cursoes")</li>
                         <li></li>
-                        <li><a href=""><img src="~/Icons/notificacao.png" /></a></li>
+                        <li id="icon"><a href=""><i class="icofont-alarm" style="font-size: 24px;"></i></a></li>
                         <li class="drop-down">
                             <a href="" class="p-0 m-0">
                                 <span class="top-bar-profile-picture">

@@ -134,7 +134,7 @@ namespace _30Code.Models
                         if (!File.Exists(diretorio))
                         {
                             flpUpload.SaveAs(diretorio);
-                            RedefinirImagemSalvar(diretorio, 48, 48, "mini_");
+                            RedefinirImagemSalvar(diretorio, 42, 42, "mini_");
                             return "sucesso";
                         }
                         else
