@@ -33,11 +33,19 @@
                 </dd>
 
                 <dt>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Descricao)
+                </dd>
+
+                <dt>
                     @Html.DisplayNameFor(model => model.Url_imagem)
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.Url_imagem)
+                    <img src="~/assets/img/Cursos/@Model.Url_imagem" style="max-width:75px;" />
                 </dd>
 
             </dl>
