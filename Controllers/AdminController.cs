@@ -8,6 +8,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace _30Code.Controllers
 {
@@ -717,7 +718,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Index");
             }
             Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
@@ -738,34 +739,60 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UsuarioCreate([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario pessoa, HttpPostedFileBase arq)
+        public ActionResult UsuarioCreate(UsuCreateEdit pessoa, HttpPostedFileBase arq)
         {
+            Usuario usu = new Usuario();
             string valor = "";
             if (ModelState.IsValid)
             {
-                if (arq != null)
+                if (db.Usuario.Where(x => x.Email == pessoa.Email).ToList().Count > 0)
                 {
-                    Funcoes.CriarDiretorio("Usuarios");
-                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
-                    if (valor == "sucesso")
-                    {
-                        pessoa.UrlImagem = nomearq;
-                        db.Usuario.Add(pessoa);
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", valor);
-                    }
+                    ModelState.AddModelError("", "E-mail Já utilizado!");
+                    return View(pessoa);
                 }
                 else
                 {
-                    pessoa.UrlImagem = "user.png";
-                    db.Usuario.Add(pessoa);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    if (arq != null)
+                    {
+                        Funcoes.CriarDiretorio("Usuarios");
+                        string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                        valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                        if (valor == "sucesso")
+                        {
+                            usu.UrlImagem = nomearq;
+                            usu.Nome = pessoa.Nome;
+                            usu.Senha = Funcoes.HashTexto(pessoa.Senha, "SHA512");
+                            usu.Nascimento = pessoa.Nascimento;
+                            usu.Sexos = pessoa.Sexos == UsuCreateEdit.Sexo.Masculino ? Usuario.Sexo.Masculino : pessoa.Sexos == UsuCreateEdit.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
+                            usu.TiposUsuarios = pessoa.TiposUsuarios == UsuCreateEdit.TipoUsuario.Admin ? Usuario.TipoUsuario.Admin : pessoa.TiposUsuarios == UsuCreateEdit.TipoUsuario.Comum ? Usuario.TipoUsuario.Comum : Usuario.TipoUsuario.Premium;
+                            usu.Celular = pessoa.Celular;
+                            usu.Email = pessoa.Email;
+
+                            db.Usuario.Add(usu);
+                            db.SaveChanges();
+                            return RedirectToAction("UsuarioCreate");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", valor);
+                            return View(pessoa);
+                        }
+                    }
+                    else
+                    {
+                        usu.Nome = pessoa.Nome;
+                        usu.Senha = Funcoes.HashTexto(pessoa.Senha, "SHA512");
+                        usu.Nascimento = pessoa.Nascimento;
+                        usu.Sexos = pessoa.Sexos == UsuCreateEdit.Sexo.Masculino ? Usuario.Sexo.Masculino : pessoa.Sexos == UsuCreateEdit.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
+                        usu.TiposUsuarios = pessoa.TiposUsuarios == UsuCreateEdit.TipoUsuario.Admin ? Usuario.TipoUsuario.Admin : pessoa.TiposUsuarios == UsuCreateEdit.TipoUsuario.Comum ? Usuario.TipoUsuario.Comum : Usuario.TipoUsuario.Premium;
+                        usu.Celular = pessoa.Celular;
+                        usu.Email = pessoa.Email;
+                        usu.UrlImagem = "user.jpg";
+
+                        db.Usuario.Add(usu);
+                        db.SaveChanges();
+                        return RedirectToAction("UsuarioCreate");
+                    }
                 }
             }
             return View(pessoa);
@@ -779,25 +806,72 @@ namespace _30Code.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Usuario usuario = db.Usuario.Find(id);
+            UsuCreateEdit usu = new UsuCreateEdit();
+            usu.Nome = usuario.Nome;
+            usu.Nascimento = usuario.Nascimento;
+            usu.TiposUsuarios = usuario.TiposUsuarios == Usuario.TipoUsuario.Admin ? UsuCreateEdit.TipoUsuario.Admin : usuario.TiposUsuarios == Usuario.TipoUsuario.Comum ? UsuCreateEdit.TipoUsuario.Comum : UsuCreateEdit.TipoUsuario.Premiun;
+            usu.Sexos = usuario.Sexos == Usuario.Sexo.Masculino ? UsuCreateEdit.Sexo.Masculino : usuario.Sexos == Usuario.Sexo.Feminino ? UsuCreateEdit.Sexo.Feminino : UsuCreateEdit.Sexo.NãoRevelar;
+            usu.Celular = usuario.Celular;
+            usu.Email = usuario.Email;
+            usu.UrlImagem = usuario.UrlImagem;
             if (usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(usuario);
+            return View(usu);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UsuarioDelete(int id)
+        public ActionResult UsuarioEdit(UsuCreateEdit usuario, HttpPostedFileBase arq)
         {
-            Usuario pessoa = db.Usuario.Find(id);
-            if (pessoa.UrlImagem != "user.png")
-                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
-            db.Usuario.Remove(pessoa);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                var usu = db.Usuario.Find(usuario.Id);
+                string valor = "";
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio("Usuarios");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        if (usu.UrlImagem != "user.jpg")
+                        {
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\" + usu.UrlImagem);
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios" + "\\mini_" + usu.UrlImagem);
+                        }
+                        usuario.UrlImagem = nomearq;
 
-        }// GET: Usuarios/Delete/5
+                    }
+                    else
+                    {
+                        usuario.UrlImagem = usu.UrlImagem;
+                        ModelState.AddModelError("", valor);
+                        return View(usuario);
+                    }
+                }
+                else
+                {
+                    usuario.UrlImagem = usu.UrlImagem;
+                }
+                usu.Nome = usuario.Nome;
+                usu.Email = usuario.Email;
+                usu.UrlImagem = usuario.UrlImagem;
+                usu.Celular = usuario.Celular;
+                usu.Nascimento = usuario.Nascimento;
+                usu.TiposUsuarios = usuario.TiposUsuarios == UsuCreateEdit.TipoUsuario.Admin ? Usuario.TipoUsuario.Admin : usuario.TiposUsuarios == UsuCreateEdit.TipoUsuario.Comum ? Usuario.TipoUsuario.Comum : Usuario.TipoUsuario.Premium;
+                usu.Sexos = usuario.Sexos == UsuCreateEdit.Sexo.Masculino ? Usuario.Sexo.Masculino : usuario.Sexos == UsuCreateEdit.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
+                if (!String.IsNullOrEmpty(usuario.Senha))
+                {
+                    usu.Senha = Funcoes.HashTexto(usuario.Senha, "SHA512");
+                }
+                db.Entry(usu).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("UsuarioEdit", new { id = usuario.Id });
+            }
+            return View(usuario);
+        }
+        // GET: Usuarios/Delete/5
         public ActionResult UsuarioDelete(int? id)
         {
             if (id == null)
@@ -812,57 +886,19 @@ namespace _30Code.Controllers
             return View(usuario);
         }
 
-
-       // GET: Cursoes/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Curso curso = db.Curso.Find(id);
-            if (curso == null)
-            {
-                return HttpNotFound();
-            }
-            return View(curso);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UsuarioEdit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario pessoa, HttpPostedFileBase arq)
+        public ActionResult UsuarioDelete(int id)
         {
-            string valor = "";
-            if (ModelState.IsValid)
+            Usuario pessoa = db.Usuario.Find(id);
+            if (pessoa.UrlImagem != "user.jpg")
             {
-                if (arq != null)
-                {
-                    Upload.CriarDiretorio();
-                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
-                    Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq,"Usuarios" ,nomearq);
-                    if (valor == "sucesso")
-                    {
-                        if (pessoa.UrlImagem != "user.png")
-                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
-                        pessoa.UrlImagem = nomearq;
-                        db.Entry(pessoa).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                }
-                else
-                {
-                    Usuario pes = db.Usuario.Find(pessoa.Id);
-                    pes.Nome = pessoa.Nome;
-                    db.Entry(pes).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-                return RedirectToAction("Index");
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
             }
-            return View(pessoa);
+            db.Usuario.Remove(pessoa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
-
 
         // ----------------- UsuHasCurHasCont ------------------------ 
 

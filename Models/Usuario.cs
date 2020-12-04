@@ -40,7 +40,7 @@ namespace _30Code.Models
         {
             Comum = 0,
             Admin = 1,
-            Premiun = 2
+            Premium = 2
         }
         public enum Sexo
         {

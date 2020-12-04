@@ -63,48 +63,6 @@ namespace _30Code.Controllers
             }
         }
 
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha")] Usuario pessoa, HttpPostedFileBase arq)
-        {
-            string valor = "";
-            if (ModelState.IsValid)
-            {
-                if (arq != null)
-                {
-                    Funcoes.CriarDiretorio("Usuarios");
-                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
-                    if (valor == "sucesso")
-                    {
-                        pessoa.UrlImagem = nomearq;
-                        db.Usuario.Add(pessoa);
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", valor);
-                    }
-                }
-                else
-                {
-                    pessoa.UrlImagem = "user.png";
-                    db.Usuario.Add(pessoa);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            return View(pessoa);
-        }
-
         // GET: Usuarios/Cadastrar
         public ActionResult Cadastrar()
         {
@@ -149,10 +107,10 @@ namespace _30Code.Controllers
             if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
             {
                 Usuario usuario = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
-                EditarUsuario usu = new EditarUsuario();
+                UsuCreateEdit usu = new UsuCreateEdit();
                 usu.Nome = usuario.Nome;
                 usu.Nascimento = usuario.Nascimento;
-                usu.Sexos = usuario.Sexos == Usuario.Sexo.Masculino ? EditarUsuario.Sexo.Masculino : usuario.Sexos == Usuario.Sexo.Feminino ? EditarUsuario.Sexo.Feminino : EditarUsuario.Sexo.NãoRevelar;
+                usu.Sexos = usuario.Sexos == Usuario.Sexo.Masculino ? UsuCreateEdit.Sexo.Masculino : usuario.Sexos == Usuario.Sexo.Feminino ? UsuCreateEdit.Sexo.Feminino : UsuCreateEdit.Sexo.NãoRevelar;
                 usu.Celular = usuario.Celular;
                 usu.Email = usuario.Email;
                 usu.UrlImagem = usuario.UrlImagem;
@@ -169,7 +127,7 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditarUsuario usuario, HttpPostedFileBase arq)
+        public ActionResult Edit(UsuCreateEdit usuario, HttpPostedFileBase arq)
         {
 
             if (ModelState.IsValid)
@@ -208,7 +166,7 @@ namespace _30Code.Controllers
                 usu.UrlImagem = usuario.UrlImagem;
                 usu.Celular = usuario.Celular;
                 usu.Nascimento = usuario.Nascimento;
-                usu.Sexos = usuario.Sexos == EditarUsuario.Sexo.Masculino ? Usuario.Sexo.Masculino : usuario.Sexos == EditarUsuario.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
+                usu.Sexos = usuario.Sexos == UsuCreateEdit.Sexo.Masculino ? Usuario.Sexo.Masculino : usuario.Sexos == UsuCreateEdit.Sexo.Feminino ? Usuario.Sexo.Feminino : Usuario.Sexo.NãoRevelar;
                 if (!String.IsNullOrEmpty(usuario.Senha))
                 {
                     usu.Senha = Funcoes.HashTexto(usuario.Senha, "SHA512");
@@ -234,39 +192,6 @@ namespace _30Code.Controllers
             }
             return View(usuario);
         }
-        public ActionResult Edit2([Bind(Include = "Id,Nome,Foto")] Usuario pessoa, HttpPostedFileBase arq)
-        {
-            string valor = "";
-            if (ModelState.IsValid)
-            {
-                if (arq != null)
-                {
-                    Funcoes.CriarDiretorio("Usuarios");
-                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
-                    Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
-                    if (valor == "sucesso")
-                    {
-                        if (pessoa.UrlImagem != "user.png")
-                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
-                        pessoa.UrlImagem = nomearq;
-                        db.Entry(pessoa).State = EntityState.Modified;
-                        db.SaveChanges();
-                    }
-                }
-                else
-                {
-                    Usuario pes = db.Usuario.Find(pessoa.Id);
-                    pes.Nome = pessoa.Nome;
-                    db.Entry(pes).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
-                return RedirectToAction("Index");
-            }
-            return View(pessoa);
-        }
-
 
         public ActionResult EsqueceuSenha()
         {
@@ -409,7 +334,18 @@ namespace _30Code.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, false);
                     string permissoes = "";
-                    permissoes = "Admin";
+                    if (usu.TiposUsuarios.ToString() == "Admin")
+                    {
+                        permissoes = "Admin";
+                    }
+                    else if (usu.TiposUsuarios.ToString() == "Premium")
+                    {
+                        permissoes = "Premium";
+                    }
+                    else
+                    {
+                        permissoes = "Comum";
+                    }
                     FormsAuthenticationTicket ticket = new
                     FormsAuthenticationTicket(1, usu.Id + "|" + usu.Nome + "|" + usu.UrlImagem, DateTime.Now,
                     DateTime.Now.AddMinutes(30), false, permissoes);
@@ -417,6 +353,10 @@ namespace _30Code.Controllers
                     HttpCookie cookie = new
                     HttpCookie(FormsAuthentication.FormsCookieName, hash);
                     Response.Cookies.Add(cookie);
+                    if (usu.TiposUsuarios.ToString() == "Admin")
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
                     return RedirectToAction("Index");
                 }
                 else

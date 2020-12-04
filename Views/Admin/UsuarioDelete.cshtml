@@ -35,14 +35,6 @@
                 </dd>
 
                 <dt>
-                    @Html.DisplayNameFor(model => model.Senha)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Senha)
-                </dd>
-
-                <dt>
                     @Html.DisplayNameFor(model => model.Celular)
                 </dt>
 
@@ -83,14 +75,11 @@
 
             </dl>
 
-            @using (Html.BeginForm("UsuarioDelete", "Admin", FormMethod.Post, new
-            {
-                enctype = "multipart/form-data"
-            }))
+            @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
                 <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    <input type="submit" value="Deletar" class="btn btn-default" /> |
                     @Html.ActionLink("Voltar para Home", "Index")
                 </div>
             }

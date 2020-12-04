@@ -54,7 +54,7 @@
                     Celular = "8978498",
                     UrlImagem = "user.jpg",
                     Nascimento = dt,
-                    TiposUsuarios = Models.Usuario.TipoUsuario.Premiun,
+                    TiposUsuarios = Models.Usuario.TipoUsuario.Premium,
                     Sexos = Models.Usuario.Sexo.Masculino
                 });
 

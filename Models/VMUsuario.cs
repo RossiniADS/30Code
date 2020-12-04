@@ -84,8 +84,9 @@ namespace _30Code.Models
         public Acesso Acesso { get; set; }
     }
 
-    public class EditarUsuario
+    public class UsuCreateEdit
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(200, MinimumLength = 3, ErrorMessage = "O Campo nome deve estar entre 3 a 200 caracteres")]
         [Display(Name = "Nome")]
@@ -122,6 +123,14 @@ namespace _30Code.Models
             NãoRevelar = 0,
             Masculino = 1,
             Feminino = 2
+        }
+        [Display(Name = "Tipo Usuario")]
+        public TipoUsuario TiposUsuarios { get; set; }
+        public enum TipoUsuario
+        {
+            Comum = 0,
+            Admin = 1,
+            Premiun = 2
         }
     }
 }
