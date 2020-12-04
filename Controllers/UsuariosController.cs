@@ -63,6 +63,48 @@ namespace _30Code.Controllers
             }
         }
 
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id,Nome,Email,Senha")] Usuario pessoa, HttpPostedFileBase arq)
+        {
+            string valor = "";
+            if (ModelState.IsValid)
+            {
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio("Usuarios");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        pessoa.UrlImagem = nomearq;
+                        db.Usuario.Add(pessoa);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", valor);
+                    }
+                }
+                else
+                {
+                    pessoa.UrlImagem = "user.png";
+                    db.Usuario.Add(pessoa);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(pessoa);
+        }
+
         // GET: Usuarios/Cadastrar
         public ActionResult Cadastrar()
         {
@@ -192,17 +234,39 @@ namespace _30Code.Controllers
             }
             return View(usuario);
         }
-
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Edit2([Bind(Include = "Id,Nome,Foto")] Usuario pessoa, HttpPostedFileBase arq)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
-            return RedirectToAction("Cadastrar");
+            string valor = "";
+            if (ModelState.IsValid)
+            {
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio("Usuarios");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
+                    Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        if (pessoa.UrlImagem != "user.png")
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+                        pessoa.UrlImagem = nomearq;
+                        db.Entry(pessoa).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Usuario pes = db.Usuario.Find(pessoa.Id);
+                    pes.Nome = pessoa.Nome;
+                    db.Entry(pes).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            return View(pessoa);
         }
+
 
         public ActionResult EsqueceuSenha()
         {

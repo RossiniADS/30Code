@@ -738,16 +738,37 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UsuarioCreate([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario usuario)
+        public ActionResult UsuarioCreate([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario pessoa, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Usuario.Add(usuario);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorio("Usuarios");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        pessoa.UrlImagem = nomearq;
+                        db.Usuario.Add(pessoa);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", valor);
+                    }
+                }
+                else
+                {
+                    pessoa.UrlImagem = "user.png";
+                    db.Usuario.Add(pessoa);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
-            return View(usuario);
+            return View(pessoa);
         }
 
         // GET: Usuarios/Edit/5
@@ -764,24 +785,19 @@ namespace _30Code.Controllers
             }
             return View(usuario);
         }
-
-        // POST: Usuarios/Edit/5
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UsuarioEdit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario usuario)
+        public ActionResult UsuarioDelete(int id)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(usuario).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(usuario);
-        }
+            Usuario pessoa = db.Usuario.Find(id);
+            if (pessoa.UrlImagem != "user.png")
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+            db.Usuario.Remove(pessoa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
-        // GET: Usuarios/Delete/5
+        }// GET: Usuarios/Delete/5
         public ActionResult UsuarioDelete(int? id)
         {
             if (id == null)
@@ -796,15 +812,55 @@ namespace _30Code.Controllers
             return View(usuario);
         }
 
-        // POST: Usuarios/Delete/5
-        [HttpPost, ActionName("UsuarioDelete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult UsuarioDeleteConfirmed(int id)
+
+       // GET: Cursoes/Edit/5
+        public ActionResult Edit(int? id)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            db.Usuario.Remove(usuario);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Curso curso = db.Curso.Find(id);
+            if (curso == null)
+            {
+                return HttpNotFound();
+            }
+            return View(curso);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UsuarioEdit([Bind(Include = "Id,Nome,Email,Senha,Celular,Nascimento,UrlImagem,TiposUsuarios,Sexos,Hash")] Usuario pessoa, HttpPostedFileBase arq)
+        {
+            string valor = "";
+            if (ModelState.IsValid)
+            {
+                if (arq != null)
+                {
+                    Upload.CriarDiretorio();
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") +
+                    Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivo(arq,"Usuarios" ,nomearq);
+                    if (valor == "sucesso")
+                    {
+                        if (pessoa.UrlImagem != "user.png")
+                            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+                        pessoa.UrlImagem = nomearq;
+                        db.Entry(pessoa).State = EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    Usuario pes = db.Usuario.Find(pessoa.Id);
+                    pes.Nome = pessoa.Nome;
+                    db.Entry(pes).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            return View(pessoa);
         }
 
 
