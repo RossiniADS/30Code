@@ -1867,11 +1867,11 @@ a[name="PagMeusCursos"], a[name="PagMeusCursos"]:hover {
         transition: 0.2s;
     }
 
-#logado.nav-menu .drop-down > a:after {
+#logado.nav-menu #log.drop-down > a:after {
     content: none;
 }
 
-#logado.mobile-nav .drop-down > a:after {
+#logado.mobile-nav #log.drop-down > a:after {
     content: none;
 }
 
