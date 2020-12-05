@@ -287,9 +287,9 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CursoCreate(Curso curso, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                string valor = "";
                 if (db.Curso.Where(x => x.Nome == curso.Nome).ToList().Count > 0)
                 {
                     ModelState.AddModelError("", "Nome Já utilizado!");
@@ -301,7 +301,7 @@ namespace _30Code.Controllers
                     {
                         Funcoes.CriarDiretorio("Cursos");
                         string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                        valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                        valor = Funcoes.UploadArquivo(arq, "Cursos", nomearq);
                         if (valor == "sucesso")
                         {
                             curso.Url_imagem = "cur_" + nomearq;
@@ -323,10 +323,7 @@ namespace _30Code.Controllers
                     }
                 }
             }
-            else
-            {
-                return View(curso);
-            }
+            return View(curso);
         }
 
         // GET: Cursoes/Edit/5
@@ -349,13 +346,43 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CursoEdit([Bind(Include = "Id,Nome,Duracao,Url_imagem,Niveis")] Curso curso)
+        public ActionResult CursoEdit(Curso curso, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Entry(curso).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Curso.Where(x => x.Nome == curso.Nome).ToList().Count > 1)
+                {
+                    ModelState.AddModelError("", "Nome Já utilizado!");
+                    return View(curso);
+                }
+                else
+                {
+                    if (arq != null)
+                    {
+                        Funcoes.CriarDiretorio("Cursos");
+                        string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                        valor = Funcoes.UploadArquivo(arq, "Cursos", nomearq);
+                        if (valor == "sucesso")
+                        {
+                            curso.Url_imagem = "cur_" + nomearq;
+
+                            db.Entry(curso).State = EntityState.Modified;
+                            db.SaveChanges();
+                            return RedirectToAction("CursoEdit");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", valor);
+                            return View(curso);
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Carregue uma imagem");
+                        return View(curso);
+                    }
+                }
             }
             return View(curso);
         }
