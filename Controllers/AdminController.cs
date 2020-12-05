@@ -285,16 +285,48 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CursoCreate([Bind(Include = "Id,Nome,Duracao,Url_imagem,Niveis")] Curso curso)
+        public ActionResult CursoCreate(Curso curso, HttpPostedFileBase arq)
         {
             if (ModelState.IsValid)
             {
-                db.Curso.Add(curso);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                string valor = "";
+                if (db.Curso.Where(x => x.Nome == curso.Nome).ToList().Count > 0)
+                {
+                    ModelState.AddModelError("", "Nome Já utilizado!");
+                    return View(curso);
+                }
+                else
+                {
+                    if (arq != null)
+                    {
+                        Funcoes.CriarDiretorio("Cursos");
+                        string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                        valor = Funcoes.UploadArquivo(arq, "Usuarios", nomearq);
+                        if (valor == "sucesso")
+                        {
+                            curso.Url_imagem = "cur_" + nomearq;
 
-            return View(curso);
+                            db.Curso.Add(curso);
+                            db.SaveChanges();
+                            return RedirectToAction("CursoCreate");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", valor);
+                            return View(curso);
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Carregue uma imagem");
+                        return View(curso);
+                    }
+                }
+            }
+            else
+            {
+                return View(curso);
+            }
         }
 
         // GET: Cursoes/Edit/5
