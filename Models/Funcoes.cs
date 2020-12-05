@@ -102,6 +102,20 @@ namespace _30Code.Models
             else
                 return false;
         }
+
+        public static bool CriarDiretorioPDF(string pasta)
+        {
+            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pasta + "\\";
+
+            if (!Directory.Exists(dir))
+            {
+                //Caso não exista devermos criar
+                Directory.CreateDirectory(dir);
+                return true;
+            }
+            else
+                return false;
+        }
         public static bool ExcluirArquivo(string arq)
         {
             if (File.Exists(arq))
@@ -111,6 +125,50 @@ namespace _30Code.Models
             }
             else
                 return false;
+        }
+        public static string UploadArquivoPDF(HttpPostedFileBase flpUpload, string pasta, string nome)
+        {
+            try
+            {
+                double permitido = 90000;
+                if (flpUpload != null)
+                {
+                    string arq = Path.GetFileName(flpUpload.FileName);
+                    double tamanho = Convert.ToDouble(flpUpload.ContentLength) / 100000000;
+                    string extensao = Path.GetExtension(flpUpload.FileName).ToLower();
+                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pasta + "\\" + nome;
+
+
+                    if (tamanho > permitido)
+                        return "Tamanho Máximo permitido é de " + permitido + " kb!";
+                    else if ((extensao != ".docx" && extensao != ".pdf"))
+                        return "Extensão inválida, só são permitidas .pdf e .docx!";
+                    else
+                    {
+                        if (!File.Exists(diretorio))
+                        {
+                            flpUpload.SaveAs(diretorio);
+
+                            if (pasta == "Usuarios")
+                            {
+                                RedefinirImagemSalvar(diretorio, 42, 42, "mini_");
+                            }
+                            else if (pasta == "Cursos")
+                            {
+                                RedefinirImagemSalvar(diretorio, 800, 600, "cur_");
+                                ExcluirArquivo(diretorio);
+                            }
+                            return "sucesso";
+                        }
+                        else
+                            return "Já existe um arquivo com esse nome!";
+                    }
+                }
+                else
+                    return "Erro no Upload!";
+            }
+            catch { return "Erro no Upload"; }
+
         }
         public static string UploadArquivo(HttpPostedFileBase flpUpload, string pasta, string nome)
         {

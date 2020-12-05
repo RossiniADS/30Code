@@ -457,14 +457,37 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AnexoCreate([Bind(Include = "Id,Titulo,DataPostagem,Url,Tipos,ConteudoId")] Anexo anexo)
+        public ActionResult AnexoCreate(Anexo anexo, HttpPostedFileBase arq)
         {
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Anexo.Add(anexo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorioPDF("Anexo");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivoPDF(arq, "Anexo", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        anexo.Url = "ane_" + nomearq;
+
+                        db.Anexo.Add(anexo);
+                        db.SaveChanges();
+                        return RedirectToAction("AnexoCreate");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", valor);
+                        return View(anexo);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Carregue uma imagem");
+                    return View(anexo);
+                }
+            } 
 
             ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", anexo.ConteudoId);
             return View(anexo);
