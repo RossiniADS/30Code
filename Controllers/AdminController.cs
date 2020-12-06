@@ -407,11 +407,9 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CursoDeleteConfirmed(int id)
         {
-            Curso pessoa = db.Curso.Find(id);
-            if (pessoa.Url_imagem != "user.png")
-                Upload.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "assets\\img\\Cursos\\" + pessoa.Url_imagem);
-            db.Curso.Remove(pessoa);
+            Curso curso = db.Curso.Find(id);
+            Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Cursos\\" + curso.Url_imagem);
+            db.Curso.Remove(curso);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -474,6 +472,7 @@ namespace _30Code.Controllers
                     if (valor == "sucesso")
                     {
                         anexo.Url = "ane_" + nomearq;
+                        anexo.DataPostagem = DateTime.Now;
 
                         db.Anexo.Add(anexo);
                         db.SaveChanges();
@@ -490,7 +489,7 @@ namespace _30Code.Controllers
                     ModelState.AddModelError("", "Carregue uma imagem");
                     return View(anexo);
                 }
-            } 
+            }
 
             ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", anexo.ConteudoId);
             return View(anexo);
@@ -549,11 +548,10 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AnexoDeleteConfirmed(int id)
         {
-           
-            Anexo pessoa = db.Anexo.Find(id);
-            if (pessoa.Url != "user.png")
-                Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pessoa.Url);
-            db.Anexo.Remove(pessoa);
+
+            Anexo anexo = db.Anexo.Find(id);
+            Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + anexo.Url);
+            db.Anexo.Remove(anexo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

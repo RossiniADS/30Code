@@ -126,7 +126,7 @@ namespace _30Code.Models
             else
                 return false;
         }
-         
+
         public static string UploadArquivoPDF(HttpPostedFileBase flpUpload, string pasta, string nome)
         {
             try
@@ -149,16 +149,6 @@ namespace _30Code.Models
                         if (!File.Exists(diretorio))
                         {
                             flpUpload.SaveAs(diretorio);
-
-                            if (pasta == "Usuarios")
-                            {
-                                RedefinirImagemSalvar(diretorio, 42, 42, "mini_");
-                            }
-                            else if (pasta == "Cursos")
-                            {
-                                RedefinirImagemSalvar(diretorio, 800, 600, "cur_");
-                                ExcluirArquivo(diretorio);
-                            }
                             return "sucesso";
                         }
                         else
