@@ -1,0 +1,52 @@
+﻿@model _30Code.Models.Alternativa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPageAdmin.cshtml";
+}
+
+
+<style>
+    .page-wrapper {
+        background-color: white;
+    }
+</style>
+<div class="page-wrapper mt-2">
+    <div class="container">
+        <h2>Detalhes da alternativa</h2>
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Questoes.Titulo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Questoes.Titulo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Resposta)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Resposta)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AlternativaCorreta)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AlternativaCorreta)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "AlternativasEdit", new { id = Model.Id }) |
+            @Html.ActionLink("Voltar para Home", "Index")
+        </p>
+    </div>
+</div>

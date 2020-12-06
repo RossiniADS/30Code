@@ -17,6 +17,114 @@ namespace _30Code.Controllers
     {
         private Contexto db = new Contexto();
 
+        //----------------- Alternativas ----------------------
+
+        // GET: Alternativas
+        public ActionResult AlternativasIndex()
+        {
+            var alternativa = db.Alternativa.Include(a => a.Questoes);
+            return View(alternativa.ToList());
+        }
+
+        // GET: Alternativas/Details/5
+        public ActionResult AlternativasDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Alternativa alternativa = db.Alternativa.Find(id);
+            if (alternativa == null)
+            {
+                return HttpNotFound();
+            }
+            return View(alternativa);
+        }
+
+        // GET: Alternativas/Create
+        public ActionResult AlternativasCreate()
+        {
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo");
+            return View();
+        }
+
+        // POST: Alternativas/Create
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AlternativasCreate([Bind(Include = "Id,Resposta,AlternativaCorreta,QuestoesId")] Alternativa alternativa)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Alternativa.Add(alternativa);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", alternativa.QuestoesId);
+            return View(alternativa);
+        }
+
+        // GET: Alternativas/Edit/5
+        public ActionResult AlternativasEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Alternativa alternativa = db.Alternativa.Find(id);
+            if (alternativa == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", alternativa.QuestoesId);
+            return View(alternativa);
+        }
+
+        // POST: Alternativas/Edit/5
+        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
+        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AlternativasEdit([Bind(Include = "Id,Resposta,AlternativaCorreta,QuestoesId")] Alternativa alternativa)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(alternativa).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.QuestoesId = new SelectList(db.Questoes, "Id", "Titulo", alternativa.QuestoesId);
+            return View(alternativa);
+        }
+
+        // GET: Alternativas/Delete/5
+        public ActionResult AlternativasDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Alternativa alternativa = db.Alternativa.Find(id);
+            if (alternativa == null)
+            {
+                return HttpNotFound();
+            }
+            return View(alternativa);
+        }
+
+        // POST: Alternativas/Delete/5
+        [HttpPost, ActionName("AlternativasDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AlternativasDeleteConfirmed(int id)
+        {
+            Alternativa alternativa = db.Alternativa.Find(id);
+            db.Alternativa.Remove(alternativa);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         //----------------- Módulos ------------------------
 
         // GET: Moduloes
@@ -344,11 +452,22 @@ namespace _30Code.Controllers
         // POST: Cursoes/Edit/5
         // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+
+
+
+
+
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CursoEdit(Curso curso, HttpPostedFileBase arq)
         {
             string valor = "";
+            var cur = db.Curso.Find(curso.Id);
+
             if (ModelState.IsValid)
             {
                 if (db.Curso.Where(x => x.Nome == curso.Nome).ToList().Count > 1)
@@ -365,9 +484,12 @@ namespace _30Code.Controllers
                         valor = Funcoes.UploadArquivo(arq, "Cursos", nomearq);
                         if (valor == "sucesso")
                         {
-                            curso.Url_imagem = "cur_" + nomearq;
+                            cur.Url_imagem = "cur_" + nomearq;
+                            cur.Descricao = curso.Descricao;
+                            cur.Duracao = curso.Duracao;
+                            cur.Nome = curso.Nome;
 
-                            db.Entry(curso).State = EntityState.Modified;
+                            db.Entry(cur).State = EntityState.Modified;
                             db.SaveChanges();
                             return RedirectToAction("CursoEdit");
                         }
@@ -386,6 +508,7 @@ namespace _30Code.Controllers
             }
             return View(curso);
         }
+
 
         // GET: Cursoes/Delete/5
         public ActionResult CursoDelete(int? id)
@@ -536,11 +659,11 @@ namespace _30Code.Controllers
                     {
                         Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\Anexo\\" + anexos.Url);
                         anexos.Tipos = anexo.Tipos;
-                        anexos.Titulo = anexo.Titulo;  
+                        anexos.Titulo = anexo.Titulo;
 
 
                         anexos.Url = "ane_" + nomearq;
-                        anexos.DataPostagem = DateTime.Now; 
+                        anexos.DataPostagem = DateTime.Now;
 
                         db.Entry(anexos).State = EntityState.Modified;
                         db.SaveChanges();
