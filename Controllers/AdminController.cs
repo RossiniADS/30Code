@@ -407,8 +407,11 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CursoDeleteConfirmed(int id)
         {
-            Curso curso = db.Curso.Find(id);
-            db.Curso.Remove(curso);
+            Curso pessoa = db.Curso.Find(id);
+            if (pessoa.Url_imagem != "user.png")
+                Upload.ExcluirArquivo(Request.PhysicalApplicationPath
+                + "assets\\img\\Cursos\\" + pessoa.Url_imagem);
+            db.Curso.Remove(pessoa);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -546,8 +549,11 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AnexoDeleteConfirmed(int id)
         {
-            Anexo anexo = db.Anexo.Find(id);
-            db.Anexo.Remove(anexo);
+           
+            Anexo pessoa = db.Anexo.Find(id);
+            if (pessoa.Url != "user.png")
+                Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pessoa.Url);
+            db.Anexo.Remove(pessoa);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -976,6 +982,7 @@ namespace _30Code.Controllers
             if (pessoa.UrlImagem != "user.jpg")
             {
                 Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios\\" + pessoa.UrlImagem);
+                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\img\\Usuarios\\mini_" + pessoa.UrlImagem);
             }
             db.Usuario.Remove(pessoa);
             db.SaveChanges();
