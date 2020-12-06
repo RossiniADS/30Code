@@ -14,7 +14,7 @@ namespace _30Code.Models
         public string Titulo { get; set; }
         [Required]
         public DateTime DataPostagem { get; set; }
-        [Required]
+        
         [MaxLength(100)]
         [Display(Name = "Anexar arquivo")]
         public string Url { get; set; }

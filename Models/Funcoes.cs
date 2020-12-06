@@ -105,7 +105,7 @@ namespace _30Code.Models
 
         public static bool CriarDiretorioPDF(string pasta)
         {
-            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pasta + "\\";
+            string dir = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\" + pasta + "\\";
 
             if (!Directory.Exists(dir))
             {
@@ -137,13 +137,13 @@ namespace _30Code.Models
                     string arq = Path.GetFileName(flpUpload.FileName);
                     double tamanho = Convert.ToDouble(flpUpload.ContentLength) / 100000000;
                     string extensao = Path.GetExtension(flpUpload.FileName).ToLower();
-                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + pasta + "\\" + nome;
+                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\" + pasta + "\\ane_" + nome;
 
 
                     if (tamanho > permitido)
                         return "Tamanho Máximo permitido é de " + permitido + " kb!";
-                    else if ((extensao != ".docx" && extensao != ".pdf"))
-                        return "Extensão inválida, só são permitidas .pdf e .docx!";
+                    else if ((extensao != ".pdf" && extensao != ".mp4"))
+                        return "Extensão inválida, só são permitidas .pdf .mp4";
                     else
                     {
                         if (!File.Exists(diretorio))

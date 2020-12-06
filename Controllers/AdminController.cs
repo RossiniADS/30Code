@@ -460,6 +460,8 @@ namespace _30Code.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AnexoCreate(Anexo anexo, HttpPostedFileBase arq)
         {
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo");
+
             string valor = "";
             if (ModelState.IsValid)
             {
@@ -516,14 +518,47 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AnexoEdit([Bind(Include = "Id,Titulo,DataPostagem,Url,Tipos,ConteudoId")] Anexo anexo)
+        public ActionResult AnexoEdit(Anexo anexo, HttpPostedFileBase arq)
         {
+            ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo");
+
+            string valor = "";
             if (ModelState.IsValid)
             {
-                db.Entry(anexo).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var anexos = db.Anexo.Find(anexo.Id);
+
+                if (arq != null)
+                {
+                    Funcoes.CriarDiretorioPDF("Anexo");
+                    string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
+                    valor = Funcoes.UploadArquivoPDF(arq, "Anexo", nomearq);
+                    if (valor == "sucesso")
+                    {
+                        Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\Anexo\\" + anexos.Url);
+                        anexos.Tipos = anexo.Tipos;
+                        anexos.Titulo = anexo.Titulo;  
+
+
+                        anexos.Url = "ane_" + nomearq;
+                        anexos.DataPostagem = DateTime.Now; 
+
+                        db.Entry(anexos).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("AnexoIndex");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", valor);
+                        return View(anexos);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Carregue uma imagem");
+                    return View(anexos);
+                }
             }
+
             ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo", anexo.ConteudoId);
             return View(anexo);
         }
@@ -544,13 +579,12 @@ namespace _30Code.Controllers
         }
 
         // POST: Anexoes/Delete/5
-        [HttpPost, ActionName("AnexoDelete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AnexoDeleteConfirmed(int id)
+        public ActionResult AnexoDelete(int id)
         {
-
             Anexo anexo = db.Anexo.Find(id);
-            Upload.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + anexo.Url);
+            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + anexo.Url);
             db.Anexo.Remove(anexo);
             db.SaveChanges();
             return RedirectToAction("Index");
