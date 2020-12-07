@@ -19,7 +19,7 @@ namespace _30Code.Controllers
 
         public ActionResult SejaPremium()
         {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (User.Identity.IsAuthenticated == true)
             {
                 return View();
             }
@@ -37,25 +37,10 @@ namespace _30Code.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (User.Identity.IsAuthenticated == true)
             {
                 var userId = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
                 return View(db.Usuario.Find(userId));
-            }
-            else
-            {
-                return RedirectToAction("Cadastrar");
-            }
-        }
-
-        // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
-            {
-                id = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
-                Usuario usuario = db.Usuario.Find(id);
-                return View(usuario);
             }
             else
             {
@@ -102,9 +87,9 @@ namespace _30Code.Controllers
         }
 
         // GET: Usuarios/EditarDados/5
-        public ActionResult EditarDados(int? id)
+        public ActionResult EditarDados()
         {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (User.Identity.IsAuthenticated == true)
             {
                 Usuario usuario = db.Usuario.Find(Convert.ToInt32(User.Identity.Name.Split('|')[0]));
                 UsuCreateEdit usu = new UsuCreateEdit();
@@ -118,7 +103,7 @@ namespace _30Code.Controllers
             }
             else
             {
-                return RedirectToAction("Cadastrar");
+                return RedirectToAction("Index");
             }
         }
 
@@ -127,7 +112,7 @@ namespace _30Code.Controllers
         // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(UsuCreateEdit usuario, HttpPostedFileBase arq)
+        public ActionResult EditarDados(UsuCreateEdit usuario, HttpPostedFileBase arq)
         {
 
             if (ModelState.IsValid)
@@ -174,21 +159,6 @@ namespace _30Code.Controllers
                 db.Entry(usu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("EditarDados");
-            }
-            return View(usuario);
-        }
-
-        // GET: Usuarios/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
             }
             return View(usuario);
         }
@@ -309,19 +279,7 @@ namespace _30Code.Controllers
         {
             return View();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
-        {
-            Usuario pessoa = db.Usuario.Find(id);
-            if (pessoa.UrlImagem != "user.png")
-                Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath
-                + "~\\assets\\img\\Usuarios\\" + pessoa.UrlImagem);
-            db.Usuario.Remove(pessoa);
-            db.SaveChanges();
-            return RedirectToAction("Index");
 
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Acesso(Login login, string ReturnUrl)

@@ -15,6 +15,7 @@ namespace _30Code.Controllers
     public class CursoesController : Controller
     {
         private Contexto db = new Contexto();
+
         // GET: Pessoas
         public async Task<ActionResult> Cursos()
         {
@@ -25,17 +26,18 @@ namespace _30Code.Controllers
         [HttpPost]
         public async Task<ActionResult> Cursos(string txtProcurar)
         {
-            if (!String.IsNullOrEmpty(txtProcurar))
+            if (!String.IsNullOrEmpty(txtProcurar) && ModelState.IsValid)
             {
                 return View(await db.Curso.Where(x => x.Nome.ToUpper().Contains(txtProcurar.ToUpper())).ToListAsync());
             }
 
             return View(await db.Curso.ToListAsync());
         }
+
         [HttpPost]
         public ActionResult Resposta(ConteudoVM ConteudoVM, int id)
         {
-            if (User.Identity.IsAuthenticated == true && ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
                 int contID = 0;
@@ -47,7 +49,9 @@ namespace _30Code.Controllers
                     }
                     contID = item.ConteudoId;
                 }
+
                 var userID = Convert.ToInt32(User.Identity.Name.Split('|')[0]);
+                var usuCurso = db.Usuario_has_curso.Where(x => x.UsuarioId == userID && x.CursoId == id);
 
                 List<Usuario_has_curso_has_conteudo_has_questoes> teste = db.Usuario_has_curso_has_conteudo_has_questoes.Where(x => x.Usuario_Has_Curso_Has_Conteudo.ConteudoId == contID && x.Usuario_Has_Curso_Has_Conteudo.Usuario_Has_Curso.UsuarioId == userID).ToList();
 
@@ -64,7 +68,7 @@ namespace _30Code.Controllers
                 Usuario_has_curso_has_conteudo ucc = new Usuario_has_curso_has_conteudo();
                 ucc.ConteudoId = contID;
                 ucc.DataDeConclusao = DateTime.Now;
-                ucc.Usuario_has_cursoId = id;
+                ucc.Usuario_has_cursoId = usuCurso.FirstOrDefault().Id;
                 ucc.Usuario_has_curso_Has_Conteudo_Has_Questoes = new List<Usuario_has_curso_has_conteudo_has_questoes>();
                 foreach (var item in ConteudoVM.QuestaoVMs)
                 {
@@ -227,106 +231,6 @@ namespace _30Code.Controllers
             {
                 return RedirectToAction("Cadastrar", "Usuarios");
             }
-        }
-        // GET: Cursoes
-        public ActionResult Index()
-        {
-            return View(db.Curso.ToList());
-        }
-
-        // GET: Cursoes/Details/5
-        // GET: Comarcas/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Curso curso = db.Curso.Find(id);
-            if (curso == null)
-            {
-                return HttpNotFound();
-            }
-            return View(curso);
-        }
-        // GET: Cursoes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Cursoes/Create
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome,Duracao,Url_imagem,Niveis")] Curso curso)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Curso.Add(curso);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(curso);
-        }
-
-        // GET: Cursoes/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Curso curso = db.Curso.Find(id);
-            if (curso == null)
-            {
-                return HttpNotFound();
-            }
-            return View(curso);
-        }
-
-        // POST: Cursoes/Edit/5
-        // Para proteger-se contra ataques de excesso de postagem, ative as propriedades específicas às quais deseja se associar. 
-        // Para obter mais detalhes, confira https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome,Duracao,Url_imagem,Niveis")] Curso curso)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(curso).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(curso);
-        }
-
-        // GET: Cursoes/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Curso curso = db.Curso.Find(id);
-            if (curso == null)
-            {
-                return HttpNotFound();
-            }
-            return View(curso);
-        }
-
-        // POST: Cursoes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Curso curso = db.Curso.Find(id);
-            db.Curso.Remove(curso);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

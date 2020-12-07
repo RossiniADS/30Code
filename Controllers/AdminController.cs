@@ -31,7 +31,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Alternativa alternativa = db.Alternativa.Find(id);
             if (alternativa == null)
@@ -71,7 +71,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Alternativa alternativa = db.Alternativa.Find(id);
             if (alternativa == null)
@@ -104,7 +104,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Alternativa alternativa = db.Alternativa.Find(id);
             if (alternativa == null)
@@ -150,7 +150,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Modulo modulo = db.Modulo.Find(id);
             if (modulo == null)
@@ -190,7 +190,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Modulo modulo = db.Modulo.Find(id);
             if (modulo == null)
@@ -223,7 +223,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Modulo modulo = db.Modulo.Find(id);
             if (modulo == null)
@@ -259,7 +259,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso usuario_has_curso = db.Usuario_has_curso.Find(id);
             if (usuario_has_curso == null)
@@ -301,7 +301,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso usuario_has_curso = db.Usuario_has_curso.Find(id);
             if (usuario_has_curso == null)
@@ -336,7 +336,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso usuario_has_curso = db.Usuario_has_curso.Find(id);
             if (usuario_has_curso == null)
@@ -372,7 +372,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Curso curso = db.Curso.Find(id);
             if (curso == null)
@@ -439,7 +439,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Curso curso = db.Curso.Find(id);
             if (curso == null)
@@ -515,7 +515,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Curso curso = db.Curso.Find(id);
             if (curso == null)
@@ -559,7 +559,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Anexo anexo = db.Anexo.Find(id);
             if (anexo == null)
@@ -650,7 +650,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Anexo anexo = db.Anexo.Find(id);
             if (anexo == null)
@@ -744,7 +744,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Anexo anexo = db.Anexo.Find(id);
             if (anexo == null)
@@ -792,7 +792,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Conteudo conteudo = db.Conteudo.Find(id);
             if (conteudo == null)
@@ -832,7 +832,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Conteudo conteudo = db.Conteudo.Find(id);
             if (conteudo == null)
@@ -865,7 +865,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Conteudo conteudo = db.Conteudo.Find(id);
             if (conteudo == null)
@@ -910,7 +910,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Questoes questoes = db.Questoes.Find(id);
             if (questoes == null)
@@ -950,7 +950,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Questoes questoes = db.Questoes.Find(id);
             if (questoes == null)
@@ -983,7 +983,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Questoes questoes = db.Questoes.Find(id);
             if (questoes == null)
@@ -1102,7 +1102,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario usuario = db.Usuario.Find(id);
             UsuCreateEdit usu = new UsuCreateEdit();
@@ -1175,7 +1175,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario usuario = db.Usuario.Find(id);
             if (usuario == null)
@@ -1215,7 +1215,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
             if (usuario_has_curso_has_conteudo == null)
@@ -1257,7 +1257,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
             if (usuario_has_curso_has_conteudo == null)
@@ -1292,7 +1292,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo usuario_has_curso_has_conteudo = db.Usuario_has_curso_has_conteudo.Find(id);
             if (usuario_has_curso_has_conteudo == null)
@@ -1329,7 +1329,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
             if (usuario_has_curso_has_conteudo_has_questoes == null)
@@ -1373,7 +1373,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
             if (usuario_has_curso_has_conteudo_has_questoes == null)
@@ -1410,7 +1410,7 @@ namespace _30Code.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View("Index");
             }
             Usuario_has_curso_has_conteudo_has_questoes usuario_has_curso_has_conteudo_has_questoes = db.Usuario_has_curso_has_conteudo_has_questoes.Find(id);
             if (usuario_has_curso_has_conteudo_has_questoes == null)

@@ -463,7 +463,7 @@
                     Titulo = "Apostila Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "Dia5pdf",
+                    Url = "Dia5.pdf",
                     ConteudoId = 5
                 },
                 new Models.Anexo
@@ -472,7 +472,7 @@
                     Titulo = "Aula Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "Dia5pdf.mp4",
+                    Url = "Dia5.mp4",
                     ConteudoId = 5
                 },
                 new Models.Anexo

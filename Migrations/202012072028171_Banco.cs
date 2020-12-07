@@ -1,4 +1,4 @@
-﻿namespace _30Code.Migrations
+namespace _30Code.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -48,7 +48,7 @@
                         ane_id = c.Int(nullable: false, identity: true),
                         ane_titulo = c.String(nullable: false, maxLength: 45, storeType: "nvarchar"),
                         ane_dataPostagem = c.DateTime(nullable: false, precision: 0),
-                        ane_url = c.String(nullable: false, maxLength: 100, storeType: "nvarchar"),
+                        ane_url = c.String(maxLength: 100, storeType: "nvarchar"),
                         ane_tipo = c.Int(nullable: false),
                         con_id = c.Int(nullable: false),
                     })
