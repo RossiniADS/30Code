@@ -585,18 +585,43 @@ namespace _30Code.Controllers
         {
             ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo");
 
+            string ext = Path.GetExtension(arq.FileName).ToLower();
             string valor = "";
+            string pasta = "";
             if (ModelState.IsValid)
             {
 
                 if (arq != null)
                 {
-                    Funcoes.CriarDiretorioPDF("Anexo");
+                    if (anexo.Tipos.ToString() == "Aula" && ext != ".mp4")
+                    {
+                        ModelState.AddModelError("", "Carrega um arquivo valido do tipo aula");
+                        return View(anexo);
+
+                    }
+                    else if (anexo.Tipos.ToString() == "Apostila" && ext != ".pdf")
+                    {
+                        ModelState.AddModelError("", "Carrega um arquivo valido do tipo apostila");
+                        return View(anexo);
+                    }
+                    if (anexo.Tipos.ToString() == "Aula")
+                    {
+                        Funcoes.CriarDiretorioPDF("VideoAulas");
+                        pasta = "VideoAulas";
+                    }
+                    else
+                    {
+                        Funcoes.CriarDiretorioPDF("Apostilas");
+                        pasta = "Apostilas";
+
+                    }
                     string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivoPDF(arq, "Anexo", nomearq);
+
+                    valor = Funcoes.UploadArquivoPDF(arq, pasta, nomearq);
+
                     if (valor == "sucesso")
                     {
-                        anexo.Url = "ane_" + nomearq;
+                        anexo.Url = nomearq;
                         anexo.DataPostagem = DateTime.Now;
 
                         db.Anexo.Add(anexo);
@@ -645,24 +670,52 @@ namespace _30Code.Controllers
         {
             ViewBag.ConteudoId = new SelectList(db.Conteudo, "Id", "Titulo");
 
+            string ext = Path.GetExtension(arq.FileName).ToLower();
             string valor = "";
+            string pasta = "";
             if (ModelState.IsValid)
             {
                 var anexos = db.Anexo.Find(anexo.Id);
 
                 if (arq != null)
                 {
-                    Funcoes.CriarDiretorioPDF("Anexo");
+                    if (anexo.Tipos.ToString() == "Aula" && ext != ".mp4")
+                    {
+                        ModelState.AddModelError("", "Carrega um arquivo valido do tipo aula");
+                        return View(anexo);
+
+                    }
+                    else if (anexo.Tipos.ToString() == "Apostila" && ext != ".pdf")
+                    {
+                        ModelState.AddModelError("", "Carrega um arquivo valido do tipo apostila");
+                        return View(anexo);
+                    }
+                    if (anexo.Tipos.ToString() == "Aula")
+                    {
+                        Funcoes.CriarDiretorioPDF("VideoAulas");
+                        pasta = "VideoAulas";
+                    }
+                    else
+                    {
+                        Funcoes.CriarDiretorioPDF("Apostilas");
+                        pasta = "Apostilas";
+
+                    }
                     string nomearq = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(arq.FileName);
-                    valor = Funcoes.UploadArquivoPDF(arq, "Anexo", nomearq);
+                    valor = Funcoes.UploadArquivoPDF(arq, pasta, nomearq);
                     if (valor == "sucesso")
                     {
-                        Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\Anexo\\" + anexos.Url);
+
+                        string ext2 = Path.GetExtension(anexos.Url).ToLower();
+                        pasta = ext2 == ".mp4" ? "VideoAulas" : "Apostilas";
+
+
+                        Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\" + pasta + "\\" + anexos.Url);
                         anexos.Tipos = anexo.Tipos;
                         anexos.Titulo = anexo.Titulo;
 
 
-                        anexos.Url = "ane_" + nomearq;
+                        anexos.Url = nomearq;
                         anexos.DataPostagem = DateTime.Now;
 
                         db.Entry(anexos).State = EntityState.Modified;
@@ -707,7 +760,10 @@ namespace _30Code.Controllers
         public ActionResult AnexoDelete(int id)
         {
             Anexo anexo = db.Anexo.Find(id);
-            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\ApostilasJava\\" + anexo.Url);
+            string ext2 = Path.GetExtension(anexo.Url).ToLower();
+            string pasta = ext2 == ".mp4" ? "VideoAulas" : "Apostilas";
+
+            Funcoes.ExcluirArquivo(Request.PhysicalApplicationPath + "assets\\" + pasta + "\\" + anexo.Url);
             db.Anexo.Remove(anexo);
             db.SaveChanges();
             return RedirectToAction("Index");

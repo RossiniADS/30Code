@@ -225,18 +225,18 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="~/MenuAdmin/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                                    <img src="~/assets/img/Usuarios/@User.Identity.Name.Split('|')[2]" alt="user" class="rounded-circle" width="31">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> Meu Perfil </a>
+                                    @*<a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>*@
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Mensagens </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Configuração de conta</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                    <a class="dropdown-item" href="~/Usuarios/sair"><i class="fa fa-power-off m-r-5 m-l-5"></i> Sair</a>
                                     <div class="dropdown-divider"></div>
-                                    <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                                    <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">Ver perfil</a></div>
                                 </div>
                             </li>
                             <!-- ============================================================== -->
@@ -271,7 +271,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
                                     <i class="mdi mdi-chart-bubble"></i>
                                     <span class="hide-menu">Mensagens</span>
                                 </a>
@@ -416,22 +416,22 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse  first-level">
                                     <li class="sidebar-item">
-                                        <a href="error-403.html" class="sidebar-link">
+                                        <a href="#" class="sidebar-link">
                                             <i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="error-404.html" class="sidebar-link">
+                                        <a href="#" class="sidebar-link">
                                             <i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="error-405.html" class="sidebar-link">
+                                        <a href="#" class="sidebar-link">
                                             <i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="error-500.html" class="sidebar-link">
+                                        <a href="#" class="sidebar-link">
                                             <i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500 </span>
                                         </a>
                                     </li>

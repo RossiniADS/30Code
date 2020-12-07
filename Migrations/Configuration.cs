@@ -391,7 +391,7 @@
                     Titulo = "Apostila Introdução ao curso",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia1.pdf",
+                    Url = "Dia1.pdf",
                     ConteudoId = 1
                 },
                 new Models.Anexo
@@ -400,7 +400,7 @@
                     Titulo = "Aula Introdução ao curso",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia1.mp4",
+                    Url = "Dia1.mp4",
                     ConteudoId = 1
                 },
                 new Models.Anexo
@@ -409,7 +409,7 @@
                     Titulo = "Apostila Linguagem de programação",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia2.pdf",
+                    Url = "Dia2.pdf",
                     ConteudoId = 2
                 },
                 new Models.Anexo
@@ -418,7 +418,7 @@
                     Titulo = "Aula Linguagem de programação",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia2.mp4",
+                    Url = "Dia2.mp4",
                     ConteudoId = 2
                 },
                 new Models.Anexo
@@ -427,7 +427,7 @@
                     Titulo = "Apostila Introdução a linguagem Java",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia3.pdf",
+                    Url = "Dia3.pdf",
                     ConteudoId = 3
                 },
                 new Models.Anexo
@@ -436,7 +436,7 @@
                     Titulo = "Aula Introdução a linguagem Java",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia3.mp4",
+                    Url = "Dia3.mp4",
                     ConteudoId = 3
                 },
                 new Models.Anexo
@@ -445,7 +445,7 @@
                     Titulo = "Apostila Variaveis",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia4.pdf",
+                    Url = "Dia4.pdf",
                     ConteudoId = 4
                 },
                 new Models.Anexo
@@ -454,7 +454,7 @@
                     Titulo = "Aula Variaveis",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia4.mp4",
+                    Url = "Dia4.mp4",
                     ConteudoId = 4
                 },
                 new Models.Anexo
@@ -463,7 +463,7 @@
                     Titulo = "Apostila Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia5pdf",
+                    Url = "Dia5pdf",
                     ConteudoId = 5
                 },
                 new Models.Anexo
@@ -472,7 +472,7 @@
                     Titulo = "Aula Estrutura sequencial",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia5pdf.mp4",
+                    Url = "Dia5pdf.mp4",
                     ConteudoId = 5
                 },
                 new Models.Anexo
@@ -481,7 +481,7 @@
                     Titulo = "Apostila Estruturas condicionais",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia6.pdf",
+                    Url = "Dia6.pdf",
                     ConteudoId = 6
                 },
                 new Models.Anexo
@@ -490,7 +490,7 @@
                     Titulo = "Aula Estruturas condicionais",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia6.mp4",
+                    Url = "Dia6.mp4",
                     ConteudoId = 6
                 },
                  new Models.Anexo
@@ -499,7 +499,7 @@
                      Titulo = "Apostila Estruturas de repetição",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia7.pdf",
+                     Url = "Dia7.pdf",
                      ConteudoId = 7
                  },
                 new Models.Anexo
@@ -508,7 +508,7 @@
                     Titulo = "Aula Estruturas de repetição",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia7.mp4",
+                    Url = "Dia7.mp4",
                     ConteudoId = 7
                 },
                  new Models.Anexo
@@ -517,7 +517,7 @@
                      Titulo = "Apostila Outros tópicos basicos",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia8.pdf",
+                     Url = "Dia8.pdf",
                      ConteudoId = 8
                  },
                 new Models.Anexo
@@ -526,7 +526,7 @@
                     Titulo = "Aula Outros tópicos basicos",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia8.mp4",
+                    Url = "Dia8.mp4",
                     ConteudoId = 8
                 },
                 new Models.Anexo
@@ -535,7 +535,7 @@
                     Titulo = "Apostila Introdução a POO",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia9.pdf",
+                    Url = "Dia9.pdf",
                     ConteudoId = 9
                 },
                 new Models.Anexo
@@ -544,7 +544,7 @@
                     Titulo = "Aula Introdução a POO",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia9.mp4",
+                    Url = "Dia9.mp4",
                     ConteudoId = 9
                 },
                 new Models.Anexo
@@ -553,7 +553,7 @@
                     Titulo = "Apostila Construtores",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia10.pdf",
+                    Url = "Dia10.pdf",
                     ConteudoId = 10
                 },
                 new Models.Anexo
@@ -562,7 +562,7 @@
                     Titulo = "Aula Construtores",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia10.mp4",
+                    Url = "Dia10.mp4",
                     ConteudoId = 10
                 },
                 new Models.Anexo
@@ -571,7 +571,7 @@
                     Titulo = "Apostila Sobrecarga",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia11.pdf",
+                    Url = "Dia11.pdf",
                     ConteudoId = 11
                 },
                 new Models.Anexo
@@ -580,7 +580,7 @@
                     Titulo = "Aula Sobrecarga",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia11.mp4",
+                    Url = "Dia11.mp4",
                     ConteudoId = 11
                 },
                 new Models.Anexo
@@ -589,7 +589,7 @@
                     Titulo = "Apostila encapsulamento",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia12.pdf",
+                    Url = "Dia12.pdf",
                     ConteudoId = 12
                 },
                 new Models.Anexo
@@ -598,7 +598,7 @@
                     Titulo = "Aula encapsulamento",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia12.mp4",
+                    Url = "Dia12.mp4",
                     ConteudoId = 12
                 },
                  new Models.Anexo
@@ -607,7 +607,7 @@
                      Titulo = "Apostila Gets e Sets",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia13.pdf",
+                     Url = "Dia13.pdf",
                      ConteudoId = 13
                  },
                 new Models.Anexo
@@ -616,7 +616,7 @@
                     Titulo = "Aula Gets e Sets",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia13.mp4",
+                    Url = "Dia13.mp4",
                     ConteudoId = 13
                 },
                  new Models.Anexo
@@ -625,7 +625,7 @@
                      Titulo = "Apostila Arrays",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia14.pdf",
+                     Url = "Dia14.pdf",
                      ConteudoId = 14
                  },
                 new Models.Anexo
@@ -634,7 +634,7 @@
                     Titulo = "Aula Arrays",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia14.mp4",
+                    Url = "Dia14.mp4",
                     ConteudoId = 14
                 },
                  new Models.Anexo
@@ -643,7 +643,7 @@
                      Titulo = "Apostila Listas",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia15.pdf",
+                     Url = "Dia15.pdf",
                      ConteudoId = 15
                  },
                 new Models.Anexo
@@ -652,7 +652,7 @@
                     Titulo = "Aula Listas",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia15.mp4",
+                    Url = "Dia15.mp4",
                     ConteudoId = 15
                 },
                  new Models.Anexo
@@ -661,7 +661,7 @@
                      Titulo = "Apostila Dates",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia16.pdf",
+                     Url = "Dia16.pdf",
                      ConteudoId = 16
                  },
                 new Models.Anexo
@@ -670,7 +670,7 @@
                     Titulo = "Aula Dates",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia16.mp4",
+                    Url = "Dia16.mp4",
                     ConteudoId = 16
                 },
                 new Models.Anexo
@@ -679,7 +679,7 @@
                     Titulo = "Apostila Enumeração",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia17.pdf",
+                    Url = "Dia17.pdf",
                     ConteudoId = 17
                 },
                 new Models.Anexo
@@ -688,7 +688,7 @@
                     Titulo = "Aula Enumeração",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia17.mp4",
+                    Url = "Dia17.mp4",
                     ConteudoId = 17
                 },
                 new Models.Anexo
@@ -697,7 +697,7 @@
                     Titulo = "Apostila Herança",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia18.pdf",
+                    Url = "Dia18.pdf",
                     ConteudoId = 18
                 },
                 new Models.Anexo
@@ -706,7 +706,7 @@
                     Titulo = "Aula Herança",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia18.mp4",
+                    Url = "Dia18.mp4",
                     ConteudoId = 18
                 },
                 new Models.Anexo
@@ -715,7 +715,7 @@
                     Titulo = "Apostila Polimorfismo",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia19.pdf",
+                    Url = "Dia19.pdf",
                     ConteudoId = 19
                 },
                 new Models.Anexo
@@ -724,7 +724,7 @@
                     Titulo = "Aula Polimorfismo",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia19.mp4",
+                    Url = "Dia19.mp4",
                     ConteudoId = 19
                 },
                  new Models.Anexo
@@ -733,7 +733,7 @@
                      Titulo = "Apostila Tratamento de exceções",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia20.pdf",
+                     Url = "Dia20.pdf",
                      ConteudoId = 20
                  },
                 new Models.Anexo
@@ -742,7 +742,7 @@
                     Titulo = "Aula Tratamento de exceções",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia20.mp4",
+                    Url = "Dia20.mp4",
                     ConteudoId = 20
                 },
                  new Models.Anexo
@@ -751,7 +751,7 @@
                      Titulo = "Apostila Lendo arquivos de texto",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia21.pdf",
+                     Url = "Dia21.pdf",
                      ConteudoId = 21
                  },
                 new Models.Anexo
@@ -760,7 +760,7 @@
                     Titulo = "Aula Lendo arquivos de texto",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia21.mp4",
+                    Url = "Dia21.mp4",
                     ConteudoId = 21
                 },
                  new Models.Anexo
@@ -769,7 +769,7 @@
                      Titulo = "Apostila Interfaces",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia22.pdf",
+                     Url = "Dia22.pdf",
                      ConteudoId = 22
                  },
                 new Models.Anexo
@@ -778,7 +778,7 @@
                     Titulo = "Aula Interfaces",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia22.mp4",
+                    Url = "Dia22.mp4",
                     ConteudoId = 22
                 },
                  new Models.Anexo
@@ -787,7 +787,7 @@
                      Titulo = "Apostila Generics",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia23.pdf",
+                     Url = "Dia23.pdf",
                      ConteudoId = 23
                  },
                  new Models.Anexo
@@ -796,7 +796,7 @@
                      Titulo = "Aula Generics",
                      Tipos = Models.Anexo.Tipo.Aula,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/VideoAulaJava/Dia23.mp4",
+                     Url = "Dia23.mp4",
                      ConteudoId = 23
                  },
                  new Models.Anexo
@@ -805,7 +805,7 @@
                      Titulo = "Apostila Set",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia24.pdf",
+                     Url = "Dia24.pdf",
                      ConteudoId = 24
                  },
                  new Models.Anexo
@@ -814,7 +814,7 @@
                      Titulo = "Aula Set",
                      Tipos = Models.Anexo.Tipo.Aula,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/VideoAulaJava/Dia24.mp4",
+                     Url = "Dia24.mp4",
                      ConteudoId = 24
                  },
                  new Models.Anexo
@@ -823,7 +823,7 @@
                      Titulo = "Apostila Map",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia25.pdf",
+                     Url = "Dia25.pdf",
                      ConteudoId = 25
                  },
                 new Models.Anexo
@@ -832,7 +832,7 @@
                     Titulo = "Aula Map",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia25.mp4",
+                    Url = "Dia25.mp4",
                     ConteudoId = 25
                 },
                 new Models.Anexo
@@ -841,7 +841,7 @@
                     Titulo = "Apostila Expressões Lambda",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia26.pdf",
+                    Url = "Dia26.pdf",
                     ConteudoId = 26
                 },
                 new Models.Anexo
@@ -850,7 +850,7 @@
                     Titulo = "Aula Expressões Lambda",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia26.mp4",
+                    Url = "Dia26.mp4",
                     ConteudoId = 26
                 },
                 new Models.Anexo
@@ -859,7 +859,7 @@
                     Titulo = "Apostila Conexão com banco de dados",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia27.pdf",
+                    Url = "Dia27.pdf",
                     ConteudoId = 27
                 },
                 new Models.Anexo
@@ -868,7 +868,7 @@
                     Titulo = "Aula Conexão com banco de dados",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia27.mp4",
+                    Url = "Dia27.mp4",
                     ConteudoId = 27
                 },
                 new Models.Anexo
@@ -877,7 +877,7 @@
                     Titulo = "Apostila Interface grafica JavaFX",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia28.pdf",
+                    Url = "Dia28.pdf",
                     ConteudoId = 28
                 },
                 new Models.Anexo
@@ -886,7 +886,7 @@
                     Titulo = "Aula Interface grafica JavaFX",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia28.mp4",
+                    Url = "Dia28.mp4",
                     ConteudoId = 28
                 },
                 new Models.Anexo
@@ -895,7 +895,7 @@
                     Titulo = "Apostila Projeto de revisão",
                     Tipos = Models.Anexo.Tipo.Apostila,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/ApostilasJava/Dia29.pdf",
+                    Url = "Dia29.pdf",
                     ConteudoId = 29
                 },
                 new Models.Anexo
@@ -904,7 +904,7 @@
                     Titulo = "Aula Projeto de revisão",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia29.mp4",
+                    Url = "Dia29.mp4",
                     ConteudoId = 29
                 },
                  new Models.Anexo
@@ -913,7 +913,7 @@
                      Titulo = "Apostila Prova final",
                      Tipos = Models.Anexo.Tipo.Apostila,
                      DataPostagem = DateTime.Now,
-                     Url = "assets/ApostilasJava/Dia30.pdf",
+                     Url = "Dia30.pdf",
                      ConteudoId = 30
                  },
                 new Models.Anexo
@@ -922,7 +922,7 @@
                     Titulo = "Aula Prova final",
                     Tipos = Models.Anexo.Tipo.Aula,
                     DataPostagem = DateTime.Now,
-                    Url = "assets/VideoAulaJava/Dia30.mp4",
+                    Url = "Dia30.mp4",
                     ConteudoId = 30
                 });
             context.Usuario_has_curso.AddOrUpdate(

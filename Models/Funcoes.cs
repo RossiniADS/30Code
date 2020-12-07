@@ -137,7 +137,7 @@ namespace _30Code.Models
                     string arq = Path.GetFileName(flpUpload.FileName);
                     double tamanho = Convert.ToDouble(flpUpload.ContentLength) / 100000000;
                     string extensao = Path.GetExtension(flpUpload.FileName).ToLower();
-                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\" + pasta + "\\ane_" + nome;
+                    string diretorio = HttpContext.Current.Request.PhysicalApplicationPath + "assets\\" + pasta + "\\" + nome;
 
 
                     if (tamanho > permitido)
